@@ -87,7 +87,16 @@ Resolvidos no código e verificados no Chrome headless:
 
 H1 parcial: as peças das 8 coleções foram recortadas de novo dos painéis originais em alta (`reveste/originais/`, fora do Git), sem texto nem painel vizinho e sem ampliação. As camisas continuam sendo parte de um painel (~400 px), não fotos de produto.
 
-Continuam abertos: H1 (fotos individuais de produto), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
+Rodada de 2026-10-03 (tarde):
+
+- [x] H2 dados corrigidos: Glória do Outeiro no lugar do Palácio da Bolsa (decisão do dono), Convento da Penha em Vila Velha/ES, Pedregulho no Rio de Janeiro/RJ, Igrejinha N. Sra. de Fátima (Brasília) no lugar da Pampulha. A grade mostra o subtítulo (02 e 08 têm o mesmo nome)
+- [x] Banners das coleções sem o texto dos painéis
+- [x] M4 parcial: download do ícone e do selo em PNG
+- [x] R-03 decidido: o manual é **público**
+
+Ainda dependem do dono: e-mail de contato, vetores (SVG/PDF) da logo, Pantone/CMYK de gráfica, hosting (R-04). Com o domínio definido: og:image, canonical e sitemap. Itens das coleções 06 e 08 ainda merecem checagem curatorial (Copan/MES como "Bauhaus"; Inhotim, Ibirapuera, São Francisco/Salvador e Cora Coralina como "caquinhos").
+
+Continuam abertos (histórico): H1 (fotos individuais de produto), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
 
 ## Decisão
 
