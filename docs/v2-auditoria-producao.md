@@ -173,3 +173,11 @@ coleções são apresentação da marca, sem venda por ora; prazo de contato ain
 - [ ] **Revisão curatorial: Luan Crespo (Departamento de Patrimônio Histórico).** Itens com status Reinterpretação a confirmar e documentar com fonte: Igreja de São Francisco (Salvador), as cinco devoções da coleção 04, Escadaria Selarón, Calçadão de Copacabana, Casa da Flor, Museu do Inhotim, Orla de Boa Viagem e os motivos da coleção 03. Crédito publicado na aba Coleções (autorizado pelo dono em 2026-10-03), como revisão em andamento
 - Refutados (medidos): grade de coleções em 2 colunas no celular, 4 colunas no desktop, "linguagem de compra", lazy-load no hero, indicador de sequência no modal, alvo de 44 px como requisito, hash de build, AVIF/srcset agora, reestruturar o menu em "Kit da marca"
 
+Rodada seguinte (2026-10-03):
+
+- [x] A Marca: manifesto curto, missão em destaque e visão secundária, valores com uma frase e "No manual: …", blocos "Para quem é" e "Como usar este manual"
+- [x] Nome e cidade/UF em campos separados no card e no modal
+- [x] Contato: link de correção de informação patrimonial (e-mail com assunto preenchido)
+- [x] Zoom 200% (1280×800 → 640×400), reflow em 320 px e espaçamento de texto (WCAG 1.4.12) em 6 abas: sem overflow nem texto cortado. Corrigidos: título da home quebrando com espaçamento ampliado, "reveste.com.br" no card de Contato, tabelas da aba Logo viram lista no celular, índice deixa de ser fixo em tela baixa
+- [ ] Curadoria: textos propostos e afirmações a conferir em `docs/curadoria-para-validacao.md`, para validação do Luan Crespo; nada publicado antes disso
+

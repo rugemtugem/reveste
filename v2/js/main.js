@@ -80,8 +80,14 @@ function collPieces(c) {
       thumb: `assets/img/thumbs/camisetas/coll-${c.num}-${g.style ? g.style + "-" : ""}piece-${j + 1}.jpeg`,
     }));
   });
-  return camisas.concat(camisetas);
+  return camisas.concat(camisetas).map((p) => Object.assign(p, splitName(p.name)));
 }
+// "Painel Meia-Lua – Brasília/DF" -> nome e cidade/UF em campos separados
+function splitName(name) {
+  const i = name.indexOf(" – ");
+  return i < 0 ? { title: name, place: "" } : { title: name.slice(0, i), place: name.slice(i + 3) };
+}
+
 // "6 camisas · 6 camisetas"
 function collCount(c) {
   const n = { camisa: 0, camiseta: 0 };
@@ -356,7 +362,8 @@ function renderGallery() {
         <span class="gal-img"><img src="${p.thumb}" alt="" loading="lazy" /></span>
         <span class="gal-meta">
           <span class="gal-type">${esc(tipo)}</span>
-          <span class="gal-name"><span class="gal-num">${String(p.num).padStart(2, "0")}</span>${esc(p.name)}</span>
+          <span class="gal-name"><span class="gal-num">${String(p.num).padStart(2, "0")}</span>${esc(p.title)}</span>
+          ${p.place ? `<span class="gal-place">${esc(p.place)}</span>` : ""}
           <span class="status-chip st-${p.status}">${STATUS_LABEL[p.status]}</span>
         </span>
       </button>
@@ -401,7 +408,8 @@ function renderShirtModal() {
   const tipo = TYPE_LABEL[p.type];
 
   document.getElementById("shirtModalColl").textContent = c.num + " · " + c.name;
-  document.getElementById("shirtModalTitle").textContent = p.name;
+  document.getElementById("shirtModalTitle").textContent = p.title;
+  document.getElementById("shirtModalPlace").textContent = p.place;
 
   const img = document.getElementById("shirtModalImg");
   img.style.width = "";
@@ -414,7 +422,7 @@ function renderShirtModal() {
   document.getElementById("shirtModalCaption").innerHTML =
     `<strong>Peça ${String(modalItem + 1).padStart(2, "0")} de ${String(total).padStart(2, "0")}</strong> · ` +
     `${tipo}${p.label ? " (" + esc(p.label.toLowerCase()) + ")" : ""} da coleção <strong>${esc(c.name)}</strong> — ${esc(c.sub)}. ` +
-    `Estampa inspirada em <strong>${esc(p.name)}</strong> ` +
+    `Estampa inspirada em <strong>${esc(p.title)}</strong>${p.place ? ", " + esc(p.place) : ""} ` +
     `<span class="status-chip st-${p.status}">${STATUS_LABEL[p.status]}</span>` +
     `<span class="modal-disclaimer">Imagem ilustrativa${comAzulejo ? ": referência e peça" : ""}. Não é foto de produto.</span>`;
 
