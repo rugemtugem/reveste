@@ -170,6 +170,6 @@ coleções são apresentação da marca, sem venda por ora; prazo de contato ain
 - [x] Versão e data (v2.1 · outubro de 2026) no rodapé e no LEIA-ME
 - [x] Contagem de peças nos cards (desktop); "Explore por coleção"; "+ 8 coleções" no hero do celular; título da home 36 px no celular
 - [x] Bootstrap servido localmente (`v2/vendor/bootstrap`, mesmos hashes SRI do CDN); coleção inexistente corrige o endereço; `404.html` (vale quando houver hospedagem)
-- [ ] **Revisão curatorial: Luan Crespo (Departamento de Patrimônio Histórico).** Itens com status Reinterpretação a confirmar e documentar com fonte: Igreja de São Francisco (Salvador), as cinco devoções da coleção 04, Escadaria Selarón, Calçadão de Copacabana, Casa da Flor, Museu do Inhotim, Orla de Boa Viagem e os motivos da coleção 03. Créditos públicos só com o consentimento dele
+- [ ] **Revisão curatorial: Luan Crespo (Departamento de Patrimônio Histórico).** Itens com status Reinterpretação a confirmar e documentar com fonte: Igreja de São Francisco (Salvador), as cinco devoções da coleção 04, Escadaria Selarón, Calçadão de Copacabana, Casa da Flor, Museu do Inhotim, Orla de Boa Viagem e os motivos da coleção 03. Crédito publicado na aba Coleções (autorizado pelo dono em 2026-10-03), como revisão em andamento
 - Refutados (medidos): grade de coleções em 2 colunas no celular, 4 colunas no desktop, "linguagem de compra", lazy-load no hero, indicador de sequência no modal, alvo de 44 px como requisito, hash de build, AVIF/srcset agora, reestruturar o menu em "Kit da marca"
 

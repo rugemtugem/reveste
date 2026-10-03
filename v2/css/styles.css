@@ -603,9 +603,12 @@ img { max-width: 100%; height: auto; display: block; }
 .coll-grid-thumb .cnt { display: block; font-size: 12px; color: var(--navy); margin-top: 6px; font-weight: 700; }
 /* glossário */
 .glossary-block { margin-top: 8px; }
-.glossary { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 0; }
+.glossary { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 0; }
 .glossary div { background: var(--paper); border: 1px solid var(--line); padding: 16px 18px; }
 .glossary dt { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 4px; }
+.curator-credit { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink); }
+.curator-credit span { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 2px; }
+.curator-credit em { color: var(--muted); }
 .glossary dd { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
 .coll-grid-label { font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--navy); margin: 8px 0 12px; }
 .coll-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 28px; }
@@ -761,6 +764,8 @@ img { max-width: 100%; height: auto; display: block; }
   .coll-hero { height: 220px; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .values-grid > :last-child { grid-column: 1 / -1; }
+  .glossary { grid-template-columns: 1fr 1fr; }
+  .glossary > :last-child { grid-column: 1 / -1; }
   .dont-grid { grid-template-columns: 1fr 1fr; }
   .coll-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
   .coll-grid-thumb .sb { display: none; }
@@ -788,6 +793,7 @@ img { max-width: 100%; height: auto; display: block; }
   .step-n { text-transform: none; letter-spacing: 0; font-size: 12.5px; }
 
   .type-specimens, .type-support, .protect { grid-template-columns: 1fr; }
+  .glossary { grid-template-columns: 1fr; }
   .ts-row { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
   .spec-big { font-size: 72px; }
   .dont-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
