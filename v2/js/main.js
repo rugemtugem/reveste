@@ -62,12 +62,14 @@ function collPieces(c) {
   const camisas = c.items.map((name, j) => ({
     type: "camisa", name, num: j + 1, label: "",
     img: `assets/img/shirts/coll-${c.num}-piece-${j + 1}.jpeg`,
+    thumb: `assets/img/thumbs/shirts/coll-${c.num}-piece-${j + 1}.jpeg`,
   }));
   const camisetas = (c.tees || []).flatMap((g) => {
     const names = (g.names || c.items).concat(g.extra || []);
     return names.map((name, j) => ({
       type: "camiseta", name, num: j + 1, label: g.label || "",
       img: `assets/img/camisetas/coll-${c.num}-${g.style ? g.style + "-" : ""}piece-${j + 1}.jpeg`,
+      thumb: `assets/img/thumbs/camisetas/coll-${c.num}-${g.style ? g.style + "-" : ""}piece-${j + 1}.jpeg`,
     }));
   });
   return camisas.concat(camisetas);
@@ -289,7 +291,7 @@ function renderGallery() {
     <li>
       <button type="button" class="gal-card" data-k="${k}"
         aria-label="Ver ${TYPE_LABEL[p.type].toLowerCase()}: ${esc(p.name)}${p.label ? " (" + esc(p.label) + ")" : ""}">
-        <span class="gal-img"><img src="${p.img}" alt="" loading="lazy" /></span>
+        <span class="gal-img"><img src="${p.thumb}" alt="" loading="lazy" /></span>
         <span class="gal-meta">
           <span class="gal-type">${esc(tipo)}</span>
           <span class="gal-name"><span class="gal-num">${String(p.num).padStart(2, "0")}</span>${esc(p.name)}</span>
@@ -337,6 +339,8 @@ function renderShirtModal() {
   document.getElementById("shirtModalTitle").textContent = p.name;
 
   const img = document.getElementById("shirtModalImg");
+  img.style.width = "";
+  img.onload = () => { img.style.width = Math.round(img.naturalWidth * 1.5) + "px"; };
   img.src = p.img;
   img.alt = tipo + " Reveste — " + p.name;
 

@@ -30,6 +30,8 @@ mkdir -p build
 
 - `fix_r.py <saída.png>` e `fix_icon.py <saída.png>`: refazem o R sem as manchas.
 - `hero.py write`: recortes só da camisa para o hero da home (`v2/assets/img/home/`).
+- `thumbs.py write`: miniaturas quadradas só com a peça para a galeria (`v2/assets/img/thumbs/`).
+- `lugar.py`: separa o tríptico da coleção 01 nas três imagens do "Do lugar à peça".
 - `camisetas.py write`: recortes das camisetas (`originais/camisetas/`) para a galeria
   e banners das coleções 09 e 10.
 - `crop.py write` e `banner.py write`: peças e banners das coleções a partir de

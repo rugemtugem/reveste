@@ -139,3 +139,10 @@ Revisão de UX (crítica + mockups "Nova Home"), etapas 1 e 2:
 - [x] 5 abas: A Marca · Logo e Usos (com Construção e Usos) · Cores e Tipografia · Coleções · Contato; #construcao, #usos e #tipografia continuam funcionando
 - [x] Home com produto (hero com 4 coleções, "Ver as coleções", "Baixar a marca") e "Explore o manual"; link direto por coleção (#colecoes-07); "Próximo" no fim de cada aba
 
+Etapa 3:
+
+- [x] "Do lugar à peça" na home: tríptico da coleção 01 separado em três imagens com legenda (Lugar · Estampa · Peça), sem citar lugar real
+- [x] Miniaturas da galeria só com a peça, quadradas (89, `tools/marca/thumbs.py`); a imagem completa (peça + azulejo) fica no modal
+- [x] Modal de 680 px com a imagem ampliada no máximo 1,5× (as peças têm ~400 px; maior que isso só borra). A solução definitiva continua sendo foto de produto
+- [x] Amostra do Off-White ocupa o quadrado todo, como a do azul (pedido do dono)
+
