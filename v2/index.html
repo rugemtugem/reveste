@@ -12,9 +12,9 @@
   <meta property="og:description" content="Brasil que se usa. Arte que se vive. Logo, cores, tipografia e coleções da Reveste." />
   <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link href="css/styles.css?v=24" rel="stylesheet" />
+  <link href="css/styles.css?v=26" rel="stylesheet" />
 </head>
 <body>
 
@@ -37,8 +37,10 @@
         <button type="button" class="nav-btn" data-pane="cores" aria-controls="pane-cores">Cores e Tipografia</button>
         <button type="button" class="nav-btn" data-pane="colecoes" aria-controls="pane-colecoes">Coleções</button>
         <button type="button" class="nav-btn" data-pane="contato" aria-controls="pane-contato">Contato</button>
+        <a class="nav-kit nav-kit-menu" href="assets/marca/reveste-marca.zip" download><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Baixar kit da marca <small>.zip 2,2 MB</small></a>
       </div>
     </nav>
+    <a class="nav-kit nav-kit-bar" href="assets/marca/reveste-marca.zip" download aria-label="Baixar kit da marca (.zip, 2,2 MB)"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Baixar kit</a>
   </div>
 </header>
 
@@ -54,7 +56,7 @@
           <p class="home-lead">A Reveste transforma azulejos, ladrilhos e revestimentos históricos em estampas para camisas e camisetas. Conheça a identidade da marca e as coleções.</p>
           <div class="home-ctas">
             <a class="btn-solid" href="#colecoes">Ver as coleções</a>
-            <a class="btn-ghost" href="assets/marca/reveste-marca.zip" download>Baixar a marca</a>
+            <a class="btn-ghost" href="assets/marca/reveste-marca.zip" download><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Baixar a marca <small>.zip 2,2 MB</small></a>
           </div>
         </div>
         <nav class="home-pieces" aria-label="Coleções em destaque">
@@ -72,6 +74,7 @@
               <img src="assets/img/home/camisa-07.jpeg" alt="" width="261" height="261" />
               <span>07 · Athos Bulcão</span></a></li>
           </ul>
+          <a class="home-more" href="#colecoes">+ 8 coleções <span aria-hidden="true">→</span></a>
         </nav>
       </div>
     </div>
@@ -227,8 +230,25 @@
           </div>
         </div>
       <div class="block">
+        <p class="eyebrow">Qual arquivo usar</p>
+        <div class="table-responsive">
+          <table class="size-table which-file">
+            <thead><tr><th scope="col">Onde vai aplicar</th><th scope="col">Versão</th><th scope="col">Formato</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Site, redes sociais, apresentações</th><td>Logo horizontal ou vertical</td><td>SVG (ou PNG)</td></tr>
+              <tr><th scope="row">Fundo escuro ou foto</th><td>Versão negativa</td><td>SVG (ou PNG)</td></tr>
+              <tr><th scope="row">Gráfica: cartão, tag, embalagem</th><td>Logo ou selo</td><td>PDF vetorial</td></tr>
+              <tr><th scope="row">Etiqueta e tamanhos pequenos</th><td>Sem tagline</td><td>PDF ou SVG</td></tr>
+              <tr><th scope="row">Bordado, carimbo, gravação, serigrafia</th><td>Ícone em 1 cor</td><td>PDF ou SVG</td></tr>
+              <tr><th scope="row">Avatar e favicon</th><td>Ícone</td><td>PNG</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
         <div class="asset-all">
-          <a class="download-btn" href="assets/marca/reveste-marca.zip" download>Baixar tudo · .zip 2,2 MB</a>
+          <a class="download-btn primary" href="assets/marca/reveste-marca.zip" download><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Baixar kit completo · .zip 2,2 MB</a>
           <p>Todas as versões em SVG, PDF e PNG, com as cores de impressão e as regras de uso (LEIA-ME).</p>
         </div>
         <div class="logo-gallery">
@@ -451,7 +471,7 @@
                   <h3>Azul Colonial</h3>
                   <button type="button" class="color-hex" data-copy="#1A3A5C" aria-label="Copiar #1A3A5C">#1A3A5C<span class="copy-hint" aria-hidden="true">copiar</span></button>
                   <p>Representa a profundidade histórica, a nobreza dos azulejos clássicos e a sofisticação da marca.</p>
-                  <dl class="color-codes"><dt>RGB</dt><dd>26 · 58 · 92</dd><dt>CMYK couché</dt><dd>84 · 54 · 11 · 59</dd><dt>CMYK sem revestimento</dt><dd>100 · 63 · 8 · 41</dd><dt>Pantone tecido</dt><dd>19-4029 TCX</dd><dt>Pantone gráfico</dt><dd>540 C</dd></dl>
+                  <dl class="color-codes"><dt>RGB</dt><dd><button type="button" class="code-copy" data-copy="26 · 58 · 92" aria-label="Copiar RGB: 26 · 58 · 92">26 · 58 · 92<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>CMYK couché</dt><dd><button type="button" class="code-copy" data-copy="84 · 54 · 11 · 59" aria-label="Copiar CMYK couché: 84 · 54 · 11 · 59">84 · 54 · 11 · 59<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>CMYK sem revestimento</dt><dd><button type="button" class="code-copy" data-copy="100 · 63 · 8 · 41" aria-label="Copiar CMYK sem revestimento: 100 · 63 · 8 · 41">100 · 63 · 8 · 41<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>Pantone tecido</dt><dd><button type="button" class="code-copy" data-copy="19-4029 TCX" aria-label="Copiar Pantone tecido: 19-4029 TCX">19-4029 TCX<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>Pantone gráfico</dt><dd><button type="button" class="code-copy" data-copy="540 C" aria-label="Copiar Pantone gráfico: 540 C">540 C<span class="copy-hint" aria-hidden="true">copiar</span></button></dd></dl>
                 </div>
               </div>
             </div>
@@ -462,7 +482,7 @@
                   <h3>Off-White</h3>
                   <button type="button" class="color-hex" data-copy="#F0EAE0" aria-label="Copiar #F0EAE0">#F0EAE0<span class="copy-hint" aria-hidden="true">copiar</span></button>
                   <p>Evoca a naturalidade das matérias-primas e o aspecto artesanal, proporcionando o contraste ideal para a leitura.</p>
-                  <dl class="color-codes"><dt>RGB</dt><dd>240 · 234 · 224</dd><dt>CMYK couché</dt><dd>7 · 7 · 13 · 0</dd><dt>CMYK sem revestimento</dt><dd>5 · 5 · 9 · 0</dd><dt>Pantone tecido</dt><dd>11-0103 TCX</dd><dt>Pantone gráfico</dt><dd>usar CMYK ou papel natural</dd></dl>
+                  <dl class="color-codes"><dt>RGB</dt><dd><button type="button" class="code-copy" data-copy="240 · 234 · 224" aria-label="Copiar RGB: 240 · 234 · 224">240 · 234 · 224<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>CMYK couché</dt><dd><button type="button" class="code-copy" data-copy="7 · 7 · 13 · 0" aria-label="Copiar CMYK couché: 7 · 7 · 13 · 0">7 · 7 · 13 · 0<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>CMYK sem revestimento</dt><dd><button type="button" class="code-copy" data-copy="5 · 5 · 9 · 0" aria-label="Copiar CMYK sem revestimento: 5 · 5 · 9 · 0">5 · 5 · 9 · 0<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>Pantone tecido</dt><dd><button type="button" class="code-copy" data-copy="11-0103 TCX" aria-label="Copiar Pantone tecido: 11-0103 TCX">11-0103 TCX<span class="copy-hint" aria-hidden="true">copiar</span></button></dd><dt>Pantone gráfico</dt><dd>usar CMYK ou papel natural</dd></dl>
                 </div>
               </div>
             </div>
@@ -553,9 +573,21 @@
           <p class="lead">A identidade ganha vida nas estampas: cada coleção traduz um capítulo do patrimônio brasileiro em camisas e camisetas que se vestem com significado.</p>
         </div>
 
-        <p class="coll-grid-label" id="collGridLabel">Escolha uma coleção</p>
+        <p class="coll-grid-label" id="collGridLabel">Explore por coleção</p>
         <div class="coll-grid" id="collGrid" role="group" aria-labelledby="collGridLabel"></div>
         <div id="collDetail"></div>
+
+        <div class="block glossary-block">
+          <p class="eyebrow">Glossário</p>
+          <dl class="glossary">
+            <div><dt>Azulejo</dt><dd>Placa de cerâmica vidrada, pintada à mão ou estampada, trazida de Portugal a partir do século XVI.</dd></div>
+            <div><dt>Ladrilho hidráulico</dt><dd>Peça de cimento e pigmento, prensada e curada na água, sem forno; comum em pisos dos séculos XIX e XX.</dd></div>
+            <div><dt>Caquinho</dt><dd>Revestimento feito à mão com cacos de azulejo, louça ou cerâmica.</dd></div>
+            <div><dt>Homenagem</dt><dd>Nome de peça criado pela Reveste, inspirado num tipo de lugar ou cidade; não é um imóvel ou obra real.</dd></div>
+            <div><dt>Reinterpretação</dt><dd>Estampa inspirada num lugar, devoção ou técnica real, redesenhada pela Reveste; não reproduz a obra.</dd></div>
+          </dl>
+          <p class="download-note">As imagens das coleções são ilustrações de apresentação, não fotos de produto nem registros documentais dos lugares.</p>
+        </div>
     </div>
   </section>
 
@@ -612,12 +644,12 @@
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer class="brand-footer">
   <div class="container-r">
-    <span>Reveste · Manual de Identidade Visual</span>
+    <span>Reveste · Manual de Identidade Visual · v2.1 · outubro de 2026</span>
     <span>Brasil que se usa. Arte que se vive.</span>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="js/main.js?v=16"></script>
+<script src="vendor/bootstrap/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
+<script src="js/main.js?v=18"></script>
 </body>
 </html>

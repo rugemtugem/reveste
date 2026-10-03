@@ -6,6 +6,8 @@ Site estático do manual de marca da Reveste.
 - raiz (`index.html`, `reveste-brand-identity.html`): versão 1, mantida como referência
 - `docs/v2-auditoria-producao.md`: auditoria de prontidão e pendências
 - `v2/assets/marca/`: arquivos da marca (SVG, PDF, PNG e zip)
+- `v2/vendor/bootstrap/`: Bootstrap 5.3.3 servido localmente (mesmos hashes SRI do CDN)
+- `v2/404.html`: página de erro, para configurar no servidor quando houver hospedagem
 - `tools/marca/`: scripts que geram os vetores e as imagens (ver o README de lá)
 
 ## Rodar localmente

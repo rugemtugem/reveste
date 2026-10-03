@@ -160,3 +160,16 @@ Segunda revisão (contra-análise aceita pelo autor da crítica):
 - [x] Coleções no celular: grade compacta 5×2 (miniatura da 1ª peça + número), aria-label com o nome, aria-pressed + fundo azul na escolhida; detalhe sobe de 1.630 → 583 px. Tablet também 5×2 (sem linha sobrando)
 - Refutado: "o detalhe não rola ao tocar" (já rolava, título a 75–81 px do topo); "fonte de ~400 px" (a miniatura é um recorte de 188 px; fica mais suave no celular, 2,4×). Só foto de produto resolve (H1)
 
+Recomendações v2.1 (`originais/modificações/recomendacoes-v2-ui-ux.md`), decisões do dono em 2026-10-03:
+coleções são apresentação da marca, sem venda por ora; prazo de contato ainda não definido; fotos de produto seguem com o dono.
+
+- [x] Imagens marcadas como ilustração (alt e legenda do modal: "Imagem ilustrativa… Não é foto de produto")
+- [x] Status do nome em cada peça: Homenagem ou Reinterpretação (texto, não só cor), e glossário na aba Coleções
+- [x] Menu com a seção atual no nome acessível; botão "Baixar kit" na barra (no menu, no celular)
+- [x] "Qual arquivo usar" na aba Logo; ZIP como ação principal; RGB/CMYK/Pantone copiáveis
+- [x] Versão e data (v2.1 · outubro de 2026) no rodapé e no LEIA-ME
+- [x] Contagem de peças nos cards (desktop); "Explore por coleção"; "+ 8 coleções" no hero do celular; título da home 36 px no celular
+- [x] Bootstrap servido localmente (`v2/vendor/bootstrap`, mesmos hashes SRI do CDN); coleção inexistente corrige o endereço; `404.html` (vale quando houver hospedagem)
+- [ ] **Revisão curatorial: Luan Crespo (Departamento de Patrimônio Histórico).** Itens com status Reinterpretação a confirmar e documentar com fonte: Igreja de São Francisco (Salvador), as cinco devoções da coleção 04, Escadaria Selarón, Calçadão de Copacabana, Casa da Flor, Museu do Inhotim, Orla de Boa Viagem e os motivos da coleção 03. Créditos públicos só com o consentimento dele
+- Refutados (medidos): grade de coleções em 2 colunas no celular, 4 colunas no desktop, "linguagem de compra", lazy-load no hero, indicador de sequência no modal, alvo de 44 px como requisito, hash de build, AVIF/srcset agora, reestruturar o menu em "Kit da marca"
+

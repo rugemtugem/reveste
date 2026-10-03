@@ -57,22 +57,37 @@ const COLLECTIONS = [
     tees: [{ names: ["Casa de Vó – Irajá/RJ","Quintal da Tia – Cachoeirinha/PE","Varanda do Samba – Madureira/RJ","Salão do Baile – Olinda/PE","Calçada da Esquina – Penha/RJ","Ladeira das Cores – Salvador/BA"] }] },
 ];
 
+// Status do nome de cada peça (ver glossário na aba Coleções):
+// homenagem = nome criado pela Reveste; reinterpretação = lugar, devoção ou
+// técnica real redesenhada. Nenhuma imagem é registro documental.
+const STATUS_LABEL = { homenagem: "Homenagem", reinterpretacao: "Reinterpretação" };
+const COLL_STATUS = { "03": "reinterpretacao", "04": "reinterpretacao", "08": "reinterpretacao" };
+const PIECE_STATUS = { "Igreja de São Francisco – Salvador/BA": "reinterpretacao", "Azulejo Português Clássico": "reinterpretacao" };
+function pieceStatus(c, name) { return PIECE_STATUS[name] || COLL_STATUS[c.num] || "homenagem"; }
+
 // Peças de uma coleção: camisas (items) + camisetas (tees, por estilo).
 function collPieces(c) {
   const camisas = c.items.map((name, j) => ({
-    type: "camisa", name, num: j + 1, label: "",
+    type: "camisa", name, num: j + 1, label: "", status: pieceStatus(c, name),
     img: `assets/img/shirts/coll-${c.num}-piece-${j + 1}.jpeg`,
     thumb: `assets/img/thumbs/shirts/coll-${c.num}-piece-${j + 1}.jpeg`,
   }));
   const camisetas = (c.tees || []).flatMap((g) => {
     const names = (g.names || c.items).concat(g.extra || []);
     return names.map((name, j) => ({
-      type: "camiseta", name, num: j + 1, label: g.label || "",
+      type: "camiseta", name, num: j + 1, label: g.label || "", status: pieceStatus(c, name),
       img: `assets/img/camisetas/coll-${c.num}-${g.style ? g.style + "-" : ""}piece-${j + 1}.jpeg`,
       thumb: `assets/img/thumbs/camisetas/coll-${c.num}-${g.style ? g.style + "-" : ""}piece-${j + 1}.jpeg`,
     }));
   });
   return camisas.concat(camisetas);
+}
+// "6 camisas · 6 camisetas"
+function collCount(c) {
+  const n = { camisa: 0, camiseta: 0 };
+  collPieces(c).forEach((p) => n[p.type]++);
+  const part = (k, sg, pl) => n[k] ? `${n[k]} ${n[k] === 1 ? sg : pl}` : "";
+  return [part("camisa", "camisa", "camisas"), part("camiseta", "camiseta", "camisetas")].filter(Boolean).join(" · ");
 }
 // capa da grade compacta (celular): a primeira peça, só a roupa
 function collCover(c) { return collPieces(c)[0].thumb; }
@@ -98,13 +113,16 @@ function initTabs() {
   function closeMenu() {
     menu.classList.remove("open");
     toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Abrir menu");
+    toggle.setAttribute("aria-label", menuLabel(false));
   }
+  // "Abrir menu, seção atual: Coleções"
+  let currentLabel = "Início";
+  function menuLabel(open) { return open ? "Fechar menu" : `Abrir menu, seção atual: ${currentLabel}`; }
 
   toggle.addEventListener("click", () => {
     const open = menu.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    toggle.setAttribute("aria-label", menuLabel(open));
   });
 
   const baseTitle = document.title;
@@ -135,7 +153,8 @@ function initTabs() {
   }
 
   function show(target, { focus }) {
-    const { pane: id, section, coll } = target;
+    const { pane: id, section } = target;
+    let { coll } = target;
     document.querySelectorAll(".nav-btn").forEach((b) => {
       const on = b.dataset.pane === id;
       b.classList.toggle("active", on);
@@ -145,10 +164,12 @@ function initTabs() {
     const pane = document.getElementById("pane-" + id);
     if (id === "cores") loadSupportFonts();
     document.title = id === "inicio" ? baseTitle : `${labels[id]} · ${baseTitle}`;
+    currentLabel = id === "inicio" ? "Início" : labels[id];
     closeMenu();
     if (coll) {
       const idx = COLLECTIONS.findIndex((c) => c.num === coll);
       if (idx >= 0) { selectCollection(idx, { scroll: false }); }
+      else { history.replaceState(null, "", "#colecoes"); coll = null; }
     }
     if (section) {
       const el = document.getElementById("sec-" + section);
@@ -239,14 +260,15 @@ function initSubnav() {
 
 // ── COPIAR HEX (aba Cores) ────────────────────────
 function initCopyHex() {
-  document.querySelectorAll(".color-hex[data-copy]").forEach((btn) => {
+  document.querySelectorAll(".color-hex[data-copy], .code-copy[data-copy]").forEach((btn) => {
     const hint = btn.querySelector(".copy-hint");
     btn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(btn.dataset.copy);
         btn.classList.add("copied"); hint.textContent = "copiado";
+        const label = btn.getAttribute("aria-label");
         btn.setAttribute("aria-label", btn.dataset.copy + " copiado");
-        setTimeout(() => { btn.classList.remove("copied"); hint.textContent = "copiar"; btn.setAttribute("aria-label", "Copiar " + btn.dataset.copy); }, 1600);
+        setTimeout(() => { btn.classList.remove("copied"); hint.textContent = "copiar"; btn.setAttribute("aria-label", label); }, 1600);
       } catch (_) { /* sem permissão de área de transferência: o código continua visível */ }
     });
   });
@@ -335,6 +357,7 @@ function renderGallery() {
         <span class="gal-meta">
           <span class="gal-type">${esc(tipo)}</span>
           <span class="gal-name"><span class="gal-num">${String(p.num).padStart(2, "0")}</span>${esc(p.name)}</span>
+          <span class="status-chip st-${p.status}">${STATUS_LABEL[p.status]}</span>
         </span>
       </button>
     </li>`;
@@ -355,6 +378,7 @@ function renderCollGrid() {
           <span class="num">${c.num}</span>
           <span class="nm">${esc(c.name)}</span>
           <span class="sb">${esc(c.sub)}</span>
+          <span class="cnt">${collCount(c)}</span>
         </span>
       </button>
     </div>
@@ -383,12 +407,16 @@ function renderShirtModal() {
   img.style.width = "";
   img.onload = () => { img.style.width = Math.round(img.naturalWidth * 1.5) + "px"; };
   img.src = p.img;
-  img.alt = tipo + " Reveste — " + p.name;
+  // camisas vêm com o azulejo ao lado; a maioria das camisetas, não
+  const comAzulejo = p.type === "camisa";
+  img.alt = `Imagem ilustrativa: ${tipo.toLowerCase()} Reveste${comAzulejo ? " com o azulejo de referência" : ""} — ${p.name}`;
 
   document.getElementById("shirtModalCaption").innerHTML =
     `<strong>Peça ${String(modalItem + 1).padStart(2, "0")} de ${String(total).padStart(2, "0")}</strong> · ` +
     `${tipo}${p.label ? " (" + esc(p.label.toLowerCase()) + ")" : ""} da coleção <strong>${esc(c.name)}</strong> — ${esc(c.sub)}. ` +
-    `Estampa inspirada em <strong>${esc(p.name)}</strong>.`;
+    `Estampa inspirada em <strong>${esc(p.name)}</strong> ` +
+    `<span class="status-chip st-${p.status}">${STATUS_LABEL[p.status]}</span>` +
+    `<span class="modal-disclaimer">Imagem ilustrativa${comAzulejo ? ": referência e peça" : ""}. Não é foto de produto.</span>`;
 
   document.getElementById("shirtModalPrev").disabled = modalItem === 0;
   document.getElementById("shirtModalNext").disabled = modalItem === total - 1;
