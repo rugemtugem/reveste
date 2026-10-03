@@ -5,3 +5,6 @@
 *.pptx
 *.pdf
 v2/reveste_brand_identity_refined.png
+
+# Painéis originais em alta (~22 MB): fonte das imagens do site, fora do repo
+originais/

@@ -199,7 +199,7 @@ function renderCollGrid() {
     <div class="col-6 col-md-3">
       <button type="button" class="coll-grid-thumb ${i === activeColl ? "active" : ""}" data-idx="${i}"
         aria-pressed="${i === activeColl}">
-        <img src="${c.img}" alt="" loading="lazy" />
+        <img src="${c.img.replace(".jpeg", "-thumb.jpeg")}" alt="" loading="lazy" />
         <span class="body">
           <span class="num">${c.num}</span>
           <span class="nm">${esc(c.name)}</span>

@@ -85,7 +85,9 @@ Resolvidos no código e verificados no Chrome headless:
 - [x] Nits: SRI no Bootstrap, `?v=`, dimensões das imagens, ícone de 82 KB, contraste da dica, rodapé
 - [x] Camada 7: Git criado (github.com/rugemtugem/reveste). Camada 15: README
 
-Continuam abertos: H1 (fotos), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
+H1 parcial: as peças das coleções 01, 02, 05, 06, 07 e 08 foram recortadas de novo dos painéis originais em alta (`reveste/originais/`, fora do Git), sem texto nem painel vizinho e sem ampliação. As coleções 03 e 04 seguem com os recortes antigos (não vieram originais). As camisas continuam sendo parte de um painel (~400 px), não fotos de produto.
+
+Continuam abertos: H1 (fotos individuais; originais das coleções 03 e 04), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
 
 ## Decisão
 
