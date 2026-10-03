@@ -1,3 +1,4 @@
 fonts/
 build/
 .venv/
+__pycache__/
