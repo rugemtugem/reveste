@@ -120,5 +120,5 @@ Galeria de camisas e camisetas (2026-10-03):
 - [x] Cada coleção mostra as peças em grade com filtro Todos / Camisas / Camisetas (só quando há os dois tipos); o modal navega dentro do filtro
 - [x] 45 camisetas recortadas de 8 painéis (`originais/camisetas/`, fora do Git): 04, 05 (3 estilos: lateral, canto, quadro central, +"Azulejo Português Clássico"), 06, 07
 - [x] Novas coleções 09 Ladrilhos Hidráulicos e 10 Caquinhos Suburbanos do Brasil (só camisetas); "Pátio das Cores" repetido na 10 virou "Ladeira das Cores – Salvador/BA"
-- [ ] As casas das coleções 09 e 10 (Casa da Nonna, Solar do Café etc.) são nomes criados para as estampas, como na 02: confirmar que a marca quer apresentá-los assim
+- [x] Coleções 09 e 10 dizem no texto que os lugares que dão nome às peças são homenagens criadas pela Reveste (a 02 tem a mesma situação e ainda não diz)
 
