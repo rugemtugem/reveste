@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
 <!-- ═══════════ HEADER ═══════════ -->
 <header class="brand-header">
   <div class="container-r">
@@ -24,29 +26,29 @@
 <!-- ═══════════ NAV ═══════════ -->
 <nav class="brand-nav">
   <div class="container-r">
-    <button class="brand-nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+    <button type="button" class="brand-nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
       <span id="navCurrent">Início</span>
-      <svg class="brand-nav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg aria-hidden="true" focusable="false" class="brand-nav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <div class="brand-nav-menu" id="navMenu">
-      <button class="nav-btn active" data-pane="inicio">Início</button>
-      <button class="nav-btn" data-pane="marca">A Marca</button>
-      <button class="nav-btn" data-pane="logo">Logo</button>
-      <button class="nav-btn" data-pane="construcao">Construção</button>
-      <button class="nav-btn" data-pane="cores">Cores</button>
-      <button class="nav-btn" data-pane="tipografia">Tipografia</button>
-      <button class="nav-btn" data-pane="usos">Usos</button>
-      <button class="nav-btn" data-pane="colecoes">Coleções</button>
-      <button class="nav-btn" data-pane="contato">Contato</button>
+      <button type="button" class="nav-btn active" data-pane="inicio" aria-controls="pane-inicio" aria-current="page">Início</button>
+      <button type="button" class="nav-btn" data-pane="marca" aria-controls="pane-marca">A Marca</button>
+      <button type="button" class="nav-btn" data-pane="logo" aria-controls="pane-logo">Logo</button>
+      <button type="button" class="nav-btn" data-pane="construcao" aria-controls="pane-construcao">Construção</button>
+      <button type="button" class="nav-btn" data-pane="cores" aria-controls="pane-cores">Cores</button>
+      <button type="button" class="nav-btn" data-pane="tipografia" aria-controls="pane-tipografia">Tipografia</button>
+      <button type="button" class="nav-btn" data-pane="usos" aria-controls="pane-usos">Usos</button>
+      <button type="button" class="nav-btn" data-pane="colecoes" aria-controls="pane-colecoes">Coleções</button>
+      <button type="button" class="nav-btn" data-pane="contato" aria-controls="pane-contato">Contato</button>
     </div>
   </div>
 </nav>
 
-<main class="brand-main">
+<main class="brand-main" id="conteudo" tabindex="-1">
   <div class="container-r">
 
     <!-- ═══════ INÍCIO ═══════ -->
-    <section class="pane active" id="pane-inicio">
+    <section class="pane active" id="pane-inicio" tabindex="-1">
       <div class="hero">
         <img class="hero-icon" src="assets/img/icon.png" alt="Logo Reveste" />
         <h1 class="hero-wordmark">REVESTE</h1>
@@ -62,7 +64,7 @@
     </section>
 
     <!-- ═══════ A MARCA ═══════ -->
-    <section class="pane" id="pane-marca">
+    <section class="pane" id="pane-marca" tabindex="-1">
       <div class="block">
         <p class="eyebrow">A Essência da Marca</p>
         <h2 class="section-title">Patrimônio que se veste</h2>
@@ -91,31 +93,31 @@
         <div class="row g-3">
           <div class="col-6 col-md">
             <div class="value-chip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10m4.5 11V10m5 11V10M19 21V10M3 10h18L12 4 3 10z"/></svg>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10m4.5 11V10m5 11V10M19 21V10M3 10h18L12 4 3 10z"/></svg>
               <span>Herança Cultural</span>
             </div>
           </div>
           <div class="col-6 col-md">
             <div class="value-chip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
               <span>Originalidade</span>
             </div>
           </div>
           <div class="col-6 col-md">
             <div class="value-chip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="m8 12 3 3 7-7"/></svg>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="m8 12 3 3 7-7"/></svg>
               <span>Qualidade</span>
             </div>
           </div>
           <div class="col-6 col-md">
             <div class="value-chip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 8l8 8M16 7l1 1M7 16l1 1"/></svg>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 8l8 8M16 7l1 1M7 16l1 1"/></svg>
               <span>Conexão Territorial</span>
             </div>
           </div>
           <div class="col-6 col-md">
             <div class="value-chip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21v-7m12 7v-7M5 14h14l-1.5-6h-11z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21v-7m12 7v-7M5 14h14l-1.5-6h-11z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg>
               <span>Artesanal</span>
             </div>
           </div>
@@ -129,7 +131,7 @@
     </section>
 
     <!-- ═══════ LOGO ═══════ -->
-    <section class="pane" id="pane-logo">
+    <section class="pane" id="pane-logo" tabindex="-1">
       <div class="block">
         <p class="eyebrow">Logo Principal</p>
         <h2 class="section-title">Um mosaico de histórias</h2>
@@ -204,7 +206,7 @@
     </section>
 
     <!-- ═══════ CONSTRUÇÃO ═══════ -->
-    <section class="pane" id="pane-construcao">
+    <section class="pane" id="pane-construcao" tabindex="-1">
       <div class="block">
         <p class="eyebrow">Construção da Marca</p>
         <h2 class="section-title">Elementos simbólicos do ícone</h2>
@@ -254,7 +256,7 @@
     </section>
 
     <!-- ═══════ CORES ═══════ -->
-    <section class="pane" id="pane-cores">
+    <section class="pane" id="pane-cores" tabindex="-1">
       <div class="block">
         <p class="eyebrow">Paleta de Cores</p>
         <h2 class="section-title">Elegância e tradição</h2>
@@ -296,7 +298,7 @@
     </section>
 
     <!-- ═══════ TIPOGRAFIA ═══════ -->
-    <section class="pane" id="pane-tipografia">
+    <section class="pane" id="pane-tipografia" tabindex="-1">
       <div class="block">
         <p class="eyebrow">Tipografia</p>
         <h2 class="section-title">Sofisticação em cada detalhe</h2>
@@ -342,7 +344,7 @@
     </section>
 
     <!-- ═══════ USOS ═══════ -->
-    <section class="pane" id="pane-usos">
+    <section class="pane" id="pane-usos" tabindex="-1">
       <div class="block">
         <p class="eyebrow">Diretrizes de Uso</p>
         <h2 class="section-title">Uso e preservação</h2>
@@ -371,11 +373,11 @@
           <div class="col-md-6">
             <p class="eyebrow">Usos Incorretos</p>
             <ul class="dont-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Alterar as cores oficiais da logo.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Distorcer ou deformar o símbolo.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Adicionar efeitos ou sombras.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Redimensionar de forma desproporcional.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Aplicar em fundos com baixo contraste.</li>
+              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Alterar as cores oficiais da logo.</li>
+              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Distorcer ou deformar o símbolo.</li>
+              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Adicionar efeitos ou sombras.</li>
+              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Redimensionar de forma desproporcional.</li>
+              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Aplicar em fundos com baixo contraste.</li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -388,14 +390,14 @@
     </section>
 
     <!-- ═══════ COLEÇÕES ═══════ -->
-    <section class="pane" id="pane-colecoes">
+    <section class="pane" id="pane-colecoes" tabindex="-1">
       <div class="block">
         <p class="eyebrow">Aplicação · Produto</p>
         <h2 class="section-title">As coleções Reveste</h2>
         <p class="lead">A identidade ganha vida nas estampas: cada coleção traduz um capítulo do patrimônio brasileiro em camisas que se vestem com significado.</p>
       </div>
 
-      <div class="coll-selector" id="collSelector"></div>
+      <div class="coll-selector" id="collSelector" role="group" aria-label="Escolher coleção"></div>
       <div id="collDetail"></div>
 
       <p class="eyebrow">Visão Geral — Todas as Coleções</p>
@@ -403,7 +405,7 @@
     </section>
 
     <!-- ═══════ CONTATO ═══════ -->
-    <section class="pane" id="pane-contato">
+    <section class="pane" id="pane-contato" tabindex="-1">
       <div class="block">
         <p class="eyebrow">Futuro da Marca</p>
         <h2 class="section-title">Uma marca pronta para o futuro</h2>

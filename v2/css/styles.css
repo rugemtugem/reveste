@@ -69,6 +69,28 @@ img { max-width: 100%; display: block; }
   margin: 0 0 8px;
 }
 .serif { font-family: var(--serif); }
+
+/* ── ACESSIBILIDADE ─────────────────────── */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  background: var(--cream);
+  color: var(--navy);
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.brand-header :focus-visible,
+.brand-nav :focus-visible,
+.contact-band :focus-visible,
+.skip-link:focus-visible { outline-color: var(--cream); }
+.skip-link:focus-visible { outline-color: var(--navy); }
+/* alvos de foco programático (painel, título) não precisam de anel */
+.brand-main:focus, .pane:focus, .coll-hero-title:focus { outline: none; }
 .text-navy { color: var(--navy); }
 
 /* ── HEADER ─────────────────────────────── */
@@ -543,6 +565,8 @@ img { max-width: 100%; display: block; }
 }
 .ver-camisa-btn:hover { background: var(--navy); color: var(--cream); }
 .coll-grid-thumb {
+  display: block; width: 100%; padding: 0; text-align: left;
+  font: inherit; color: inherit;
   cursor: pointer; border: 1px solid var(--line); overflow: hidden;
   background: var(--paper); transition: border-color .2s, transform .2s;
   height: 100%;
@@ -550,7 +574,7 @@ img { max-width: 100%; display: block; }
 .coll-grid-thumb:hover { border-color: var(--navy); transform: translateY(-2px); }
 .coll-grid-thumb.active { border-color: var(--navy); border-width: 2px; }
 .coll-grid-thumb img { width: 100%; height: 120px; object-fit: cover; }
-.coll-grid-thumb .body { padding: 12px 14px; }
+.coll-grid-thumb .body { display: block; padding: 12px 14px; }
 .coll-grid-thumb .num { font-size: 11px; font-weight: 700; color: var(--navy); letter-spacing: 1px; }
 .coll-grid-thumb .nm { display: block; font-family: var(--serif); font-size: 14px; color: var(--ink); margin-top: 2px; }
 
@@ -642,9 +666,16 @@ img { max-width: 100%; display: block; }
   .brand-nav-toggle { display: flex; }
   .brand-nav-menu {
     flex-direction: column; flex-wrap: nowrap;
-    max-height: 0; overflow: hidden; transition: max-height .3s ease;
+    max-height: 0; overflow: hidden;
+    /* visibility tira os botões do Tab enquanto o menu está fechado */
+    visibility: hidden;
+    transition: max-height .3s ease, visibility 0s linear .3s;
   }
-  .brand-nav-menu.open { max-height: 560px; padding-bottom: 6px; }
+  .brand-nav-menu.open {
+    max-height: 560px; padding-bottom: 6px;
+    visibility: visible;
+    transition: max-height .3s ease, visibility 0s;
+  }
   .nav-btn {
     width: 100%; text-align: left; padding: 13px 4px;
     border-bottom: 1px solid rgba(255,255,255,.08);

@@ -64,18 +64,32 @@ function initTabs() {
 
   document.querySelectorAll(".nav-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".nav-btn").forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.remove("active");
+        b.removeAttribute("aria-current");
+      });
       document.querySelectorAll(".pane").forEach((p) => p.classList.remove("active"));
       btn.classList.add("active");
-      document.getElementById("pane-" + btn.dataset.pane).classList.add("active");
+      btn.setAttribute("aria-current", "page");
+      const pane = document.getElementById("pane-" + btn.dataset.pane);
+      pane.classList.add("active");
       current.textContent = btn.textContent.trim();
       closeMenu();
       window.scrollTo({ top: 0, behavior: "smooth" });
+      // leva o foco ao conteúdo novo, para teclado e leitor de tela
+      pane.focus({ preventScroll: true });
     });
   });
 
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".brand-nav")) closeMenu();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menu.classList.contains("open")) {
+      closeMenu();
+      toggle.focus();
+    }
   });
 }
 
@@ -93,12 +107,15 @@ function selectCollection(idx) {
   renderCollDetail();
   renderCollGrid();
   scrollToCollDetail();
+  // os botões clicados foram recriados; o foco vai para o título da coleção
+  document.querySelector("#collDetail .coll-hero-title").focus({ preventScroll: true });
 }
 
 function renderCollSelector() {
   const sel = document.getElementById("collSelector");
   sel.innerHTML = COLLECTIONS.map((c, i) => `
-    <button class="coll-btn ${i === activeColl ? "active" : ""}" data-idx="${i}">${c.num}</button>
+    <button type="button" class="coll-btn ${i === activeColl ? "active" : ""}" data-idx="${i}"
+      aria-pressed="${i === activeColl}" aria-label="Coleção ${c.num}: ${esc(c.name)}, ${esc(c.sub)}">${c.num}</button>
   `).join("");
   sel.querySelectorAll(".coll-btn").forEach((btn) => {
     btn.addEventListener("click", () => selectCollection(parseInt(btn.dataset.idx, 10)));
@@ -109,12 +126,13 @@ function renderCollDetail() {
   const c = COLLECTIONS[activeColl];
   const piecesHtml = c.items.map((item, j) => `
     <li class="coll-piece">
-      <img class="coll-piece-thumb" src="${pieceImg(c, j)}" alt="Camisa — ${esc(item)}"
+      <img class="coll-piece-thumb" src="${pieceImg(c, j)}" alt="" aria-hidden="true"
         loading="lazy" data-coll="${activeColl}" data-item="${j}" />
       <span class="coll-piece-name">
         <span class="coll-piece-num">${String(j + 1).padStart(2, "0")}</span>${esc(item)}
       </span>
-      <button class="ver-camisa-btn" data-coll="${activeColl}" data-item="${j}">Ver camisa</button>
+      <button type="button" class="ver-camisa-btn" data-coll="${activeColl}" data-item="${j}"
+        aria-label="Ver camisa: ${esc(item)}">Ver camisa</button>
     </li>
   `).join("");
 
@@ -123,7 +141,7 @@ function renderCollDetail() {
       <img src="${c.img}" alt="${esc(c.name)}" />
       <div class="coll-hero-overlay">
         <p class="coll-hero-sub">${c.num} · ${esc(c.sub)}</p>
-        <h2 class="coll-hero-title">${esc(c.name)}</h2>
+        <h2 class="coll-hero-title" tabindex="-1">${esc(c.name)}</h2>
       </div>
     </div>
     <div class="coll-detail">
@@ -149,13 +167,14 @@ function renderCollDetail() {
 function renderCollGrid() {
   document.getElementById("collGrid").innerHTML = COLLECTIONS.map((c, i) => `
     <div class="col-6 col-md-3">
-      <div class="coll-grid-thumb ${i === activeColl ? "active" : ""}" data-idx="${i}">
-        <img src="${c.img}" alt="${esc(c.name)}" />
-        <div class="body">
+      <button type="button" class="coll-grid-thumb ${i === activeColl ? "active" : ""}" data-idx="${i}"
+        aria-pressed="${i === activeColl}">
+        <img src="${c.img}" alt="" loading="lazy" />
+        <span class="body">
           <span class="num">${c.num}</span>
           <span class="nm">${esc(c.name)}</span>
-        </div>
-      </div>
+        </span>
+      </button>
     </div>
   `).join("");
   document.querySelectorAll(".coll-grid-thumb").forEach((t) => {
@@ -193,7 +212,11 @@ function renderShirtModal() {
 function goPrevShirt() { if (modalItem > 0) { modalItem--; renderShirtModal(); } }
 function goNextShirt() { if (modalItem < COLLECTIONS[modalColl].items.length - 1) { modalItem++; renderShirtModal(); } }
 
+let shirtModalTrigger = null;
+
 function openShirtModal(collIdx, itemIdx) {
+  // o Bootstrap só devolve o foco quando o modal abre por data-bs-toggle
+  shirtModalTrigger = document.activeElement;
   modalColl = collIdx;
   modalItem = itemIdx;
   renderShirtModal();
@@ -207,7 +230,11 @@ function initShirtModalNav() {
   document.getElementById("shirtModalNext").addEventListener("click", goNextShirt);
 
   modalEl.addEventListener("shown.bs.modal", () => { shirtModalOpen = true; });
-  modalEl.addEventListener("hidden.bs.modal", () => { shirtModalOpen = false; });
+  modalEl.addEventListener("hidden.bs.modal", () => {
+    shirtModalOpen = false;
+    if (shirtModalTrigger && shirtModalTrigger.isConnected) shirtModalTrigger.focus();
+    shirtModalTrigger = null;
+  });
 
   document.addEventListener("keydown", (e) => {
     if (!shirtModalOpen) return;
