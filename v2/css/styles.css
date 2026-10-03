@@ -682,6 +682,13 @@ img { max-width: 100%; display: block; }
   }
   .nav-btn.active { border-bottom-color: rgba(255,255,255,.08); color: var(--cream); padding-left: 12px; border-left: 3px solid var(--cream); }
 
+  /* lockup horizontal cabe em 320px sem estourar a tela */
+  .logo-stage { padding: 32px 20px; }
+  .lockup-h { gap: 12px; }
+  .lockup-h img { width: 52px; height: 52px; }
+  .lockup-h .wm { font-size: 26px; letter-spacing: 5px; }
+  .lockup-h .tg { font-size: 7px; letter-spacing: 1.2px; }
+
   .coll-detail { grid-template-columns: 1fr; }
   .coll-desc-box { border-right: none; border-bottom: 1px solid var(--line); }
   .coll-hero-title { font-size: 22px; }
