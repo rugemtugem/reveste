@@ -6,7 +6,7 @@
 
 ## Resultado da validação (3 de outubro de 2026)
 
-Validado por Luan Crespo no documento compartilhado ([Reveste: curadoria para validação](https://claude.ai/code/artifact/e9011ee6-8b1b-4be5-8014-511632d1378a)) e aplicado no site:
+Validado por Luan Crespo numa cópia compartilhada deste documento (já apagada; a próxima rodada será pelo admin) e aplicado no site:
 
 - **Afirmações:** as 34 foram confirmadas. Correções: "lajota" vira "ladrilho" (coleção 02/10); o desenho de ondas de Copacabana vem do Largo do Rossio, em Lisboa (coleção 08).
 - **Status:** só Escadaria Selarón, Calçadão de Copacabana e Casa da Flor são Reinterpretação; todos os demais nomes passam a Homenagem, inclusive os das coleções 03, 04 e 05.
