@@ -579,6 +579,10 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
   color: var(--navy); display: block; margin-bottom: 12px; font-weight: 700;
 }
+.coll-note { margin-top: 18px; padding: 16px 20px; background: var(--cream-2); border-left: 3px solid var(--navy); max-width: 760px; }
+.coll-note .coll-box-label { margin-bottom: 6px; }
+.coll-note p { color: var(--ink) !important; }
+.coll-desc-box .coll-note .coll-note-credit { margin-top: 8px; font-size: 12.5px; color: var(--muted) !important; }
 .coll-desc-box p { font-size: 14px; line-height: 1.85; color: var(--muted); margin: 0; max-width: 760px; }
 
 /* galeria de peças (camisas e camisetas) */

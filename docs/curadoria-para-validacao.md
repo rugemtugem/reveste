@@ -4,6 +4,17 @@
 **Versão do manual:** v2.1 · outubro de 2026
 **Página publicada:** aba Coleções do manual Reveste
 
+## Resultado da validação (3 de outubro de 2026)
+
+Validado por Luan Crespo no documento compartilhado ([Reveste: curadoria para validação](https://claude.ai/code/artifact/e9011ee6-8b1b-4be5-8014-511632d1378a)) e aplicado no site:
+
+- **Afirmações:** as 34 foram confirmadas. Correções: "lajota" vira "ladrilho" (coleção 02/10); o desenho de ondas de Copacabana vem do Largo do Rossio, em Lisboa (coleção 08).
+- **Status:** só Escadaria Selarón, Calçadão de Copacabana e Casa da Flor são Reinterpretação; todos os demais nomes passam a Homenagem, inclusive os das coleções 03, 04 e 05.
+- **Coleção 08:** renomeada para "Mosaicos de Caquinhos". Museu do Inhotim, Igreja de São Francisco e Orla de Boa Viagem foram trocados por homenagens: Folhagem de Cacos, Espiral Azul e Ondas de Mosaico.
+- **Textos de apresentação** corrigidos nas coleções 01 (ornamentação, não pisos), 05 (auge nos séculos XVII e XVIII) e 09 (fim do século XIX a meados do XX).
+- **Notas curatoriais** publicadas nas 10 coleções; crédito "revisado em 3 de outubro de 2026".
+- **Em aberto:** as listas "Aprovação da nota" ficaram sem marcação; a confirmação de todas as afirmações foi tomada como aprovação. A data não foi informada e foi usada a data da revisão. Nenhuma fonte por afirmação foi indicada além das correções acima.
+
 ## Como validar
 
 Nada deste documento está publicado. Depois da sua validação, as notas aprovadas entram no site, cada uma com sua fonte e com a data da revisão.
