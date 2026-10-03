@@ -14,533 +14,554 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet" />
-  <link href="css/styles.css?v=10" rel="stylesheet" />
+  <link href="css/styles.css?v=13" rel="stylesheet" />
 </head>
 <body>
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<!-- ═══════════ HEADER ═══════════ -->
-<header class="brand-header">
-  <div class="container-r">
-    <div class="header-logo">
-      <img src="assets/marca/reveste-icone.svg" alt="Ícone Reveste" width="44" height="44" />
+<!-- ═══════════ BARRA ═══════════ -->
+<header class="topbar">
+  <div class="container-r topbar-inner">
+    <a class="topbar-logo" href="#inicio" aria-label="Reveste, página inicial">
+      <img src="assets/marca/reveste-icone.svg" alt="" width="36" height="36" />
       <span class="wordmark">REVESTE</span>
-    </div>
-    <div class="header-tag">Manual de<br>Identidade Visual</div>
+    </a>
+    <nav class="brand-nav" aria-label="Seções do manual">
+      <button type="button" class="brand-nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu">
+        <svg aria-hidden="true" focusable="false" class="brand-nav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="brand-nav-menu" id="navMenu">
+        <button type="button" class="nav-btn" data-pane="marca" aria-controls="pane-marca">A Marca</button>
+        <button type="button" class="nav-btn" data-pane="logo" aria-controls="pane-logo">Logo e Usos</button>
+        <button type="button" class="nav-btn" data-pane="cores" aria-controls="pane-cores">Cores e Tipografia</button>
+        <button type="button" class="nav-btn" data-pane="colecoes" aria-controls="pane-colecoes">Coleções</button>
+        <button type="button" class="nav-btn" data-pane="contato" aria-controls="pane-contato">Contato</button>
+      </div>
+    </nav>
   </div>
 </header>
 
-<!-- ═══════════ NAV ═══════════ -->
-<nav class="brand-nav">
-  <div class="container-r">
-    <button type="button" class="brand-nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
-      <span id="navCurrent">Início</span>
-      <svg aria-hidden="true" focusable="false" class="brand-nav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <div class="brand-nav-menu" id="navMenu">
-      <button type="button" class="nav-btn active" data-pane="inicio" aria-controls="pane-inicio" aria-current="page">Início</button>
-      <button type="button" class="nav-btn" data-pane="marca" aria-controls="pane-marca">A Marca</button>
-      <button type="button" class="nav-btn" data-pane="logo" aria-controls="pane-logo">Logo</button>
-      <button type="button" class="nav-btn" data-pane="construcao" aria-controls="pane-construcao">Construção</button>
-      <button type="button" class="nav-btn" data-pane="cores" aria-controls="pane-cores">Cores</button>
-      <button type="button" class="nav-btn" data-pane="tipografia" aria-controls="pane-tipografia">Tipografia</button>
-      <button type="button" class="nav-btn" data-pane="usos" aria-controls="pane-usos">Usos</button>
-      <button type="button" class="nav-btn" data-pane="colecoes" aria-controls="pane-colecoes">Coleções</button>
-      <button type="button" class="nav-btn" data-pane="contato" aria-controls="pane-contato">Contato</button>
-    </div>
-  </div>
-</nav>
-
 <main class="brand-main" id="conteudo" tabindex="-1">
-  <div class="container-r">
 
-    <!-- ═══════ INÍCIO ═══════ -->
-    <section class="pane active" id="pane-inicio" tabindex="-1">
-      <div class="hero">
-        <img class="hero-icon" src="assets/marca/reveste-icone.svg" alt="Logo Reveste" width="120" height="120" />
-        <h1 class="hero-wordmark">REVESTE</h1>
-        <div class="hero-rule"><span>Brasil que se usa · Arte que se vive</span></div>
-        <p class="hero-sub">Manual de Identidade Visual</p>
-        <p class="hero-intro">
-          Este manual estabelece as diretrizes para a aplicação da identidade visual da marca Reveste,
-          garantindo consistência e integridade em todas as suas manifestações.
-          <strong>A Reveste é uma marca de moda patrimonial brasileira que transforma revestimentos
-          históricos em estampas para camisas e camisetas</strong>, celebrando a arte e a cultura do Brasil.
-        </p>
-      </div>
-    </section>
-
-    <!-- ═══════ A MARCA ═══════ -->
-    <section class="pane" id="pane-marca" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">A Essência da Marca</p>
-        <h2 class="section-title">Patrimônio que se veste</h2>
-        <p class="lead">A Reveste nasce do encontro entre a memória arquitetônica do Brasil e o gesto cotidiano de vestir — arte que sai da parede e vai para o corpo.</p>
-      </div>
-
-      <div class="block">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <div class="card-dark">
-              <span class="card-label">Visão</span>
-              <p>Ser a referência em moda que celebra o patrimônio e a cultura brasileira, resgatando histórias através da arte que se usa.</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card-dark">
-              <span class="card-label">Missão</span>
-              <p>Transformar a riqueza dos azulejos, ladrilhos e revestimentos históricos do Brasil em peças de vestuário únicas, promovendo a valorização do patrimônio e a conexão territorial.</p>
-            </div>
+  <!-- ═══════ INÍCIO ═══════ -->
+  <section class="pane active" id="pane-inicio" tabindex="-1">
+    <div class="home-hero">
+      <div class="container-r home-hero-inner">
+        <div class="home-hero-text">
+          <p class="eyebrow on-dark">Moda patrimonial brasileira</p>
+          <h1 class="home-title"><span class="ln">Brasil que se usa.</span><br><em class="ln">Arte que se vive.</em></h1>
+          <p class="home-lead">A Reveste transforma azulejos, ladrilhos e revestimentos históricos em estampas para camisas e camisetas. Conheça a identidade da marca e as coleções.</p>
+          <div class="home-ctas">
+            <a class="btn-solid" href="#colecoes">Ver as coleções</a>
+            <a class="btn-ghost" href="assets/marca/reveste-marca.zip" download>Baixar a marca</a>
           </div>
         </div>
+        <nav class="home-pieces" aria-label="Coleções em destaque">
+          <ul>
+            <li><a class="home-piece" href="#colecoes-04">
+              <img src="assets/img/home/camisa-04.jpeg" alt="" width="261" height="261" />
+              <span>04 · Azulejos Devocionais</span></a></li>
+            <li><a class="home-piece" href="#colecoes-05">
+              <img src="assets/img/home/camisa-05.jpeg" alt="" width="261" height="261" />
+              <span>05 · Azulejos Portugueses</span></a></li>
+            <li><a class="home-piece" href="#colecoes-06">
+              <img src="assets/img/home/camisa-06.jpeg" alt="" width="261" height="261" />
+              <span>06 · Azulejos Modernistas</span></a></li>
+            <li><a class="home-piece" href="#colecoes-07">
+              <img src="assets/img/home/camisa-07.jpeg" alt="" width="261" height="261" />
+              <span>07 · Athos Bulcão</span></a></li>
+          </ul>
+        </nav>
       </div>
+    </div>
 
-      <div class="block">
-        <p class="eyebrow">Nossos Valores</p>
-        <div class="row g-3">
-          <div class="col-6 col-md">
-            <div class="value-chip">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10m4.5 11V10m5 11V10M19 21V10M3 10h18L12 4 3 10z"/></svg>
-              <span>Herança Cultural</span>
-            </div>
-          </div>
-          <div class="col-6 col-md">
-            <div class="value-chip">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
-              <span>Originalidade</span>
-            </div>
-          </div>
-          <div class="col-6 col-md">
-            <div class="value-chip">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="m8 12 3 3 7-7"/></svg>
-              <span>Qualidade</span>
-            </div>
-          </div>
-          <div class="col-6 col-md">
-            <div class="value-chip">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 8l8 8M16 7l1 1M7 16l1 1"/></svg>
-              <span>Conexão Territorial</span>
-            </div>
-          </div>
-          <div class="col-6 col-md">
-            <div class="value-chip">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21v-7m12 7v-7M5 14h14l-1.5-6h-11z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg>
-              <span>Artesanal</span>
-            </div>
-          </div>
+    <div class="home-explore">
+      <div class="container-r">
+        <p class="eyebrow">Manual de identidade visual</p>
+        <h2 class="section-title">Explore o manual</h2>
+        <ul class="explore-grid">
+          <li><a class="explore-card" href="#marca">
+            <span class="explore-vis vis-quote">Patrimônio que se veste</span>
+            <span class="explore-txt"><span class="explore-name">A Marca</span><span class="explore-desc">Missão, visão e valores.</span></span></a></li>
+          <li><a class="explore-card" href="#logo">
+            <span class="explore-vis"><img src="assets/marca/reveste-icone.svg" alt="" width="64" height="64" /></span>
+            <span class="explore-txt"><span class="explore-name">Logo e Usos</span><span class="explore-desc">Arquivos para baixar, construção, tamanho mínimo e usos incorretos.</span></span></a></li>
+          <li><a class="explore-card" href="#cores">
+            <span class="explore-vis vis-type"><span class="vt-dark">Aa</span><span class="vt-light">Aa</span></span>
+            <span class="explore-txt"><span class="explore-name">Cores e Tipografia</span><span class="explore-desc">Azul Colonial, Off-White, Playfair Display e Lato.</span></span></a></li>
+          <li><a class="explore-card" href="#colecoes">
+            <span class="explore-vis vis-photo"><img src="assets/img/home/camisa-04.jpeg" alt="" /><img src="assets/img/home/camisa-06.jpeg" alt="" /></span>
+            <span class="explore-txt"><span class="explore-name">Coleções</span><span class="explore-desc">10 coleções de camisas e camisetas.</span></span></a></li>
+          <li><a class="explore-card" href="#contato">
+            <span class="explore-vis vis-url">reveste.com.br</span>
+            <span class="explore-txt"><span class="explore-name">Contato</span><span class="explore-desc">E-mail e WhatsApp.</span></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ A MARCA ═══════ -->
+  <section class="pane" id="pane-marca" tabindex="-1">
+    <div class="container-r pane-body">
+        <div class="block">
+          <p class="eyebrow">A Essência da Marca</p>
+          <h2 class="section-title">Patrimônio que se veste</h2>
+          <p class="lead">A Reveste nasce do encontro entre a memória arquitetônica do Brasil e o gesto cotidiano de vestir — arte que sai da parede e vai para o corpo.</p>
         </div>
-      </div>
 
-      <div class="slogan-band">
-        <p>"Brasil que se usa. Arte que se vive."</p>
-        <small>Slogan oficial da marca</small>
-      </div>
-    </section>
-
-    <!-- ═══════ LOGO ═══════ -->
-    <section class="pane" id="pane-logo" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">Logo Principal</p>
-        <h2 class="section-title">Um mosaico de histórias</h2>
-        <p class="lead">A logo é composta por um ícone modular em grade 2×2 e o nome da marca. Cada módulo representa um elemento do patrimônio brasileiro, reunidos em um símbolo coeso.</p>
-      </div>
-
-      <div class="block">
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="card-r">
-              <span class="card-label">Conceito Modular</span>
-              <p>Design em grade 2×2 que permite representar múltiplos elementos do patrimônio brasileiro em um único ícone coeso.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-r">
-              <span class="card-label">Versatilidade</span>
-              <p>Equilíbrio entre as versões vertical (presença de marca) e horizontal (cabeçalhos e espaços reduzidos).</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-r">
-              <span class="card-label">Estética Atemporal</span>
-              <p>Geometria limpa e tipografia clássica para que a marca permaneça relevante e sofisticada.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="block">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <div class="logo-stage">
-              <div class="lockup-v">
-                <img src="assets/marca/reveste-icone.svg" alt="Versão vertical" width="110" height="110" loading="lazy" />
-                <div class="wm">REVESTE</div>
-                <div class="tg">Brasil que se usa · Arte que se vive</div>
+        <div class="block">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card-dark">
+                <span class="card-label">Visão</span>
+                <p>Ser a referência em moda que celebra o patrimônio e a cultura brasileira, resgatando histórias através da arte que se usa.</p>
               </div>
             </div>
-            <p class="stage-caption">Versão Vertical · presença de marca</p>
-          </div>
-          <div class="col-md-6">
-            <div class="logo-stage dark">
-              <div class="lockup-v on-dark">
-                <img src="assets/marca/reveste-icone.svg" alt="Versão vertical negativa" width="110" height="110" loading="lazy" />
-                <div class="wm">REVESTE</div>
-                <div class="tg">Brasil que se usa · Arte que se vive</div>
+            <div class="col-md-6">
+              <div class="card-dark">
+                <span class="card-label">Missão</span>
+                <p>Transformar a riqueza dos azulejos, ladrilhos e revestimentos históricos do Brasil em peças de vestuário únicas, promovendo a valorização do patrimônio e a conexão territorial.</p>
               </div>
             </div>
-            <p class="stage-caption">Versão Negativa · fundos escuros</p>
           </div>
-          <div class="col-md-7">
-            <div class="logo-stage">
-              <div class="lockup-h">
-                <img src="assets/marca/reveste-icone.svg" alt="Versão horizontal" width="76" height="76" loading="lazy" />
-                <div>
+        </div>
+
+        <div class="block">
+          <p class="eyebrow">Nossos Valores</p>
+          <div class="values-grid">
+              <div class="value-chip">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10m4.5 11V10m5 11V10M19 21V10M3 10h18L12 4 3 10z"/></svg>
+                <span>Herança Cultural</span>
+              </div>
+              <div class="value-chip">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+                <span>Originalidade</span>
+              </div>
+              <div class="value-chip">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="m8 12 3 3 7-7"/></svg>
+                <span>Qualidade</span>
+              </div>
+              <div class="value-chip">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 8l8 8M16 7l1 1M7 16l1 1"/></svg>
+                <span>Conexão Territorial</span>
+              </div>
+              <div class="value-chip">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21v-7m12 7v-7M5 14h14l-1.5-6h-11z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg>
+                <span>Artesanal</span>
+              </div>
+          </div>
+        </div>
+
+        <div class="slogan-band">
+          <p>"Brasil que se usa. Arte que se vive."</p>
+          <small>Slogan oficial da marca</small>
+        </div>
+    </div>
+  </section>
+
+  <!-- ═══════ LOGO E USOS ═══════ -->
+  <section class="pane" id="pane-logo" tabindex="-1">
+    <div class="container-r pane-body">
+        <div class="block">
+          <p class="eyebrow">Logo Principal</p>
+          <h2 class="section-title">Um mosaico de histórias</h2>
+          <p class="lead">A logo é composta por um ícone modular em grade 2×2 e o nome da marca. Cada módulo representa um elemento do patrimônio brasileiro, reunidos em um símbolo coeso.</p>
+        </div>
+
+        <div class="block">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="card-r">
+                <span class="card-label">Conceito Modular</span>
+                <p>Design em grade 2×2 que permite representar múltiplos elementos do patrimônio brasileiro em um único ícone coeso.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-r">
+                <span class="card-label">Versatilidade</span>
+                <p>Equilíbrio entre as versões vertical (presença de marca) e horizontal (cabeçalhos e espaços reduzidos).</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-r">
+                <span class="card-label">Estética Atemporal</span>
+                <p>Geometria limpa e tipografia clássica para que a marca permaneça relevante e sofisticada.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="logo-stage">
+                <div class="lockup-v">
+                  <img src="assets/marca/reveste-icone.svg" alt="Versão vertical" width="110" height="110" loading="lazy" />
                   <div class="wm">REVESTE</div>
                   <div class="tg">Brasil que se usa · Arte que se vive</div>
                 </div>
               </div>
+              <p class="stage-caption">Versão Vertical · presença de marca</p>
             </div>
-            <p class="stage-caption">Versão Horizontal · cabeçalhos e espaços reduzidos</p>
-          </div>
-          <div class="col-md-5">
-            <div class="logo-stage selo-stage">
-              <img src="assets/img/selo.png" alt="Selo Patrimonial" width="200" height="200" loading="lazy" />
-            </div>
-            <p class="stage-caption">Selo Patrimonial · autenticidade e origem</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="block">
-        <p class="eyebrow">Arquivos da Marca</p>
-        <div class="asset-all">
-          <a class="download-btn" href="assets/marca/reveste-marca.zip" download>Baixar tudo · .zip 2,2 MB</a>
-          <p>Todas as versões em SVG, PDF e PNG, com as cores de impressão e as regras de uso (LEIA-ME).</p>
-        </div>
-        <div class="row g-3">
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev"><img src="assets/marca/reveste-logo-vertical.svg" alt="" loading="lazy" /></div>
-              <h3>Logo vertical</h3>
-              <p>Uso principal, com tagline</p>
-              <div class="asset-links"><a href="assets/marca/reveste-logo-vertical.svg" download aria-label="Baixar Logo vertical em SVG">SVG</a><a href="assets/marca/reveste-logo-vertical.pdf" download aria-label="Baixar Logo vertical em PDF">PDF</a><a href="assets/marca/reveste-logo-vertical.png" download aria-label="Baixar Logo vertical em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev"><img src="assets/marca/reveste-logo-horizontal.svg" alt="" loading="lazy" /></div>
-              <h3>Logo horizontal</h3>
-              <p>Cabeçalhos e faixas, com tagline</p>
-              <div class="asset-links"><a href="assets/marca/reveste-logo-horizontal.svg" download aria-label="Baixar Logo horizontal em SVG">SVG</a><a href="assets/marca/reveste-logo-horizontal.pdf" download aria-label="Baixar Logo horizontal em PDF">PDF</a><a href="assets/marca/reveste-logo-horizontal.png" download aria-label="Baixar Logo horizontal em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev dark"><img src="assets/marca/reveste-logo-vertical-negativa.svg" alt="" loading="lazy" /></div>
-              <h3>Vertical negativa</h3>
-              <p>Para fundos escuros</p>
-              <div class="asset-links"><a href="assets/marca/reveste-logo-vertical-negativa.svg" download aria-label="Baixar Vertical negativa em SVG">SVG</a><a href="assets/marca/reveste-logo-vertical-negativa.pdf" download aria-label="Baixar Vertical negativa em PDF">PDF</a><a href="assets/marca/reveste-logo-vertical-negativa.png" download aria-label="Baixar Vertical negativa em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev dark"><img src="assets/marca/reveste-logo-horizontal-negativa.svg" alt="" loading="lazy" /></div>
-              <h3>Horizontal negativa</h3>
-              <p>Para fundos escuros</p>
-              <div class="asset-links"><a href="assets/marca/reveste-logo-horizontal-negativa.svg" download aria-label="Baixar Horizontal negativa em SVG">SVG</a><a href="assets/marca/reveste-logo-horizontal-negativa.pdf" download aria-label="Baixar Horizontal negativa em PDF">PDF</a><a href="assets/marca/reveste-logo-horizontal-negativa.png" download aria-label="Baixar Horizontal negativa em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev"><img src="assets/marca/reveste-logo-vertical-sem-tagline.svg" alt="" loading="lazy" /></div>
-              <h3>Vertical sem tagline</h3>
-              <p>Tamanhos pequenos</p>
-              <div class="asset-links"><a href="assets/marca/reveste-logo-vertical-sem-tagline.svg" download aria-label="Baixar Vertical sem tagline em SVG">SVG</a><a href="assets/marca/reveste-logo-vertical-sem-tagline.pdf" download aria-label="Baixar Vertical sem tagline em PDF">PDF</a><a href="assets/marca/reveste-logo-vertical-sem-tagline.png" download aria-label="Baixar Vertical sem tagline em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev"><img src="assets/marca/reveste-logo-horizontal-sem-tagline.svg" alt="" loading="lazy" /></div>
-              <h3>Horizontal sem tagline</h3>
-              <p>Etiquetas e tamanhos pequenos</p>
-              <div class="asset-links"><a href="assets/marca/reveste-logo-horizontal-sem-tagline.svg" download aria-label="Baixar Horizontal sem tagline em SVG">SVG</a><a href="assets/marca/reveste-logo-horizontal-sem-tagline.pdf" download aria-label="Baixar Horizontal sem tagline em PDF">PDF</a><a href="assets/marca/reveste-logo-horizontal-sem-tagline.png" download aria-label="Baixar Horizontal sem tagline em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev"><img src="assets/marca/reveste-icone.svg" alt="" loading="lazy" /></div>
-              <h3>Ícone</h3>
-              <p>Avatar, favicon, aplicações quadradas</p>
-              <div class="asset-links"><a href="assets/marca/reveste-icone.svg" download aria-label="Baixar Ícone em SVG">SVG</a><a href="assets/marca/reveste-icone.pdf" download aria-label="Baixar Ícone em PDF">PDF</a><a href="assets/marca/reveste-icone.png" download aria-label="Baixar Ícone em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev"><img src="assets/marca/reveste-icone-1cor.svg" alt="" loading="lazy" /></div>
-              <h3>Ícone em 1 cor</h3>
-              <p>Bordado, carimbo, gravação</p>
-              <div class="asset-links"><a href="assets/marca/reveste-icone-1cor.svg" download aria-label="Baixar Ícone em 1 cor em SVG">SVG</a><a href="assets/marca/reveste-icone-1cor.pdf" download aria-label="Baixar Ícone em 1 cor em PDF">PDF</a><a href="assets/marca/reveste-icone-1cor.png" download aria-label="Baixar Ícone em 1 cor em PNG">PNG</a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="asset-card">
-              <div class="asset-prev"><img src="assets/marca/reveste-selo.svg" alt="" loading="lazy" /></div>
-              <h3>Selo Patrimonial</h3>
-              <p>Tags e embalagens</p>
-              <div class="asset-links"><a href="assets/marca/reveste-selo.svg" download aria-label="Baixar Selo Patrimonial em SVG">SVG</a><a href="assets/marca/reveste-selo.pdf" download aria-label="Baixar Selo Patrimonial em PDF">PDF</a><a href="assets/marca/reveste-selo.png" download aria-label="Baixar Selo Patrimonial em PNG">PNG</a></div>
-            </div>
-          </div>
-        </div>
-        <p class="download-note">Vetores com os textos convertidos em contorno: não é preciso instalar fontes. Os PNG têm 2000 px de largura e fundo transparente.</p>
-      </div>
-    </section>
-
-    <!-- ═══════ CONSTRUÇÃO ═══════ -->
-    <section class="pane" id="pane-construcao" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">Construção da Marca</p>
-        <h2 class="section-title">Elementos simbólicos do ícone</h2>
-        <p class="lead">O ícone é construído a partir de quatro elementos visuais distintos, cada um representando um aspecto da inspiração da marca.</p>
-      </div>
-
-      <div class="block">
-        <div class="row g-3">
-          <div class="col-6 col-md-3">
-            <div class="element-card">
-              <img src="assets/img/element-r.png" alt="Letra R" width="224" height="224" loading="lazy" />
-              <div class="body">
-                <h3>Letra R</h3>
-                <p>Representa a identidade e o reconhecimento imediato da marca Reveste, unindo o nome ao símbolo.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="element-card">
-              <img src="assets/img/element-azulejo.png" alt="Azulejo Português" width="224" height="224" loading="lazy" />
-              <div class="body">
-                <h3>Azulejo Português</h3>
-                <p>Homenagem à herança colonial e artística que fundamenta a estética das nossas coleções.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="element-card">
-              <img src="assets/img/element-ladrilho.png" alt="Ladrilho Histórico" width="224" height="224" loading="lazy" />
-              <div class="body">
-                <h3>Ladrilho Histórico</h3>
-                <p>Celebração dos padrões geométricos e da riqueza visual dos ladrilhos hidráulicos brasileiros.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="element-card">
-              <img src="assets/img/element-janela.png" alt="Janela Colonial" width="224" height="224" loading="lazy" />
-              <div class="body">
-                <h3>Janela Colonial</h3>
-                <p>Evoca a arquitetura histórica e a conexão profunda com o passado e a memória do Brasil.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════ CORES ═══════ -->
-    <section class="pane" id="pane-cores" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">Paleta de Cores</p>
-        <h2 class="section-title">Elegância e tradição</h2>
-        <p class="lead">A paleta foi cuidadosamente selecionada para transmitir elegância, sofisticação e a riqueza cultural brasileira — sustentada por dois tons essenciais.</p>
-      </div>
-
-      <div class="block">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <div class="color-card">
-              <div class="color-swatch" style="background:#1A3A5C"></div>
-              <div class="body">
-                <h3>Azul Colonial</h3>
-                <span class="color-hex">#1A3A5C</span>
-                <p>Representa a profundidade histórica, a nobreza dos azulejos clássicos e a sofisticação da marca.</p>
-                <div class="color-meta">
-                  <span><b>RGB</b> 26 · 58 · 92</span>
-                  <span><b>CMYK couché</b> 84 · 54 · 11 · 59</span>
-                  <span><b>CMYK sem revestimento</b> 100 · 63 · 8 · 41</span>
-                  <span><b>Pantone tecido</b> 19-4029 TCX</span>
-                  <span><b>Pantone gráfico</b> 540 C</span>
+            <div class="col-md-6">
+              <div class="logo-stage dark">
+                <div class="lockup-v on-dark">
+                  <img src="assets/marca/reveste-icone.svg" alt="Versão vertical negativa" width="110" height="110" loading="lazy" />
+                  <div class="wm">REVESTE</div>
+                  <div class="tg">Brasil que se usa · Arte que se vive</div>
                 </div>
               </div>
+              <p class="stage-caption">Versão Negativa · fundos escuros</p>
+            </div>
+            <div class="col-md-7">
+              <div class="logo-stage">
+                <div class="lockup-h">
+                  <img src="assets/marca/reveste-icone.svg" alt="Versão horizontal" width="76" height="76" loading="lazy" />
+                  <div>
+                    <div class="wm">REVESTE</div>
+                    <div class="tg">Brasil que se usa · Arte que se vive</div>
+                  </div>
+                </div>
+              </div>
+              <p class="stage-caption">Versão Horizontal · cabeçalhos e espaços reduzidos</p>
+            </div>
+            <div class="col-md-5">
+              <div class="logo-stage selo-stage">
+                <img src="assets/img/selo.png" alt="Selo Patrimonial" width="200" height="200" loading="lazy" />
+              </div>
+              <p class="stage-caption">Selo Patrimonial · autenticidade e origem</p>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="color-card">
-              <div class="color-swatch" style="background:#F0EAE0;border-bottom:1px solid var(--line)"></div>
-              <div class="body">
-                <h3>Off-White</h3>
-                <span class="color-hex">#F0EAE0</span>
-                <p>Evoca a naturalidade das matérias-primas e o aspecto artesanal, proporcionando o contraste ideal para a leitura.</p>
-                <div class="color-meta">
-                  <span><b>RGB</b> 240 · 234 · 224</span>
-                  <span><b>CMYK couché</b> 7 · 7 · 13 · 0</span>
-                  <span><b>CMYK sem revestimento</b> 5 · 5 · 9 · 0</span>
-                  <span><b>Pantone tecido</b> 11-0103 TCX</span>
-                  <span><b>Pantone gráfico</b> usar CMYK ou papel natural</span>
+        </div>
+
+        <div class="block">
+          <p class="eyebrow">Arquivos da Marca</p>
+          <div class="asset-all">
+            <a class="download-btn" href="assets/marca/reveste-marca.zip" download>Baixar tudo · .zip 2,2 MB</a>
+            <p>Todas as versões em SVG, PDF e PNG, com as cores de impressão e as regras de uso (LEIA-ME).</p>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev"><img src="assets/marca/reveste-logo-vertical.svg" alt="" loading="lazy" /></div>
+                <h3>Logo vertical</h3>
+                <p>Uso principal, com tagline</p>
+                <div class="asset-links"><a href="assets/marca/reveste-logo-vertical.svg" download aria-label="Baixar Logo vertical em SVG">SVG</a><a href="assets/marca/reveste-logo-vertical.pdf" download aria-label="Baixar Logo vertical em PDF">PDF</a><a href="assets/marca/reveste-logo-vertical.png" download aria-label="Baixar Logo vertical em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev"><img src="assets/marca/reveste-logo-horizontal.svg" alt="" loading="lazy" /></div>
+                <h3>Logo horizontal</h3>
+                <p>Cabeçalhos e faixas, com tagline</p>
+                <div class="asset-links"><a href="assets/marca/reveste-logo-horizontal.svg" download aria-label="Baixar Logo horizontal em SVG">SVG</a><a href="assets/marca/reveste-logo-horizontal.pdf" download aria-label="Baixar Logo horizontal em PDF">PDF</a><a href="assets/marca/reveste-logo-horizontal.png" download aria-label="Baixar Logo horizontal em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev dark"><img src="assets/marca/reveste-logo-vertical-negativa.svg" alt="" loading="lazy" /></div>
+                <h3>Vertical negativa</h3>
+                <p>Para fundos escuros</p>
+                <div class="asset-links"><a href="assets/marca/reveste-logo-vertical-negativa.svg" download aria-label="Baixar Vertical negativa em SVG">SVG</a><a href="assets/marca/reveste-logo-vertical-negativa.pdf" download aria-label="Baixar Vertical negativa em PDF">PDF</a><a href="assets/marca/reveste-logo-vertical-negativa.png" download aria-label="Baixar Vertical negativa em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev dark"><img src="assets/marca/reveste-logo-horizontal-negativa.svg" alt="" loading="lazy" /></div>
+                <h3>Horizontal negativa</h3>
+                <p>Para fundos escuros</p>
+                <div class="asset-links"><a href="assets/marca/reveste-logo-horizontal-negativa.svg" download aria-label="Baixar Horizontal negativa em SVG">SVG</a><a href="assets/marca/reveste-logo-horizontal-negativa.pdf" download aria-label="Baixar Horizontal negativa em PDF">PDF</a><a href="assets/marca/reveste-logo-horizontal-negativa.png" download aria-label="Baixar Horizontal negativa em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev"><img src="assets/marca/reveste-logo-vertical-sem-tagline.svg" alt="" loading="lazy" /></div>
+                <h3>Vertical sem tagline</h3>
+                <p>Tamanhos pequenos</p>
+                <div class="asset-links"><a href="assets/marca/reveste-logo-vertical-sem-tagline.svg" download aria-label="Baixar Vertical sem tagline em SVG">SVG</a><a href="assets/marca/reveste-logo-vertical-sem-tagline.pdf" download aria-label="Baixar Vertical sem tagline em PDF">PDF</a><a href="assets/marca/reveste-logo-vertical-sem-tagline.png" download aria-label="Baixar Vertical sem tagline em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev"><img src="assets/marca/reveste-logo-horizontal-sem-tagline.svg" alt="" loading="lazy" /></div>
+                <h3>Horizontal sem tagline</h3>
+                <p>Etiquetas e tamanhos pequenos</p>
+                <div class="asset-links"><a href="assets/marca/reveste-logo-horizontal-sem-tagline.svg" download aria-label="Baixar Horizontal sem tagline em SVG">SVG</a><a href="assets/marca/reveste-logo-horizontal-sem-tagline.pdf" download aria-label="Baixar Horizontal sem tagline em PDF">PDF</a><a href="assets/marca/reveste-logo-horizontal-sem-tagline.png" download aria-label="Baixar Horizontal sem tagline em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev"><img src="assets/marca/reveste-icone.svg" alt="" loading="lazy" /></div>
+                <h3>Ícone</h3>
+                <p>Avatar, favicon, aplicações quadradas</p>
+                <div class="asset-links"><a href="assets/marca/reveste-icone.svg" download aria-label="Baixar Ícone em SVG">SVG</a><a href="assets/marca/reveste-icone.pdf" download aria-label="Baixar Ícone em PDF">PDF</a><a href="assets/marca/reveste-icone.png" download aria-label="Baixar Ícone em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev"><img src="assets/marca/reveste-icone-1cor.svg" alt="" loading="lazy" /></div>
+                <h3>Ícone em 1 cor</h3>
+                <p>Bordado, carimbo, gravação</p>
+                <div class="asset-links"><a href="assets/marca/reveste-icone-1cor.svg" download aria-label="Baixar Ícone em 1 cor em SVG">SVG</a><a href="assets/marca/reveste-icone-1cor.pdf" download aria-label="Baixar Ícone em 1 cor em PDF">PDF</a><a href="assets/marca/reveste-icone-1cor.png" download aria-label="Baixar Ícone em 1 cor em PNG">PNG</a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="asset-card">
+                <div class="asset-prev"><img src="assets/marca/reveste-selo.svg" alt="" loading="lazy" /></div>
+                <h3>Selo Patrimonial</h3>
+                <p>Tags e embalagens</p>
+                <div class="asset-links"><a href="assets/marca/reveste-selo.svg" download aria-label="Baixar Selo Patrimonial em SVG">SVG</a><a href="assets/marca/reveste-selo.pdf" download aria-label="Baixar Selo Patrimonial em PDF">PDF</a><a href="assets/marca/reveste-selo.png" download aria-label="Baixar Selo Patrimonial em PNG">PNG</a></div>
+              </div>
+            </div>
+          </div>
+          <p class="download-note">Vetores com os textos convertidos em contorno: não é preciso instalar fontes. Os PNG têm 2000 px de largura e fundo transparente.</p>
+        </div>
+
+        <div class="subsection" id="sec-construcao" tabindex="-1">
+          <div class="block">
+            <p class="eyebrow">Construção da Marca</p>
+            <h2 class="section-title">Elementos simbólicos do ícone</h2>
+            <p class="lead">O ícone é construído a partir de quatro elementos visuais distintos, cada um representando um aspecto da inspiração da marca.</p>
+          </div>
+
+          <div class="block">
+            <div class="row g-3">
+              <div class="col-6 col-md-3">
+                <div class="element-card">
+                  <img src="assets/img/element-r.png" alt="Letra R" width="224" height="224" loading="lazy" />
+                  <div class="body">
+                    <h3>Letra R</h3>
+                    <p>Representa a identidade e o reconhecimento imediato da marca Reveste, unindo o nome ao símbolo.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="element-card">
+                  <img src="assets/img/element-azulejo.png" alt="Azulejo Português" width="224" height="224" loading="lazy" />
+                  <div class="body">
+                    <h3>Azulejo Português</h3>
+                    <p>Homenagem à herança colonial e artística que fundamenta a estética das nossas coleções.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="element-card">
+                  <img src="assets/img/element-ladrilho.png" alt="Ladrilho Histórico" width="224" height="224" loading="lazy" />
+                  <div class="body">
+                    <h3>Ladrilho Histórico</h3>
+                    <p>Celebração dos padrões geométricos e da riqueza visual dos ladrilhos hidráulicos brasileiros.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="element-card">
+                  <img src="assets/img/element-janela.png" alt="Janela Colonial" width="224" height="224" loading="lazy" />
+                  <div class="body">
+                    <h3>Janela Colonial</h3>
+                    <p>Evoca a arquitetura histórica e a conexão profunda com o passado e a memória do Brasil.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <p class="color-note">CMYK calculado pelos perfis de impressão FOGRA39 (papel couché) e FOGRA52 (papel sem revestimento). Os Pantone são os mais próximos das cores da marca (Azul Colonial: 19-4029 TCX Navy Peony, diferença ΔE 2,2; 540 C, ΔE 3,0. Off-White: 11-0103 TCX Egret, ΔE 1,0). Confirme no guia físico Pantone e peça prova impressa antes da primeira tiragem; para as camisas, use a referência TCX com a estamparia.</p>
-      </div>
-    </section>
 
-    <!-- ═══════ TIPOGRAFIA ═══════ -->
-    <section class="pane" id="pane-tipografia" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">Tipografia</p>
-        <h2 class="section-title">Sofisticação em cada detalhe</h2>
-        <p class="lead">A tipografia complementa a identidade com elegância e legibilidade, equilibrando a tradição da serifa com a clareza do sans-serif.</p>
-      </div>
+        <div class="subsection" id="sec-usos" tabindex="-1">
+          <div class="block">
+            <p class="eyebrow">Diretrizes de Uso</p>
+            <h2 class="section-title">Uso e preservação</h2>
+            <p class="lead">Para preservar a integridade da marca e fortalecer seu reconhecimento, siga as diretrizes abaixo em todas as aplicações.</p>
+          </div>
 
-      <div class="block">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <div class="type-card">
-              <p class="type-role">Primária · Títulos e Logo</p>
-              <p class="type-name" style="font-family:'Playfair Display',serif">Playfair Display</p>
-              <p class="type-sample" style="font-family:'Playfair Display',serif">Aa Bb Cc · REVESTE</p>
-              <p>Serifa de transição com alto contraste, ideal para títulos e logotipos. Transmite elegância, autoridade e um toque clássico que remete à história.</p>
+          <div class="block">
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3">
+                <div class="guide-card"><h4>Integridade Formal</h4><p>Não distorcer a marca; sempre redimensionar proporcionalmente.</p></div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="guide-card"><h4>Fidelidade Cromática</h4><p>Usar apenas as cores oficiais; evitar gradientes e efeitos.</p></div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="guide-card"><h4>Contraste e Leitura</h4><p>Garantir contraste adequado; em fundos escuros, usar a versão negativa.</p></div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="guide-card"><h4>Área de Proteção</h4><p>Deixar livre em volta da logo, no mínimo, metade da largura de uma célula do ícone.</p></div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="type-card">
-              <p class="type-role">Secundária · Corpo de Texto</p>
-              <p class="type-name" style="font-family:'Lato',sans-serif">Lato</p>
-              <p class="type-sample" style="font-family:'Lato',sans-serif">Brasil que se usa. Arte que se vive.</p>
-              <p>Sans-serif humanista que equilibra a sofisticação da Playfair com clareza e modernidade. Excelente legibilidade em corpos de texto.</p>
+
+          <div class="block">
+            <p class="eyebrow">Tamanho Mínimo</p>
+            <div class="table-responsive">
+              <table class="size-table">
+                <thead><tr><th scope="col">Versão</th><th scope="col">Impresso</th><th scope="col">Tela</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Logo vertical com tagline</th><td>57 mm</td><td>283 px</td></tr>
+                  <tr><th scope="row">Logo horizontal com tagline</th><td>72 mm</td><td>358 px</td></tr>
+                  <tr><th scope="row">Logo vertical sem tagline</th><td>20 mm</td><td>100 px</td></tr>
+                  <tr><th scope="row">Logo horizontal sem tagline</th><td>25 mm</td><td>120 px</td></tr>
+                  <tr><th scope="row">Ícone</th><td>8 mm</td><td>24 px</td></tr>
+                  <tr><th scope="row">Selo Patrimonial</th><td>25 mm (diâmetro)</td><td>120 px</td></tr>
+                </tbody>
+              </table>
             </div>
+            <p class="download-note">Medidas pela largura. Abaixo do mínimo com tagline, use a versão sem tagline: a tagline deixa de ser legível.</p>
           </div>
-          <div class="col-md-6">
-            <div class="type-card">
-              <p class="type-role">Apoio · Materiais Impressos</p>
-              <p class="type-name" style="font-family:'Cormorant Garamond',serif">Cormorant Garamond</p>
-              <p class="type-sample" style="font-family:'Cormorant Garamond',serif">Herança que inspira, design que perpetua.</p>
-              <p>Estilo clássico e refinado, recomendado para lookbooks, tags e materiais impressos.</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="type-card">
-              <p class="type-role">Apoio · Digital e E-commerce</p>
-              <p class="type-name" style="font-family:'EB Garamond',serif">EB Garamond</p>
-              <p class="type-sample" style="font-family:'EB Garamond',serif">Fichas de produto e descrições.</p>
-              <p>Indicada para uso digital e e-commerce, garante excelente legibilidade em telas.</p>
+
+          <div class="block">
+            <div class="row g-4 align-items-start">
+              <div class="col-md-6">
+                <p class="eyebrow">Usos Incorretos</p>
+                <ul class="dont-list">
+                  <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Alterar as cores oficiais da logo.</li>
+                  <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Distorcer ou deformar o símbolo.</li>
+                  <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Adicionar efeitos ou sombras.</li>
+                  <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Redimensionar de forma desproporcional.</li>
+                  <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Aplicar em fundos com baixo contraste.</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <div class="slogan-band" style="height:100%;display:flex;flex-direction:column;justify-content:center">
+                  <p style="font-size:clamp(18px,3vw,24px)">"A consistência visual é o que transforma uma marca em um ícone cultural."</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════ USOS ═══════ -->
-    <section class="pane" id="pane-usos" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">Diretrizes de Uso</p>
-        <h2 class="section-title">Uso e preservação</h2>
-        <p class="lead">Para preservar a integridade da marca e fortalecer seu reconhecimento, siga as diretrizes abaixo em todas as aplicações.</p>
-      </div>
-
-      <div class="block">
-        <div class="row g-3">
-          <div class="col-md-6 col-lg-3">
-            <div class="guide-card"><h4>Integridade Formal</h4><p>Não distorcer a marca; sempre redimensionar proporcionalmente.</p></div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="guide-card"><h4>Fidelidade Cromática</h4><p>Usar apenas as cores oficiais; evitar gradientes e efeitos.</p></div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="guide-card"><h4>Contraste e Leitura</h4><p>Garantir contraste adequado; em fundos escuros, usar a versão negativa.</p></div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="guide-card"><h4>Área de Proteção</h4><p>Deixar livre em volta da logo, no mínimo, metade da largura de uma célula do ícone.</p></div>
-          </div>
+  <!-- ═══════ CORES E TIPOGRAFIA ═══════ -->
+  <section class="pane" id="pane-cores" tabindex="-1">
+    <div class="container-r pane-body">
+        <div class="block">
+          <p class="eyebrow">Paleta de Cores</p>
+          <h2 class="section-title">Elegância e tradição</h2>
+          <p class="lead">A paleta foi cuidadosamente selecionada para transmitir elegância, sofisticação e a riqueza cultural brasileira — sustentada por dois tons essenciais.</p>
         </div>
-      </div>
 
-      <div class="block">
-        <p class="eyebrow">Tamanho Mínimo</p>
-        <div class="table-responsive">
-          <table class="size-table">
-            <thead><tr><th scope="col">Versão</th><th scope="col">Impresso</th><th scope="col">Tela</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Logo vertical com tagline</th><td>57 mm</td><td>283 px</td></tr>
-              <tr><th scope="row">Logo horizontal com tagline</th><td>72 mm</td><td>358 px</td></tr>
-              <tr><th scope="row">Logo vertical sem tagline</th><td>20 mm</td><td>100 px</td></tr>
-              <tr><th scope="row">Logo horizontal sem tagline</th><td>25 mm</td><td>120 px</td></tr>
-              <tr><th scope="row">Ícone</th><td>8 mm</td><td>24 px</td></tr>
-              <tr><th scope="row">Selo Patrimonial</th><td>25 mm (diâmetro)</td><td>120 px</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="download-note">Medidas pela largura. Abaixo do mínimo com tagline, use a versão sem tagline: a tagline deixa de ser legível.</p>
-      </div>
-
-      <div class="block">
-        <div class="row g-4 align-items-start">
-          <div class="col-md-6">
-            <p class="eyebrow">Usos Incorretos</p>
-            <ul class="dont-list">
-              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Alterar as cores oficiais da logo.</li>
-              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Distorcer ou deformar o símbolo.</li>
-              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Adicionar efeitos ou sombras.</li>
-              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Redimensionar de forma desproporcional.</li>
-              <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8 8 8 8"/></svg> Aplicar em fundos com baixo contraste.</li>
+        <div class="block">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="color-card">
+                <div class="color-swatch sw-navy"><span class="swatch-sample" aria-hidden="true">Aa</span></div>
+                <div class="body">
+                  <h3>Azul Colonial</h3>
+                  <button type="button" class="color-hex" data-copy="#1A3A5C" aria-label="Copiar #1A3A5C">#1A3A5C<span class="copy-hint" aria-hidden="true">copiar</span></button>
+                  <p>Representa a profundidade histórica, a nobreza dos azulejos clássicos e a sofisticação da marca.</p>
+                  <dl class="color-codes"><dt>RGB</dt><dd>26 · 58 · 92</dd><dt>CMYK couché</dt><dd>84 · 54 · 11 · 59</dd><dt>CMYK sem revestimento</dt><dd>100 · 63 · 8 · 41</dd><dt>Pantone tecido</dt><dd>19-4029 TCX</dd><dt>Pantone gráfico</dt><dd>540 C</dd></dl>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="color-card">
+                <div class="color-swatch sw-cream"><span class="swatch-sample" aria-hidden="true">Aa</span></div>
+                <div class="body">
+                  <h3>Off-White</h3>
+                  <button type="button" class="color-hex" data-copy="#F0EAE0" aria-label="Copiar #F0EAE0">#F0EAE0<span class="copy-hint" aria-hidden="true">copiar</span></button>
+                  <p>Evoca a naturalidade das matérias-primas e o aspecto artesanal, proporcionando o contraste ideal para a leitura.</p>
+                  <dl class="color-codes"><dt>RGB</dt><dd>240 · 234 · 224</dd><dt>CMYK couché</dt><dd>7 · 7 · 13 · 0</dd><dt>CMYK sem revestimento</dt><dd>5 · 5 · 9 · 0</dd><dt>Pantone tecido</dt><dd>11-0103 TCX</dd><dt>Pantone gráfico</dt><dd>usar CMYK ou papel natural</dd></dl>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="color-note">CMYK calculado pelos perfis de impressão FOGRA39 (papel couché) e FOGRA52 (papel sem revestimento). Os Pantone são os mais próximos das cores da marca (Azul Colonial: 19-4029 TCX Navy Peony, diferença ΔE 2,2; 540 C, ΔE 3,0. Off-White: 11-0103 TCX Egret, ΔE 1,0). Confirme no guia físico Pantone e peça prova impressa antes da primeira tiragem; para as camisas, use a referência TCX com a estamparia.</p>
+          <div class="ui-colors">
+            <p class="ui-colors-title">Cores de interface <span>(só no site, não usar em peças da marca)</span></p>
+            <ul>
+              <li><span class="ui-dot" style="background:#14283F"></span><b>Azul Noite</b> #14283F · rodapé do site</li>
+              <li><span class="ui-dot" style="background:#B23A3A"></span><b>Vermelho Alerta</b> #B23A3A · marcação de uso incorreto</li>
             </ul>
           </div>
-          <div class="col-md-6">
-            <div class="slogan-band" style="height:100%;display:flex;flex-direction:column;justify-content:center">
-              <p style="font-size:clamp(18px,3vw,24px)">"A consistência visual é o que transforma uma marca em um ícone cultural."</p>
+        </div>
+
+        <div class="subsection" id="sec-tipografia" tabindex="-1">
+          <div class="block">
+            <p class="eyebrow">Tipografia</p>
+            <h2 class="section-title">Sofisticação em cada detalhe</h2>
+            <p class="lead">A tipografia complementa a identidade com elegância e legibilidade, equilibrando a tradição da serifa com a clareza do sans-serif.</p>
+          </div>
+
+          <div class="block">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="type-card">
+                  <p class="type-role">Primária · Títulos e Logo</p>
+                  <p class="type-name" style="font-family:'Playfair Display',serif">Playfair Display</p>
+                  <p class="type-sample" style="font-family:'Playfair Display',serif">Aa Bb Cc · REVESTE</p>
+                  <p>Serifa de transição com alto contraste, ideal para títulos e logotipos. Transmite elegância, autoridade e um toque clássico que remete à história.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="type-card">
+                  <p class="type-role">Secundária · Corpo de Texto</p>
+                  <p class="type-name" style="font-family:'Lato',sans-serif">Lato</p>
+                  <p class="type-sample" style="font-family:'Lato',sans-serif">Brasil que se usa. Arte que se vive.</p>
+                  <p>Sans-serif humanista que equilibra a sofisticação da Playfair com clareza e modernidade. Excelente legibilidade em corpos de texto.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="type-card">
+                  <p class="type-role">Apoio · Materiais Impressos</p>
+                  <p class="type-name" style="font-family:'Cormorant Garamond',serif">Cormorant Garamond</p>
+                  <p class="type-sample" style="font-family:'Cormorant Garamond',serif">Herança que inspira, design que perpetua.</p>
+                  <p>Estilo clássico e refinado, recomendado para lookbooks, tags e materiais impressos.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="type-card">
+                  <p class="type-role">Apoio · Digital e E-commerce</p>
+                  <p class="type-name" style="font-family:'EB Garamond',serif">EB Garamond</p>
+                  <p class="type-sample" style="font-family:'EB Garamond',serif">Fichas de produto e descrições.</p>
+                  <p>Indicada para uso digital e e-commerce, garante excelente legibilidade em telas.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════ COLEÇÕES ═══════ -->
-    <section class="pane" id="pane-colecoes" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">Aplicação · Produto</p>
-        <h2 class="section-title">As coleções Reveste</h2>
-        <p class="lead">A identidade ganha vida nas estampas: cada coleção traduz um capítulo do patrimônio brasileiro em camisas e camisetas que se vestem com significado.</p>
-      </div>
+  <!-- ═══════ COLEÇÕES ═══════ -->
+  <section class="pane" id="pane-colecoes" tabindex="-1">
+    <div class="container-r pane-body">
+        <div class="block">
+          <p class="eyebrow">Aplicação · Produto</p>
+          <h2 class="section-title">As coleções Reveste</h2>
+          <p class="lead">A identidade ganha vida nas estampas: cada coleção traduz um capítulo do patrimônio brasileiro em camisas e camisetas que se vestem com significado.</p>
+        </div>
 
-      <div class="coll-selector" id="collSelector" role="group" aria-label="Escolher coleção"></div>
-      <div id="collDetail"></div>
+        <div class="coll-selector" id="collSelector" role="group" aria-label="Escolher coleção"></div>
+        <div id="collDetail"></div>
 
-      <p class="eyebrow">Visão Geral — Todas as Coleções</p>
-      <div class="row g-3" id="collGrid"></div>
-    </section>
+        <p class="eyebrow">Visão Geral — Todas as Coleções</p>
+        <div class="coll-grid" id="collGrid"></div>
+    </div>
+  </section>
 
-    <!-- ═══════ CONTATO ═══════ -->
-    <section class="pane" id="pane-contato" tabindex="-1">
-      <div class="block">
-        <p class="eyebrow">Futuro da Marca</p>
-        <h2 class="section-title">Uma marca pronta para o futuro</h2>
-        <p class="lead">A identidade visual da Reveste não é apenas um conjunto de símbolos, mas a base para uma narrativa que honra o passado e veste o presente. Estamos prontos para expandir a herança cultural brasileira para o mundo.</p>
-      </div>
+  <!-- ═══════ CONTATO ═══════ -->
+  <section class="pane" id="pane-contato" tabindex="-1">
+    <div class="container-r pane-body">
+        <div class="block">
+          <p class="eyebrow">Futuro da Marca</p>
+          <h2 class="section-title">Uma marca pronta para o futuro</h2>
+          <p class="lead">A identidade visual da Reveste não é apenas um conjunto de símbolos, mas a base para uma narrativa que honra o passado e veste o presente. Estamos prontos para expandir a herança cultural brasileira para o mundo.</p>
+        </div>
 
-      <div class="contact-band">
-        <img src="assets/img/selo.png" alt="Selo Reveste" width="110" height="110" loading="lazy" />
-        <h2>Herança que inspira,<br>design que perpetua.</h2>
-        <p>Para dúvidas ou solicitações de materiais da marca, entre em contato com a equipe de marketing da Reveste.</p>
-        <ul class="contact-channels">
-          <li><a href="mailto:contato@reveste.com.br"><span class="contact-label">E-mail</span>contato@reveste.com.br</a></li>
-          <li><a href="https://wa.me/5521984330274" target="_blank" rel="noopener"><span class="contact-label">WhatsApp</span>(21) 98433-0274</a></li>
-        </ul>
-        <a class="contact-url" href="https://reveste.com.br" target="_blank" rel="noopener">REVESTE.COM.BR</a>
-      </div>
-    </section>
+        <div class="contact-band">
+          <img src="assets/img/selo.png" alt="Selo Reveste" width="110" height="110" loading="lazy" />
+          <h2>Herança que inspira,<br>design que perpetua.</h2>
+          <p>Para dúvidas ou solicitações de materiais da marca, entre em contato com a equipe de marketing da Reveste.</p>
+          <ul class="contact-channels">
+            <li><a href="mailto:contato@reveste.com.br"><span class="contact-label">E-mail</span>contato@reveste.com.br</a></li>
+            <li><a href="https://wa.me/5521984330274" target="_blank" rel="noopener"><span class="contact-label">WhatsApp</span>(21) 98433-0274</a></li>
+          </ul>
+          <a class="contact-url" href="https://reveste.com.br" target="_blank" rel="noopener">REVESTE.COM.BR</a>
+        </div>
+    </div>
+  </section>
 
-  </div>
 </main>
 
 <!-- ═══════════ MODAL VER CAMISA ═══════════ -->
@@ -578,6 +599,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="js/main.js?v=9"></script>
+<script src="js/main.js?v=10"></script>
 </body>
 </html>

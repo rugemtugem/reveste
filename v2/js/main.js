@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════
    REVESTE v2 — Manual de Identidade Visual
-   Navegação por abas, coleções (galeria de camisas e camisetas) e modal.
+   Navegação por abas, home, coleções (galeria de camisas e camisetas) e modal.
 ═══════════════════════════════════════════════════ */
 
 // ── DADOS DAS COLEÇÕES ────────────────────────────
@@ -82,66 +82,93 @@ function esc(str) {
 }
 
 // ── NAVEGAÇÃO POR ABAS ────────────────────────────
+// Abas: inicio, marca, logo, cores, colecoes, contato. O hash guarda a aba
+// (#cores) ou uma seção dentro dela (#usos, #tipografia, #construcao), ou uma
+// coleção (#colecoes-07). Os nomes antigos das 9 abas continuam funcionando.
+const SECTION_PANE = { construcao: "logo", usos: "logo", tipografia: "cores" };
+
 function initTabs() {
   const menu = document.getElementById("navMenu");
   const toggle = document.getElementById("navToggle");
-  const current = document.getElementById("navCurrent");
 
   function closeMenu() {
     menu.classList.remove("open");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menu");
   }
 
   toggle.addEventListener("click", () => {
     const open = menu.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   });
 
   const baseTitle = document.title;
-  const paneIds = [...document.querySelectorAll(".nav-btn")].map((b) => b.dataset.pane);
+  const panes = [...document.querySelectorAll(".pane")].map((p) => p.id.slice(5));
+  const labels = Object.fromEntries([...document.querySelectorAll(".nav-btn")].map((b) => [b.dataset.pane, b.textContent.trim()]));
 
-  // A aba aberta vive no hash (#cores, #colecoes...): dá para mandar o link
-  // de uma aba e o botão voltar do navegador funciona.
-  function showPane(id, { focus }) {
-    const btn = document.querySelector(`.nav-btn[data-pane="${id}"]`);
+  // "Próximo: …" no fim de cada aba (menos a inicial)
+  panes.slice(1).forEach((id, i) => {
+    const next = panes[i + 2];
+    const body = document.querySelector(`#pane-${id} .pane-body`);
+    const div = document.createElement("div");
+    div.className = "pane-next";
+    div.innerHTML = next
+      ? `<a href="#${next}"><small>Próximo</small> ${esc(labels[next])} <span aria-hidden="true">→</span></a>`
+      : `<a href="#inicio"><small>Voltar</small> Início <span aria-hidden="true">↑</span></a>`;
+    body.appendChild(div);
+  });
+
+  function parseHash() {
+    const h = location.hash.slice(1);
+    const coll = h.match(/^colecoes-(\d{2})$/);
+    if (coll) return { pane: "colecoes", coll: coll[1] };
+    if (SECTION_PANE[h]) return { pane: SECTION_PANE[h], section: h };
+    if (panes.includes(h)) return { pane: h };
+    return h ? null : { pane: "inicio" };     // null: hash que não é de aba (ex.: #conteudo)
+  }
+
+  function show(target, { focus }) {
+    const { pane: id, section, coll } = target;
     document.querySelectorAll(".nav-btn").forEach((b) => {
-      b.classList.remove("active");
-      b.removeAttribute("aria-current");
+      const on = b.dataset.pane === id;
+      b.classList.toggle("active", on);
+      if (on) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
     });
-    document.querySelectorAll(".pane").forEach((p) => p.classList.remove("active"));
-    btn.classList.add("active");
-    btn.setAttribute("aria-current", "page");
+    document.querySelectorAll(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + id));
     const pane = document.getElementById("pane-" + id);
-    pane.classList.add("active");
-    const label = btn.textContent.trim();
-    current.textContent = label;
-    document.title = id === paneIds[0] ? baseTitle : `${label} · ${baseTitle}`;
+    document.title = id === "inicio" ? baseTitle : `${labels[id]} · ${baseTitle}`;
     closeMenu();
-    if (focus) {
+    if (coll) {
+      const idx = COLLECTIONS.findIndex((c) => c.num === coll);
+      if (idx >= 0) { selectCollection(idx, { scroll: false }); }
+    }
+    if (section) {
+      const el = document.getElementById("sec-" + section);
+      el.scrollIntoView({ behavior: focus ? scrollBehavior() : "auto", block: "start" });
+      el.focus({ preventScroll: true });
+    } else if (coll) {
+      scrollToCollDetail();
+      document.querySelector("#collDetail .coll-hero-title").focus({ preventScroll: true });
+    } else if (focus) {
       window.scrollTo({ top: 0, behavior: scrollBehavior() });
       // leva o foco ao conteúdo novo, para teclado e leitor de tela
       pane.focus({ preventScroll: true });
     }
   }
 
-  function paneFromHash() {
-    const id = location.hash.slice(1);
-    return paneIds.includes(id) ? id : paneIds[0];
-  }
-
   document.querySelectorAll(".nav-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      if (paneFromHash() === btn.dataset.pane) showPane(btn.dataset.pane, { focus: true });
+      if (location.hash.slice(1) === btn.dataset.pane) show({ pane: btn.dataset.pane }, { focus: true });
       else location.hash = btn.dataset.pane; // dispara hashchange
     });
   });
 
   window.addEventListener("hashchange", () => {
-    const id = location.hash.slice(1);
-    if (id && !paneIds.includes(id)) return; // ex.: #conteudo do skip link
-    showPane(paneFromHash(), { focus: true });
+    const t = parseHash();
+    if (t) show(t, { focus: true });
   });
-  showPane(paneFromHash(), { focus: false });
+  show(parseHash() || { pane: "inicio" }, { focus: false });
 
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".brand-nav")) closeMenu();
@@ -155,6 +182,21 @@ function initTabs() {
   });
 }
 
+// ── COPIAR HEX (aba Cores) ────────────────────────
+function initCopyHex() {
+  document.querySelectorAll(".color-hex[data-copy]").forEach((btn) => {
+    const hint = btn.querySelector(".copy-hint");
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        btn.classList.add("copied"); hint.textContent = "copiado";
+        btn.setAttribute("aria-label", btn.dataset.copy + " copiado");
+        setTimeout(() => { btn.classList.remove("copied"); hint.textContent = "copiar"; btn.setAttribute("aria-label", "Copiar " + btn.dataset.copy); }, 1600);
+      } catch (_) { /* sem permissão de área de transferência: o código continua visível */ }
+    });
+  });
+}
+
 // ── COLEÇÕES ──────────────────────────────────────
 let activeColl = 0;
 
@@ -163,12 +205,13 @@ function scrollToCollDetail() {
   if (el) el.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
 }
 
-function selectCollection(idx) {
+function selectCollection(idx, { scroll = true } = {}) {
   activeColl = idx;
   activeFilter = "todos";
   renderCollSelector();
   renderCollDetail();
   renderCollGrid();
+  if (!scroll) return;
   scrollToCollDetail();
   // os botões clicados foram recriados; o foco vai para o título da coleção
   document.querySelector("#collDetail .coll-hero-title").focus({ preventScroll: true });
@@ -259,7 +302,7 @@ function renderGallery() {
 
 function renderCollGrid() {
   document.getElementById("collGrid").innerHTML = COLLECTIONS.map((c, i) => `
-    <div class="col-6 col-md-3">
+    <div>
       <button type="button" class="coll-grid-thumb ${i === activeColl ? "active" : ""}" data-idx="${i}"
         aria-pressed="${i === activeColl}">
         <img src="${c.img.replace(".jpeg", "-thumb.jpeg")}" alt="" loading="lazy" />
@@ -353,9 +396,11 @@ function initShirtModalNav() {
 
 // ── INICIALIZAÇÃO ─────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
-  initTabs();
-  initShirtModalNav();
+  // coleções primeiro: o hash inicial pode abrir uma coleção (#colecoes-07)
   renderCollSelector();
   renderCollDetail();
   renderCollGrid();
+  initShirtModalNav();
+  initCopyHex();
+  initTabs();
 });

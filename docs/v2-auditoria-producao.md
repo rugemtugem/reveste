@@ -130,3 +130,12 @@ Conferência imagem x lugar (2026-10-03). Critério: o nome real fica só quando
 - 06: Edifício Meia-Lua, Pavilhão Sol e Mar, Marquise das Cores, Casa dos Volumes, Conjunto Morro Alegre (o Capanema tem azulejos figurativos de Portinari; Copan e Ibirapuera não têm azulejaria)
 - 07: Painel Meia-Lua, Cruz do Planalto, Asas do Eixo, Vento Norte, Concreto e Sombra, Cerrado Verde (estilo de Athos Bulcão, sem atribuir obras a ele; isso também resolve a dúvida sobre Alvorada e Memorial JK)
 
+Revisão de UX (crítica + mockups "Nova Home"), etapas 1 e 2:
+
+- [x] Amostra do Off-White com moldura navy e "Aa"; códigos em tabela; HEX copiável; cores de interface (#14283F, #B23A3A) viraram tokens e estão documentadas na aba Cores
+- [x] Linhas órfãs: galeria em 3 colunas, coleções em 5 (5+5), valores 5 por linha (no celular o último ocupa a linha)
+- [x] Texto mínimo de 12 px (exceto a tagline dentro da arte da logo, que vira SVG na etapa 4)
+- [x] Barra única (logo + 5 abas): no celular, 182 → 62 px; "Manual de identidade visual" aparece 2 vezes
+- [x] 5 abas: A Marca · Logo e Usos (com Construção e Usos) · Cores e Tipografia · Coleções · Contato; #construcao, #usos e #tipografia continuam funcionando
+- [x] Home com produto (hero com 4 coleções, "Ver as coleções", "Baixar a marca") e "Explore o manual"; link direto por coleção (#colecoes-07); "Próximo" no fim de cada aba
+

@@ -29,6 +29,7 @@ mkdir -p build
 ## Correções e recortes (rodados uma vez; ficam como registro)
 
 - `fix_r.py <saída.png>` e `fix_icon.py <saída.png>`: refazem o R sem as manchas.
+- `hero.py write`: recortes só da camisa para o hero da home (`v2/assets/img/home/`).
 - `camisetas.py write`: recortes das camisetas (`originais/camisetas/`) para a galeria
   e banners das coleções 09 e 10.
 - `crop.py write` e `banner.py write`: peças e banners das coleções a partir de
