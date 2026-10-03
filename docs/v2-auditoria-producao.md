@@ -105,7 +105,7 @@ Ainda dependem do dono: hosting (R-04) e, com o domínio, og:image/canonical/sit
 
 - [x] Coleção 06 renomeada para "Azulejos Modernistas no Brasil" (as obras são do modernismo brasileiro, não da Bauhaus); texto reescrito; MES como Palácio Capanema
 - [x] Coleção 08: texto passa a tratar as estampas como reinterpretação em caquinhos (não afirma que os lugares são revestidos de caquinhos); Ibirapuera (repetido da 06) virou Calçadão de Copacabana, que é o padrão da estampa; Casa de Cora Coralina virou Casa da Flor (São Pedro da Aldeia/RJ), referência real de caquinhos
-- [ ] Coleção 07: confirmar obra de Athos Bulcão no Palácio da Alvorada e no Memorial JK Com o domínio definido: og:image, canonical e sitemap. Itens das coleções 06 e 08 ainda merecem checagem curatorial (Copan/MES como "Bauhaus"; Inhotim, Ibirapuera, São Francisco/Salvador e Cora Coralina como "caquinhos").
+- [x] Coleção 07: dúvida sobre Alvorada e Memorial JK resolvida, os painéis passaram a ter nomes criados Com o domínio definido: og:image, canonical e sitemap. Itens das coleções 06 e 08 ainda merecem checagem curatorial (Copan/MES como "Bauhaus"; Inhotim, Ibirapuera, São Francisco/Salvador e Cora Coralina como "caquinhos").
 
 Continuam abertos (histórico): H1 (fotos individuais de produto), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
 
@@ -120,5 +120,13 @@ Galeria de camisas e camisetas (2026-10-03):
 - [x] Cada coleção mostra as peças em grade com filtro Todos / Camisas / Camisetas (só quando há os dois tipos); o modal navega dentro do filtro
 - [x] 45 camisetas recortadas de 8 painéis (`originais/camisetas/`, fora do Git): 04, 05 (3 estilos: lateral, canto, quadro central, +"Azulejo Português Clássico"), 06, 07
 - [x] Novas coleções 09 Ladrilhos Hidráulicos e 10 Caquinhos Suburbanos do Brasil (só camisetas); "Pátio das Cores" repetido na 10 virou "Ladeira das Cores – Salvador/BA"
-- [x] Coleções 09 e 10 dizem no texto que os lugares que dão nome às peças são homenagens criadas pela Reveste (a 02 tem a mesma situação e ainda não diz)
+- [x] Coleções 09 e 10 dizem no texto que os lugares que dão nome às peças são homenagens criadas pela Reveste ; a 02 também
+
+Conferência imagem x lugar (2026-10-03). Critério: o nome real fica só quando a imagem tem ligação reconhecível com o lugar (padrão, técnica ou devoção que existem lá); o resto vira homenagem com nome criado, e o texto da coleção avisa.
+
+- Mantidos: 03 (motivos, não lugares), 04 (devoções), 05-1 Igreja de São Francisco/Salvador (azulejo azul e branco), 08 inteira (reinterpretação de paisagens; Selarón, Copacabana e Casa da Flor batem)
+- 01: Capela do Ouro Velho, Igreja das Estrelas Azuis, Matriz da Luz Dourada, Capela do Jardim Sagrado, Igreja dos Arabescos, Capela do Mar e da Terra (interiores genéricos de IA, com pisos que as igrejas reais não têm)
+- 05-2..5: Solar da Moldura Dourada, Mirante Verde-Mar, Casa das Rosáceas Azuis, Solar das Folhagens
+- 06: Edifício Meia-Lua, Pavilhão Sol e Mar, Marquise das Cores, Casa dos Volumes, Conjunto Morro Alegre (o Capanema tem azulejos figurativos de Portinari; Copan e Ibirapuera não têm azulejaria)
+- 07: Painel Meia-Lua, Cruz do Planalto, Asas do Eixo, Vento Norte, Concreto e Sombra, Cerrado Verde (estilo de Athos Bulcão, sem atribuir obras a ele; isso também resolve a dúvida sobre Alvorada e Memorial JK)
 
