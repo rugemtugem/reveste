@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════
    REVESTE v2 — Manual de Identidade Visual
-   Navegação por abas, coleções e modal "Ver camisa".
+   Navegação por abas, coleções (galeria de camisas e camisetas) e modal.
 ═══════════════════════════════════════════════════ */
 
 // ── DADOS DAS COLEÇÕES ────────────────────────────
@@ -20,31 +20,63 @@ const COLLECTIONS = [
   { num: "04", name: "Azulejos Devocionais", sub: "Fé que Protege o Lar",
     desc: "Herdados da tradição portuguesa, os azulejos devocionais trazem proteção, fé e beleza às fachadas do subúrbio.",
     img: "assets/img/collections/collection-04-devocionais.jpeg",
-    items: ["Nossa Senhora Aparecida – Aparecida/SP","Sagrado Coração de Jesus – Recife/PE","São Jorge – Rio de Janeiro/RJ","Santo Antônio – Salvador/BA","Anjo da Guarda – Belém/PA"] },
+    items: ["Nossa Senhora Aparecida – Aparecida/SP","Sagrado Coração de Jesus – Recife/PE","São Jorge – Rio de Janeiro/RJ","Santo Antônio – Salvador/BA","Anjo da Guarda – Belém/PA"],
+    tees: [{}] },
   { num: "05", name: "Azulejos Portugueses no Brasil", sub: "História que Reveste",
     desc: "Trazidos desde o século XVI, os azulejos contam histórias de fé, cultura e arte que ainda decoram igrejas e palácios.",
     img: "assets/img/collections/collection-05-portugueses.jpeg",
-    items: ["Igreja de São Francisco – Salvador/BA","Igreja de Nossa Senhora da Glória do Outeiro – Rio de Janeiro/RJ","Convento da Penha – Vila Velha/ES","Igreja do Carmo – Olinda/PE","Solar do Unhão – Salvador/BA"] },
+    items: ["Igreja de São Francisco – Salvador/BA","Igreja de Nossa Senhora da Glória do Outeiro – Rio de Janeiro/RJ","Convento da Penha – Vila Velha/ES","Igreja do Carmo – Olinda/PE","Solar do Unhão – Salvador/BA"],
+    tees: [
+      { style: "lateral", label: "Estampa lateral" },
+      { style: "canto", label: "Estampa de canto", extra: ["Azulejo Português Clássico"] },
+      { style: "quadro", label: "Quadro central", extra: ["Azulejo Português Clássico"] },
+    ] },
   { num: "06", name: "Azulejos Modernistas no Brasil", sub: "Design que Constrói História",
     desc: "A partir dos anos 1930, a arquitetura moderna brasileira reinventou o azulejo em painéis geométricos e figurativos, como os de Portinari no Palácio Capanema. As estampas levam para a camisa as formas e a geometria dessas obras.",
     img: "assets/img/collections/collection-06-bauhaus.jpeg",
-    items: ["Edifício Copan – São Paulo/SP","Palácio Capanema – Rio de Janeiro/RJ","Parque do Ibirapuera – São Paulo/SP","Residência Gregori Warchavchik – São Paulo/SP","Conjunto Residencial Pedregulho – Rio de Janeiro/RJ"] },
+    items: ["Edifício Copan – São Paulo/SP","Palácio Capanema – Rio de Janeiro/RJ","Parque do Ibirapuera – São Paulo/SP","Residência Gregori Warchavchik – São Paulo/SP","Conjunto Residencial Pedregulho – Rio de Janeiro/RJ"],
+    tees: [{}] },
   { num: "07", name: "Azulejos Athos Bulcão no Brasil", sub: "Arte que Integra",
     desc: "Composições geométricas marcadas pela precisão, ritmo e harmonia — presentes nos ícones da arquitetura moderna brasileira.",
     img: "assets/img/collections/collection-07-athos.jpeg",
-    items: ["Palácio da Alvorada – Brasília/DF","Igrejinha Nossa Senhora de Fátima – Brasília/DF","Ministério das Relações Exteriores – Brasília/DF","Teatro Nacional – Brasília/DF","Memorial JK – Brasília/DF","Câmara dos Deputados – Brasília/DF"] },
+    items: ["Palácio da Alvorada – Brasília/DF","Igrejinha Nossa Senhora de Fátima – Brasília/DF","Ministério das Relações Exteriores – Brasília/DF","Teatro Nacional – Brasília/DF","Memorial JK – Brasília/DF","Câmara dos Deputados – Brasília/DF"],
+    tees: [{}] },
   { num: "08", name: "Caquinhos do Brasil", sub: "Arte Popular que Reveste",
     desc: "Caquinhos são cacos de azulejo, louça e cerâmica reaproveitados à mão, uma arte popular que transformou escadarias, casas e calçadas pelo Brasil. Nesta coleção, a técnica reinterpreta paisagens e monumentos brasileiros em estampas.",
     img: "assets/img/collections/collection-08-caquinhos-pop.jpeg",
     items: ["Escadaria Selarón – Rio de Janeiro/RJ","Museu do Inhotim – Brumadinho/MG","Calçadão de Copacabana – Rio de Janeiro/RJ","Igreja de São Francisco – Salvador/BA","Casa da Flor – São Pedro da Aldeia/RJ","Orla de Boa Viagem – Recife/PE"] },
+  { num: "09", name: "Ladrilhos Hidráulicos", sub: "Tradição que Dura e Encanta",
+    desc: "Feitos de cimento, areia e pigmentos, prensados à mão e curados na água, os ladrilhos hidráulicos chegaram ao Brasil no século XIX e coloriram pisos de casas e casarões por gerações. Cada estampa homenageia um desses pisos.",
+    img: "assets/img/collections/collection-09-ladrilhos.jpeg",
+    items: [],
+    tees: [{ names: ["Casa da Nonna – Santa Teresa/RJ","Villa Miriam – Olinda/PE","Solar do Café – Vassouras/RJ","Casarão do Brás – São Paulo/SP","Jardim da Vovó – Campinas/SP","Pátio das Cores – Salvador/BA"] }] },
+  { num: "10", name: "Caquinhos Suburbanos do Brasil", sub: "Memória que Pisa Forte",
+    desc: "Pisos montados à mão com cacos de azulejo e lajota nos quintais, varandas e calçadas do subúrbio. Feitos de cacos, mas cheios de identidade: cada estampa é um retrato desse chão brasileiro.",
+    img: "assets/img/collections/collection-10-caquinhos-suburbanos.jpeg",
+    items: [],
+    tees: [{ names: ["Casa de Vó – Irajá/RJ","Quintal da Tia – Cachoeirinha/PE","Varanda do Samba – Madureira/RJ","Salão do Baile – Olinda/PE","Calçada da Esquina – Penha/RJ","Ladeira das Cores – Salvador/BA"] }] },
 ];
+
+// Peças de uma coleção: camisas (items) + camisetas (tees, por estilo).
+function collPieces(c) {
+  const camisas = c.items.map((name, j) => ({
+    type: "camisa", name, num: j + 1, label: "",
+    img: `assets/img/shirts/coll-${c.num}-piece-${j + 1}.jpeg`,
+  }));
+  const camisetas = (c.tees || []).flatMap((g) => {
+    const names = (g.names || c.items).concat(g.extra || []);
+    return names.map((name, j) => ({
+      type: "camiseta", name, num: j + 1, label: g.label || "",
+      img: `assets/img/camisetas/coll-${c.num}-${g.style ? g.style + "-" : ""}piece-${j + 1}.jpeg`,
+    }));
+  });
+  return camisas.concat(camisetas);
+}
+const TYPE_LABEL = { camisa: "Camisa", camiseta: "Camiseta" };
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 function scrollBehavior() { return reduceMotion.matches ? "auto" : "smooth"; }
 
-function pieceImg(coll, pieceIdx) {
-  return `assets/img/shirts/coll-${coll.num}-piece-${pieceIdx + 1}.jpeg`;
-}
 function esc(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
@@ -133,6 +165,7 @@ function scrollToCollDetail() {
 
 function selectCollection(idx) {
   activeColl = idx;
+  activeFilter = "todos";
   renderCollSelector();
   renderCollDetail();
   renderCollGrid();
@@ -152,20 +185,15 @@ function renderCollSelector() {
   });
 }
 
+let activeFilter = "todos";
+
+function visiblePieces() {
+  const all = collPieces(COLLECTIONS[activeColl]);
+  return activeFilter === "todos" ? all : all.filter((p) => p.type === activeFilter);
+}
+
 function renderCollDetail() {
   const c = COLLECTIONS[activeColl];
-  const piecesHtml = c.items.map((item, j) => `
-    <li class="coll-piece">
-      <img class="coll-piece-thumb" src="${pieceImg(c, j)}" alt="" aria-hidden="true"
-        loading="lazy" data-coll="${activeColl}" data-item="${j}" />
-      <span class="coll-piece-name">
-        <span class="coll-piece-num">${String(j + 1).padStart(2, "0")}</span>${esc(item)}
-      </span>
-      <button type="button" class="ver-camisa-btn" data-coll="${activeColl}" data-item="${j}"
-        aria-label="Ver camisa: ${esc(item)}">Ver camisa</button>
-    </li>
-  `).join("");
-
   document.getElementById("collDetail").innerHTML = `
     <div class="coll-hero">
       <img src="${c.img}" alt="${esc(c.name)}" />
@@ -179,18 +207,53 @@ function renderCollDetail() {
         <span class="coll-box-label">Sobre a Coleção</span>
         <p>${esc(c.desc)}</p>
       </div>
-      <div class="coll-list-box">
-        <span class="coll-box-label">Peças da Coleção</span>
-        <ul>${piecesHtml}</ul>
+      <div class="coll-gallery-box">
+        <div class="gal-head">
+          <span class="coll-box-label" id="galLabel">Peças da Coleção</span>
+          <div class="gal-filter" id="galFilter" role="group" aria-label="Filtrar peças"></div>
+        </div>
+        <ul class="gal-grid" id="galGrid" aria-labelledby="galLabel"></ul>
       </div>
     </div>
   `;
+  renderGallery();
+}
 
-  document.querySelectorAll("#collDetail .ver-camisa-btn").forEach((btn) => {
-    btn.addEventListener("click", () => openShirtModal(parseInt(btn.dataset.coll, 10), parseInt(btn.dataset.item, 10)));
-  });
-  document.querySelectorAll("#collDetail .coll-piece-thumb").forEach((thumb) => {
-    thumb.addEventListener("click", () => openShirtModal(parseInt(thumb.dataset.coll, 10), parseInt(thumb.dataset.item, 10)));
+function renderGallery() {
+  const all = collPieces(COLLECTIONS[activeColl]);
+  const count = { camisa: 0, camiseta: 0 };
+  all.forEach((p) => count[p.type]++);
+  const filter = document.getElementById("galFilter");
+  // o filtro só aparece quando a coleção tem os dois tipos
+  if (count.camisa && count.camiseta) {
+    const opts = [["todos", "Todos", all.length], ["camisa", "Camisas", count.camisa], ["camiseta", "Camisetas", count.camiseta]];
+    filter.innerHTML = opts.map(([k, t, n]) => `
+      <button type="button" class="gal-chip ${k === activeFilter ? "active" : ""}" data-filter="${k}"
+        aria-pressed="${k === activeFilter}">${t} <span class="gal-count">${n}</span></button>`).join("");
+    filter.querySelectorAll(".gal-chip").forEach((b) => b.addEventListener("click", () => {
+      activeFilter = b.dataset.filter;
+      renderGallery();
+      document.querySelector(`.gal-chip[data-filter="${activeFilter}"]`).focus();
+    }));
+  } else {
+    filter.innerHTML = `<span class="gal-only">${count.camisa ? "Camisas" : "Camisetas"} · ${all.length}</span>`;
+  }
+  document.getElementById("galGrid").innerHTML = visiblePieces().map((p, k) => {
+    const tipo = TYPE_LABEL[p.type] + (p.label ? " · " + p.label : "");
+    return `
+    <li>
+      <button type="button" class="gal-card" data-k="${k}"
+        aria-label="Ver ${TYPE_LABEL[p.type].toLowerCase()}: ${esc(p.name)}${p.label ? " (" + esc(p.label) + ")" : ""}">
+        <span class="gal-img"><img src="${p.img}" alt="" loading="lazy" /></span>
+        <span class="gal-meta">
+          <span class="gal-type">${esc(tipo)}</span>
+          <span class="gal-name"><span class="gal-num">${String(p.num).padStart(2, "0")}</span>${esc(p.name)}</span>
+        </span>
+      </button>
+    </li>`;
+  }).join("");
+  document.querySelectorAll("#galGrid .gal-card").forEach((b) => {
+    b.addEventListener("click", () => openShirtModal(visiblePieces(), parseInt(b.dataset.k, 10)));
   });
 }
 
@@ -216,42 +279,43 @@ function renderCollGrid() {
 // ── MODAL "VER CAMISA" ────────────────────────────
 let shirtModalInstance = null;
 let shirtModalOpen = false;
-let modalColl = 0;
+let modalList = [];
 let modalItem = 0;
 
 function renderShirtModal() {
-  const c = COLLECTIONS[modalColl];
-  const total = c.items.length;
-  const name = c.items[modalItem];
+  const c = COLLECTIONS[activeColl];
+  const p = modalList[modalItem];
+  const total = modalList.length;
+  const tipo = TYPE_LABEL[p.type];
 
   document.getElementById("shirtModalColl").textContent = c.num + " · " + c.name;
-  document.getElementById("shirtModalTitle").textContent = name;
+  document.getElementById("shirtModalTitle").textContent = p.name;
 
   const img = document.getElementById("shirtModalImg");
-  img.src = pieceImg(c, modalItem);
-  img.alt = "Camisa Reveste — " + name;
+  img.src = p.img;
+  img.alt = tipo + " Reveste — " + p.name;
 
   document.getElementById("shirtModalCaption").innerHTML =
     `<strong>Peça ${String(modalItem + 1).padStart(2, "0")} de ${String(total).padStart(2, "0")}</strong> · ` +
-    `Camisa da coleção <strong>${esc(c.name)}</strong> — ${esc(c.sub)}. ` +
-    `Estampa inspirada em <strong>${esc(name)}</strong>.`;
+    `${tipo}${p.label ? " (" + esc(p.label.toLowerCase()) + ")" : ""} da coleção <strong>${esc(c.name)}</strong> — ${esc(c.sub)}. ` +
+    `Estampa inspirada em <strong>${esc(p.name)}</strong>.`;
 
   document.getElementById("shirtModalPrev").disabled = modalItem === 0;
   document.getElementById("shirtModalNext").disabled = modalItem === total - 1;
 }
 
 function goPrevShirt() { if (modalItem > 0) { modalItem--; renderShirtModal(); } }
-function goNextShirt() { if (modalItem < COLLECTIONS[modalColl].items.length - 1) { modalItem++; renderShirtModal(); } }
+function goNextShirt() { if (modalItem < modalList.length - 1) { modalItem++; renderShirtModal(); } }
 
 let shirtModalTrigger = null;
 
-function openShirtModal(collIdx, itemIdx) {
+function openShirtModal(list, k) {
   // o Bootstrap só devolve o foco quando o modal abre por data-bs-toggle
   shirtModalTrigger = document.activeElement;
-  modalColl = collIdx;
-  modalItem = itemIdx;
+  modalList = list;
+  modalItem = k;
   // sem o Bootstrap (CDN fora do ar ou bloqueado), abre a imagem direto
-  if (!window.bootstrap) { window.location.href = pieceImg(COLLECTIONS[collIdx], itemIdx); return; }
+  if (!window.bootstrap) { window.location.href = list[k].img; return; }
   renderShirtModal();
   if (!shirtModalInstance) shirtModalInstance = new bootstrap.Modal(document.getElementById("shirtModal"));
   shirtModalInstance.show();

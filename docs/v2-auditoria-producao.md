@@ -114,3 +114,11 @@ Continuam abertos (histórico): H1 (fotos individuais de produto), H2 (revisão 
 - [ ] Pronto
 - [ ] Pronto com pendências aceitas
 - [x] **Bloqueado**: H2 (dados factuais), H1 (imagens do produto) e R-03/R-04 (público, acesso e hosting indefinidos). H3, M1, M2, M3 e M5 são correções de código que cabem num ciclo curto.
+
+Galeria de camisas e camisetas (2026-10-03):
+
+- [x] Cada coleção mostra as peças em grade com filtro Todos / Camisas / Camisetas (só quando há os dois tipos); o modal navega dentro do filtro
+- [x] 45 camisetas recortadas de 8 painéis (`originais/camisetas/`, fora do Git): 04, 05 (3 estilos: lateral, canto, quadro central, +"Azulejo Português Clássico"), 06, 07
+- [x] Novas coleções 09 Ladrilhos Hidráulicos e 10 Caquinhos Suburbanos do Brasil (só camisetas); "Pátio das Cores" repetido na 10 virou "Ladeira das Cores – Salvador/BA"
+- [ ] As casas das coleções 09 e 10 (Casa da Nonna, Solar do Café etc.) são nomes criados para as estampas, como na 02: confirmar que a marca quer apresentá-los assim
+

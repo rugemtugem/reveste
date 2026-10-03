@@ -576,41 +576,46 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
 }
 .coll-hero-title { margin: 0; font-family: var(--serif); font-size: 28px; color: #fff; font-weight: 700; }
-.coll-detail { display: grid; grid-template-columns: 1fr 1fr; background: var(--paper); }
-.coll-desc-box { padding: 28px 32px; border-right: 1px solid var(--line); }
-.coll-list-box { padding: 28px 32px; }
+.coll-detail { background: var(--paper); }
+.coll-desc-box { padding: 28px 32px; border-bottom: 1px solid var(--line); }
 .coll-box-label {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--navy); display: block; margin-bottom: 12px; font-weight: 700;
 }
-.coll-desc-box p { font-size: 14px; line-height: 1.85; color: var(--muted); margin: 0; }
-.coll-list-box ul { list-style: none; margin: 0; padding: 0; }
-.coll-piece {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 0; border-bottom: 1px solid var(--line);
+.coll-desc-box p { font-size: 14px; line-height: 1.85; color: var(--muted); margin: 0; max-width: 760px; }
+
+/* galeria de peças (camisas e camisetas) */
+.coll-gallery-box { padding: 24px 32px 32px; }
+.gal-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 16px; }
+.gal-head .coll-box-label { margin: 0; }
+.gal-filter { display: flex; flex-wrap: wrap; gap: 6px; }
+.gal-chip {
+  border: 1px solid var(--line); background: var(--paper); color: var(--navy);
+  padding: 6px 12px; font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
 }
-.coll-piece:last-child { border-bottom: none; }
-.coll-piece-thumb {
-  flex-shrink: 0; width: 48px; height: 48px;
-  object-fit: cover; object-position: right top; /* a camisa fica à direita do recorte */
-  border: 1px solid var(--line); background: #fff; cursor: pointer;
-  transition: transform .15s, border-color .15s;
+.gal-chip:hover { border-color: var(--navy); }
+.gal-chip.active { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+.gal-count { font-weight: 400; opacity: .75; margin-left: 2px; }
+.gal-only { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.gal-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px;
 }
-.coll-piece-thumb:hover { transform: scale(1.06); border-color: var(--navy); }
-.coll-piece-name { flex: 1; font-size: 13px; line-height: 1.5; color: var(--ink); }
-.coll-piece-num { font-weight: 700; color: var(--navy); margin-right: 6px; }
-.ver-camisa-btn {
-  flex-shrink: 0;
-  border: 1px solid var(--navy);
-  background: transparent;
-  color: var(--navy);
-  padding: 7px 13px;
-  font-family: var(--sans);
-  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  cursor: pointer; white-space: nowrap;
-  transition: background .2s, color .2s;
+.gal-card {
+  display: flex; flex-direction: column; width: 100%; height: 100%;
+  padding: 0; text-align: left; font: inherit; color: inherit;
+  background: #fff; border: 1px solid var(--line); cursor: pointer;
+  transition: border-color .2s, transform .2s;
 }
-.ver-camisa-btn:hover { background: var(--navy); color: var(--cream); }
+.gal-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+.gal-img { display: block; aspect-ratio: 4 / 3; background: #ECE6DC; overflow: hidden; }
+.gal-img img { width: 100%; height: 100%; object-fit: contain; }
+.gal-meta { display: block; padding: 10px 12px 12px; border-top: 1px solid var(--line); }
+.gal-type { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
+.gal-name { display: block; font-size: 13px; line-height: 1.45; color: var(--ink); }
+.gal-num { font-weight: 700; color: var(--navy); margin-right: 6px; }
 .coll-grid-thumb {
   display: block; width: 100%; padding: 0; text-align: left;
   font: inherit; color: inherit;
@@ -764,8 +769,8 @@ img { max-width: 100%; height: auto; display: block; }
   .lockup-h .wm { font-size: 26px; letter-spacing: 5px; }
   .lockup-h .tg { font-size: 7px; letter-spacing: 1.2px; }
 
-  .coll-detail { grid-template-columns: 1fr; }
-  .coll-desc-box { border-right: none; border-bottom: 1px solid var(--line); }
+  .coll-desc-box, .coll-gallery-box { padding-left: 20px; padding-right: 20px; }
+  .gal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .coll-hero-title { font-size: 22px; }
 
   .shirt-modal .modal-dialog { margin: 12px; }
@@ -780,5 +785,5 @@ img { max-width: 100%; height: auto; display: block; }
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
-  .coll-piece-thumb:hover, .coll-grid-thumb:hover { transform: none; }
+  .gal-card:hover, .coll-grid-thumb:hover { transform: none; }
 }
