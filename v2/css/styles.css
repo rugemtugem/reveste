@@ -626,6 +626,33 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 0 16px;
 }
 .contact-band p { max-width: 600px; margin: 0 auto 24px; color: rgba(240,234,224,.85); }
+.contact-channels {
+  list-style: none;
+  margin: 0 auto 28px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+}
+.contact-channels a {
+  display: block;
+  font-size: 16px;
+  color: var(--cream);
+  border-bottom: 1px solid rgba(240,234,224,.35);
+  padding-bottom: 4px;
+  transition: border-color .2s;
+}
+.contact-channels a:hover { border-bottom-color: var(--cream); }
+.contact-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(240,234,224,.7);
+  margin-bottom: 4px;
+}
 .contact-url {
   display: inline-block;
   font-family: var(--serif);
