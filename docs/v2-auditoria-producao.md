@@ -101,7 +101,11 @@ Rodada de 2026-10-03 (noite), sem designer: a marca veio de imagens geradas por 
 - [x] M4 área de proteção e tamanho mínimo publicados na aba Usos; e-mail e WhatsApp na aba Contato
 - [x] R do elemento e do ícone sem as manchas das serifas
 
-Ainda dependem do dono: hosting (R-04) e, com o domínio, og:image/canonical/sitemap; prova impressa das cores. Com o domínio definido: og:image, canonical e sitemap. Itens das coleções 06 e 08 ainda merecem checagem curatorial (Copan/MES como "Bauhaus"; Inhotim, Ibirapuera, São Francisco/Salvador e Cora Coralina como "caquinhos").
+Ainda dependem do dono: hosting (R-04) e, com o domínio, og:image/canonical/sitemap; prova impressa das cores.
+
+- [x] Coleção 06 renomeada para "Azulejos Modernistas no Brasil" (as obras são do modernismo brasileiro, não da Bauhaus); texto reescrito; MES como Palácio Capanema
+- [x] Coleção 08: texto passa a tratar as estampas como reinterpretação em caquinhos (não afirma que os lugares são revestidos de caquinhos); Ibirapuera (repetido da 06) virou Calçadão de Copacabana, que é o padrão da estampa; Casa de Cora Coralina virou Casa da Flor (São Pedro da Aldeia/RJ), referência real de caquinhos
+- [ ] Coleção 07: confirmar obra de Athos Bulcão no Palácio da Alvorada e no Memorial JK Com o domínio definido: og:image, canonical e sitemap. Itens das coleções 06 e 08 ainda merecem checagem curatorial (Copan/MES como "Bauhaus"; Inhotim, Ibirapuera, São Francisco/Salvador e Cora Coralina como "caquinhos").
 
 Continuam abertos (histórico): H1 (fotos individuais de produto), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
 

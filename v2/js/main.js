@@ -25,18 +25,18 @@ const COLLECTIONS = [
     desc: "Trazidos desde o século XVI, os azulejos contam histórias de fé, cultura e arte que ainda decoram igrejas e palácios.",
     img: "assets/img/collections/collection-05-portugueses.jpeg",
     items: ["Igreja de São Francisco – Salvador/BA","Igreja de Nossa Senhora da Glória do Outeiro – Rio de Janeiro/RJ","Convento da Penha – Vila Velha/ES","Igreja do Carmo – Olinda/PE","Solar do Unhão – Salvador/BA"] },
-  { num: "06", name: "Azulejos Bauhaus no Brasil", sub: "Design que Constrói História",
-    desc: "Inspirados na escola Bauhaus, representam a presença do movimento moderno em importantes obras arquitetônicas brasileiras.",
+  { num: "06", name: "Azulejos Modernistas no Brasil", sub: "Design que Constrói História",
+    desc: "A partir dos anos 1930, a arquitetura moderna brasileira reinventou o azulejo em painéis geométricos e figurativos, como os de Portinari no Palácio Capanema. As estampas levam para a camisa as formas e a geometria dessas obras.",
     img: "assets/img/collections/collection-06-bauhaus.jpeg",
-    items: ["Edifício Copan – São Paulo/SP","Ministério da Educação e Saúde – Rio de Janeiro/RJ","Parque do Ibirapuera – São Paulo/SP","Residência Gregori Warchavchik – São Paulo/SP","Conj. Residencial Pedregulho – Rio de Janeiro/RJ"] },
+    items: ["Edifício Copan – São Paulo/SP","Palácio Capanema – Rio de Janeiro/RJ","Parque do Ibirapuera – São Paulo/SP","Residência Gregori Warchavchik – São Paulo/SP","Conjunto Residencial Pedregulho – Rio de Janeiro/RJ"] },
   { num: "07", name: "Azulejos Athos Bulcão no Brasil", sub: "Arte que Integra",
     desc: "Composições geométricas marcadas pela precisão, ritmo e harmonia — presentes nos ícones da arquitetura moderna brasileira.",
     img: "assets/img/collections/collection-07-athos.jpeg",
     items: ["Palácio da Alvorada – Brasília/DF","Igrejinha Nossa Senhora de Fátima – Brasília/DF","Ministério das Relações Exteriores – Brasília/DF","Teatro Nacional – Brasília/DF","Memorial JK – Brasília/DF","Câmara dos Deputados – Brasília/DF"] },
   { num: "08", name: "Caquinhos do Brasil", sub: "Arte Popular que Reveste",
-    desc: "Feitos de fragmentos de azulejos, cerâmicas e vidros — transformando fachadas e espaços públicos em obras de arte.",
+    desc: "Caquinhos são cacos de azulejo, louça e cerâmica reaproveitados à mão, uma arte popular que transformou escadarias, casas e calçadas pelo Brasil. Nesta coleção, a técnica reinterpreta paisagens e monumentos brasileiros em estampas.",
     img: "assets/img/collections/collection-08-caquinhos-pop.jpeg",
-    items: ["Escadaria Selarón – Rio de Janeiro/RJ","Museu do Inhotim – Brumadinho/MG","Parque do Ibirapuera – São Paulo/SP","Igreja de São Francisco – Salvador/BA","Casa de Cora Coralina – Goiás/GO","Orla de Boa Viagem – Recife/PE"] },
+    items: ["Escadaria Selarón – Rio de Janeiro/RJ","Museu do Inhotim – Brumadinho/MG","Calçadão de Copacabana – Rio de Janeiro/RJ","Igreja de São Francisco – Salvador/BA","Casa da Flor – São Pedro da Aldeia/RJ","Orla de Boa Viagem – Recife/PE"] },
 ];
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
