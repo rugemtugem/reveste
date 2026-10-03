@@ -1,0 +1,46 @@
+REVESTE · ARQUIVOS DA MARCA
+Brasil que se usa · Arte que se vive
+
+FORMATOS
+  .svg  vetor para web e para edição (Illustrator, Figma, Inkscape)
+  .pdf  vetor para gráfica, etiquetas, bordado e grandes formatos
+  .png  2000 px de largura, fundo transparente, para uso digital rápido
+  Os textos estão convertidos em contorno: não é preciso instalar fontes.
+
+VERSÕES
+  logo-vertical / logo-horizontal ............ uso principal, com a tagline
+  ...-negativa ............................... para fundos escuros
+  ...-sem-tagline ............................ para tamanhos pequenos
+  icone ...................................... avatar, favicon, aplicações quadradas
+  icone-1cor ................................. bordado, carimbo, gravação, serigrafia de 1 cor
+  selo ....................................... selo de autenticidade (tags, embalagens)
+
+CORES
+  Azul Colonial   #1A3A5C   RGB 26 58 92
+                  CMYK couché (FOGRA39) ............ 84 54 11 59
+                  CMYK sem revestimento (FOGRA52) .. 100 63 8 41
+                  Pantone tecido ................... 19-4029 TCX Navy Peony (ΔE 2,2)
+                  Pantone gráfico (candidato) ...... 540 C (ΔE 3,0)
+  Off-White       #F0EAE0   RGB 240 234 224
+                  CMYK couché (FOGRA39) ............ 7 7 13 0
+                  CMYK sem revestimento (FOGRA52) .. 5 5 9 0
+                  Pantone tecido ................... 11-0103 TCX Egret (ΔE 1,0)
+                  Pantone gráfico .................. sem equivalente próximo; use o CMYK
+                                                     ou papel de tom natural
+  Os Pantone são os mais próximos calculados (ΔE2000) a partir das cores da
+  marca. Confirme no guia físico Pantone e peça prova impressa à gráfica antes
+  da primeira tiragem.
+
+ÁREA DE PROTEÇÃO
+  Em volta da logo, deixe livre no mínimo "x" = metade da largura de uma
+  célula do ícone (1/4 do lado do ícone).
+
+TAMANHO MÍNIMO
+  Com tagline ...... vertical 57 mm / 283 px   horizontal 72 mm / 358 px
+  Sem tagline ...... vertical 20 mm / 100 px   horizontal 25 mm / 120 px
+  Ícone ............ 8 mm / 24 px
+  Selo ............. 25 mm de diâmetro / 120 px
+
+TIPOGRAFIA
+  Playfair Display (logo e títulos) e Lato (tagline e textos), Google Fonts,
+  licença SIL Open Font License.

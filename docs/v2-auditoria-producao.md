@@ -94,7 +94,14 @@ Rodada de 2026-10-03 (tarde):
 - [x] M4 parcial: download do ícone e do selo em PNG
 - [x] R-03 decidido: o manual é **público**
 
-Ainda dependem do dono: e-mail de contato, vetores (SVG/PDF) da logo, Pantone/CMYK de gráfica, hosting (R-04). Com o domínio definido: og:image, canonical e sitemap. Itens das coleções 06 e 08 ainda merecem checagem curatorial (Copan/MES como "Bauhaus"; Inhotim, Ibirapuera, São Francisco/Salvador e Cora Coralina como "caquinhos").
+Rodada de 2026-10-03 (noite), sem designer: a marca veio de imagens geradas por IA, então os vetores e as cores de impressão foram gerados a partir dela.
+
+- [x] M4 vetores: 9 versões em SVG/PDF/PNG (vertical, horizontal, negativas, sem tagline, ícone, ícone 1 cor, selo) em `v2/assets/marca/` + zip. Ícone traçado do PNG corrigido; "REVESTE" e tagline em contorno (Playfair Display/Lato); selo reconstruído. Reproduzível por `tools/marca/` (saída idêntica byte a byte)
+- [x] M4 cores: CMYK por perfil (FOGRA39 couché 84·54·11·59; FOGRA52 100·63·8·41); Pantone TCX 19-4029 Navy Peony (ΔE 2,2) e 11-0103 Egret (ΔE 1,0); gráfico 540 C (ΔE 3,0, tabela de terceiros). **Confirmar no guia físico e com prova impressa**
+- [x] M4 área de proteção e tamanho mínimo publicados na aba Usos; e-mail e WhatsApp na aba Contato
+- [x] R do elemento e do ícone sem as manchas das serifas
+
+Ainda dependem do dono: hosting (R-04) e, com o domínio, og:image/canonical/sitemap; prova impressa das cores. Com o domínio definido: og:image, canonical e sitemap. Itens das coleções 06 e 08 ainda merecem checagem curatorial (Copan/MES como "Bauhaus"; Inhotim, Ibirapuera, São Francisco/Salvador e Cora Coralina como "caquinhos").
 
 Continuam abertos (histórico): H1 (fotos individuais de produto), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
 
