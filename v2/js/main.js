@@ -113,9 +113,11 @@ function initTabs() {
     const body = document.querySelector(`#pane-${id} .pane-body`);
     const div = document.createElement("div");
     div.className = "pane-next";
+    // seta em SVG: o glifo da Playfair para ↑ e → sai desalinhado
+    const arrow = (up) => `<svg class="pane-next-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${up ? '<path d="M12 19V5M6 11l6-6 6 6"/>' : '<path d="M5 12h14M13 6l6 6-6 6"/>'}</svg>`;
     div.innerHTML = next
-      ? `<a href="#${next}"><small>Próximo</small> ${esc(labels[next])} <span aria-hidden="true">→</span></a>`
-      : `<a href="#inicio"><small>Voltar</small> Início <span aria-hidden="true">↑</span></a>`;
+      ? `<a href="#${next}"><small>Próximo</small> ${esc(labels[next])} ${arrow(false)}</a>`
+      : `<a href="#inicio"><small>Voltar</small> Início ${arrow(true)}</a>`;
     body.appendChild(div);
   });
 
