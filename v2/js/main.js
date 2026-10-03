@@ -62,24 +62,51 @@ function initTabs() {
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
 
-  document.querySelectorAll(".nav-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".nav-btn").forEach((b) => {
-        b.classList.remove("active");
-        b.removeAttribute("aria-current");
-      });
-      document.querySelectorAll(".pane").forEach((p) => p.classList.remove("active"));
-      btn.classList.add("active");
-      btn.setAttribute("aria-current", "page");
-      const pane = document.getElementById("pane-" + btn.dataset.pane);
-      pane.classList.add("active");
-      current.textContent = btn.textContent.trim();
-      closeMenu();
+  const baseTitle = document.title;
+  const paneIds = [...document.querySelectorAll(".nav-btn")].map((b) => b.dataset.pane);
+
+  // A aba aberta vive no hash (#cores, #colecoes...): dá para mandar o link
+  // de uma aba e o botão voltar do navegador funciona.
+  function showPane(id, { focus }) {
+    const btn = document.querySelector(`.nav-btn[data-pane="${id}"]`);
+    document.querySelectorAll(".nav-btn").forEach((b) => {
+      b.classList.remove("active");
+      b.removeAttribute("aria-current");
+    });
+    document.querySelectorAll(".pane").forEach((p) => p.classList.remove("active"));
+    btn.classList.add("active");
+    btn.setAttribute("aria-current", "page");
+    const pane = document.getElementById("pane-" + id);
+    pane.classList.add("active");
+    const label = btn.textContent.trim();
+    current.textContent = label;
+    document.title = id === paneIds[0] ? baseTitle : `${label} · ${baseTitle}`;
+    closeMenu();
+    if (focus) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       // leva o foco ao conteúdo novo, para teclado e leitor de tela
       pane.focus({ preventScroll: true });
+    }
+  }
+
+  function paneFromHash() {
+    const id = location.hash.slice(1);
+    return paneIds.includes(id) ? id : paneIds[0];
+  }
+
+  document.querySelectorAll(".nav-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (paneFromHash() === btn.dataset.pane) showPane(btn.dataset.pane, { focus: true });
+      else location.hash = btn.dataset.pane; // dispara hashchange
     });
   });
+
+  window.addEventListener("hashchange", () => {
+    const id = location.hash.slice(1);
+    if (id && !paneIds.includes(id)) return; // ex.: #conteudo do skip link
+    showPane(paneFromHash(), { focus: true });
+  });
+  showPane(paneFromHash(), { focus: false });
 
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".brand-nav")) closeMenu();
