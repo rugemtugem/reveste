@@ -1,0 +1,56 @@
+/* Admin de curadoria: mesmas cores e fontes do manual, sem dependências externas */
+:root { --navy: #1A3A5C; --cream: #F0EAE0; --paper: #FCFAF6; --line: #DED3C3; --ink: #25303B; --muted: #6E665A; --alert: #B23A3A; --ok: #2F6B3A; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 15px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--navy); }
+:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding: 12px 24px; background: var(--navy); color: var(--cream); }
+.bar :focus-visible { outline-color: var(--cream); }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--cream); text-decoration: none; font: 700 17px Georgia, serif; letter-spacing: 1px; }
+.bar nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; }
+.bar nav a, .bar .link { color: var(--cream); font-size: 14px; text-decoration: none; }
+.bar nav a[aria-current="page"] { border-bottom: 2px solid var(--cream); }
+main { max-width: 1040px; margin: 0 auto; padding: 28px 20px 64px; }
+h1 { font: 700 28px/1.2 Georgia, serif; color: var(--navy); margin: 0 0 6px; }
+h2 { font: 700 19px Georgia, serif; color: var(--navy); margin: 0 0 12px; }
+.card { background: var(--paper); border: 1px solid var(--line); padding: 20px 22px; margin: 18px 0; }
+.stack label, .card > label { display: block; margin: 0 0 14px; font-weight: 600; font-size: 14px; }
+input, select, textarea { font: inherit; color: var(--ink); background: #fff; border: 1px solid #B9AE9E; padding: 8px 10px; width: 100%; margin-top: 4px; }
+textarea { resize: vertical; }
+label.row { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+label.row select { width: auto; margin: 0; }
+label.row input[type=checkbox] { width: 18px; height: 18px; margin: 0; }
+.btn { background: var(--navy); color: var(--cream); border: 1px solid var(--navy); padding: 10px 20px; font: 700 14px system-ui, sans-serif; letter-spacing: .5px; cursor: pointer; min-height: 40px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.link { background: none; border: none; padding: 0; color: var(--navy); text-decoration: underline; cursor: pointer; font: inherit; }
+.inline { display: inline; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 8px; }
+.hint { color: var(--muted); font-size: 13.5px; margin: 0 0 12px; }
+.crumbs { margin: 0 0 8px; font-size: 14px; }
+.msg { padding: 12px 16px; margin: 0 0 16px; border-left: 4px solid var(--ok); background: #EAF2E8; }
+.msg.erro { border-color: var(--alert); background: #F7E6E4; }
+table { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); }
+td input, td select { margin: 0; }
+td select { min-width: 150px; }
+td:nth-child(5) input { min-width: 180px; }
+.tag { display: inline-block; padding: 1px 8px; font-size: 12.5px; font-weight: 700; border: 1px solid currentColor; }
+.sel-aprovo, .sel-confirmo, .sel-reinterpretacao { color: var(--ok); }
+.sel-pendente, .sel-trocar, .sel-nao, .sel-retiro { color: var(--alert); }
+.sel-ajustes, .sel-corrijo, .sel-homenagem { color: var(--navy); }
+.pecas { list-style: none; margin: 0; padding: 0; }
+.pecas li { display: grid; grid-template-columns: 72px 1fr 190px; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.pecas img { width: 72px; height: 72px; object-fit: cover; border: 1px solid var(--line); }
+.pecas .tipo { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); }
+.pecas input { margin-top: 2px; }
+.pecas select { margin: 0; }
+.pend { margin: 0 0 14px; padding-left: 20px; color: var(--alert); }
+.login { max-width: 380px; margin: 40px auto; }
+code { background: #EDE6DA; padding: 1px 5px; font-size: 13px; }
+@media (max-width: 700px) {
+  .pecas li { grid-template-columns: 56px 1fr; }
+  .pecas img { width: 56px; height: 56px; }
+  .pecas select { grid-column: 2; }
+  table { display: block; overflow-x: auto; }
+}

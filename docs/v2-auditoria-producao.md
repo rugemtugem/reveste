@@ -181,3 +181,11 @@ Rodada seguinte (2026-10-03):
 - [x] Zoom 200% (1280×800 → 640×400), reflow em 320 px e espaçamento de texto (WCAG 1.4.12) em 6 abas: sem overflow nem texto cortado. Corrigidos: título da home quebrando com espaçamento ampliado, "reveste.com.br" no card de Contato, tabelas da aba Logo viram lista no celular, índice deixa de ser fixo em tela baixa
 - [x] Curadoria validada por Luan Crespo em 2026-10-03 e aplicada (detalhes em `docs/curadoria-para-validacao.md`)
 - [ ] Questão de direitos da coleção 07 (nome de Athos Bulcão no título): consultar a Fundação Athos Bulcão
+
+Admin de curadoria (2026-10-03):
+
+- [x] `v2/admin/` (PHP): login, painel por coleção, nota com aprovação, decisão e fonte por afirmação, nome e status por peça, dados da revisão, publicação e histórico com restauração. Instruções em `tools/admin/README.md`
+- [x] Dados das coleções saíram do `main.js`: o site lê `v2/data/colecoes.json`; o rascunho fica em `storage/` (fora da pasta pública)
+- [x] Testado ponta a ponta: bloqueio de login (429), CSRF (400), opção inválida recusada, pendência impede publicar, publicação reflete no site, restauração pelo histórico, site com aviso se o JSON falhar
+- [ ] Hospedagem com PHP 8.1+ e HTTPS para o Luan acessar de fora; cadastrar o usuário dele no servidor
+

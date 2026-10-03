@@ -8,3 +8,12 @@ v2/reveste_brand_identity_refined.png
 
 # Painéis originais em alta (~22 MB): fonte das imagens do site, fora do repo
 originais/
+
+# Admin de curadoria: senhas, histórico, log e travas ficam só no servidor
+.secrets/
+storage/historico/
+storage/auditoria.log
+storage/tentativas-login.json
+storage/.trava
+storage/*.tmp-*
+v2/data/*.tmp-*

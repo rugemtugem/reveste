@@ -634,7 +634,9 @@ img { max-width: 100%; height: auto; display: block; }
 .glossary div { background: var(--paper); border: 1px solid var(--line); padding: 16px 18px; }
 .glossary dt { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 4px; }
 .curator-credit { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink); }
-.curator-credit span { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 2px; }
+.curator-credit .cc-text { display: inline; font-size: inherit; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink); margin: 0; }
+.coll-error { padding: 24px; margin: 0; color: var(--ui-alert); font-weight: 700; }
+.curator-credit span:first-child { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 2px; }
 .curator-credit em { color: var(--muted); }
 .glossary dd { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
 .coll-grid-label { font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--navy); margin: 8px 0 12px; }
