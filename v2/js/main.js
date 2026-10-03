@@ -6,24 +6,29 @@
 // ── DADOS DAS COLEÇÕES ────────────────────────────
 const COLLECTIONS = [
   { num: "01", name: "Ladrilhos de Cerâmica", sub: "Igrejas Históricas do Brasil",
-    desc: "Geometria e fé em pisos do século XVIII — onde o barroco e o artesanal caminham juntos. As igrejas que dão nome às peças são homenagens criadas pela Reveste, inspiradas na arte sacra de cada cidade.",
+    desc: "Geometria e fé na ornamentação das igrejas coloniais — onde o barroco e o artesanal caminham juntos. As igrejas que dão nome às peças são homenagens criadas pela Reveste, inspiradas na arte sacra de cada cidade.",
+    note: "Inspirada na ornamentação das igrejas do período colonial, sobretudo do barroco mineiro e nordestino. As estampas transformam essa linguagem decorativa em padrões geométricos. As igrejas que dão nome às peças são homenagens; nenhuma reproduz um templo real.",
     img: "assets/img/collections/collection-01-ceramica.jpeg",
     items: ["Capela do Ouro Velho – Ouro Preto/MG","Igreja das Estrelas Azuis – Olinda/PE","Matriz da Luz Dourada – Sabará/MG","Capela do Jardim Sagrado – Salvador/BA","Igreja dos Arabescos – Congonhas/MG","Capela do Mar e da Terra – João Pessoa/PB"] },
   { num: "02", name: "Caquinhos do Brasil", sub: "Pisos de Casas de Subúrbios Históricas",
     desc: "Fragmentos de pisos antigos que carregam memórias de gerações que construíram seus lares com criatividade. As casas que dão nome às peças são homenagens criadas pela Reveste, inspiradas no subúrbio de cada cidade.",
+    note: "O piso de caquinhos, montado à mão com cacos de cerâmica, tornou-se comum em casas populares brasileiras em meados do século XX, aproveitando peças descartadas pela indústria cerâmica. Uma solução econômica que virou marca afetiva do subúrbio.",
     img: "assets/img/collections/collection-02-caquinhos-suburbio.jpeg",
     items: ["Casa da Esquina – Rio de Janeiro/RJ","Casa do Quintal – Belém/PA","Casa da Ladeira – Salvador/BA","Casa do Corredor – Recife/PE","Casa do Portão – São Paulo/SP","Casa do Sol – Fortaleza/CE"] },
   { num: "03", name: "Cultivos Flores de Banheiro", sub: "Memória que Floresce",
-    desc: "Estampas que nasceram para enfeitar banheiros do subúrbio e atravessaram paredes, gerações e modas.",
+    desc: "Estampas que nasceram para enfeitar banheiros do subúrbio e atravessaram paredes, gerações e modas. Os bairros que dão nome às peças são homenagens criadas pela Reveste.",
+    note: "Os azulejos decorados com flores, produzidos em escala industrial, revestiram banheiros e cozinhas de casas brasileiras entre as décadas de 1950 e 1970. A coleção recupera esses motivos florais como memória doméstica.",
     img: "assets/img/collections/collection-03-flores.jpeg",
     items: ["Orquídeas – Madureira/RJ","Rosas e Arabescos – Subúrbio Carioca/RJ","Margaridas – Iracema/Fortaleza/CE","Tomates – Penha/RJ","Flores do Campo – Cachoeirinha/PE"] },
   { num: "04", name: "Azulejos Devocionais", sub: "Fé que Protege o Lar",
-    desc: "Herdados da tradição portuguesa, os azulejos devocionais trazem proteção, fé e beleza às fachadas do subúrbio.",
+    desc: "Herdados da tradição portuguesa, os azulejos devocionais trazem proteção, fé e beleza às fachadas do subúrbio. As cidades que acompanham cada devoção são homenagens criadas pela Reveste.",
+    note: "Os painéis de azulejo com a imagem de um santo protetor na fachada são uma tradição portuguesa trazida ao Brasil. As estampas reinterpretam devoções populares brasileiras nessa linguagem.",
     img: "assets/img/collections/collection-04-devocionais.jpeg",
     items: ["Nossa Senhora Aparecida – Aparecida/SP","Sagrado Coração de Jesus – Recife/PE","São Jorge – Rio de Janeiro/RJ","Santo Antônio – Salvador/BA","Anjo da Guarda – Belém/PA"],
     tees: [{}] },
   { num: "05", name: "Azulejos Portugueses no Brasil", sub: "História que Reveste",
-    desc: "Trazidos desde o século XVI, os azulejos contam histórias de fé, cultura e arte que ainda decoram igrejas e palácios. Com exceção da Igreja de São Francisco, em Salvador, os lugares que dão nome às peças são homenagens criadas pela Reveste.",
+    desc: "Com auge nos séculos XVII e XVIII, os azulejos portugueses contam histórias de fé, cultura e arte que ainda decoram igrejas e palácios. Os lugares que dão nome às peças são homenagens criadas pela Reveste.",
+    note: "A azulejaria portuguesa chegou ao Brasil com a colonização e teve seu auge nos séculos XVII e XVIII, em igrejas, conventos e solares. O claustro do Convento de São Francisco, em Salvador, guarda um dos conjuntos mais conhecidos de painéis portugueses no país.",
     img: "assets/img/collections/collection-05-portugueses.jpeg",
     items: ["Igreja de São Francisco – Salvador/BA","Solar da Moldura Dourada – Rio de Janeiro/RJ","Mirante Verde-Mar – Vila Velha/ES","Casa das Rosáceas Azuis – Olinda/PE","Solar das Folhagens – Salvador/BA"],
     tees: [
@@ -33,25 +38,30 @@ const COLLECTIONS = [
     ] },
   { num: "06", name: "Azulejos Modernistas no Brasil", sub: "Design que Constrói História",
     desc: "A partir dos anos 1930, a arquitetura moderna brasileira reinventou o azulejo em painéis geométricos e figurativos, como os de Portinari no Palácio Capanema. As estampas levam para a camisa a geometria desse período; os edifícios que dão nome às peças são homenagens criadas pela Reveste.",
+    note: "A partir dos anos 1930, a arquitetura moderna brasileira retomou o azulejo como revestimento de fachada. O marco é o Palácio Capanema, antigo Ministério da Educação e Saúde, no Rio de Janeiro, com painéis desenhados por Candido Portinari.",
     img: "assets/img/collections/collection-06-bauhaus.jpeg",
     items: ["Edifício Meia-Lua – São Paulo/SP","Pavilhão Sol e Mar – Rio de Janeiro/RJ","Marquise das Cores – São Paulo/SP","Casa dos Volumes – São Paulo/SP","Conjunto Morro Alegre – Rio de Janeiro/RJ"],
     tees: [{}] },
   { num: "07", name: "Azulejos Athos Bulcão no Brasil", sub: "Arte que Integra",
     desc: "Composições geométricas marcadas pela precisão, ritmo e harmonia — presentes nos ícones da arquitetura moderna brasileira. As estampas são inspiradas no estilo de Athos Bulcão; os painéis que dão nome às peças são criações da Reveste, não obras do artista.",
+    note: "Athos Bulcão (1918–2008) criou painéis de azulejos modulares para dezenas de edifícios de Brasília, integrados à arquitetura de Oscar Niemeyer e de João Filgueiras Lima, o Lelé. As estampas desta coleção se inspiram no estilo dele; não reproduzem obras do artista.",
     img: "assets/img/collections/collection-07-athos.jpeg",
     items: ["Painel Meia-Lua – Brasília/DF","Painel Cruz do Planalto – Brasília/DF","Painel Asas do Eixo – Brasília/DF","Painel Vento Norte – Brasília/DF","Painel Concreto e Sombra – Brasília/DF","Painel Cerrado Verde – Brasília/DF"],
     tees: [{}] },
-  { num: "08", name: "Caquinhos do Brasil", sub: "Arte Popular que Reveste",
+  { num: "08", name: "Mosaicos de Caquinhos", sub: "Arte Popular que Reveste",
     desc: "Caquinhos são cacos de azulejo, louça e cerâmica reaproveitados à mão, uma arte popular que transformou escadarias, casas e calçadas pelo Brasil. Nesta coleção, a técnica reinterpreta paisagens e monumentos brasileiros em estampas.",
+    note: "O mosaico de cacos tem expressões célebres no Brasil, como a Escadaria Selarón, no Rio de Janeiro, e a Casa da Flor, em São Pedro da Aldeia (RJ). Nesta coleção, a técnica do caquinho reinterpreta outros cenários brasileiros, como o calçadão de Copacabana, originalmente feito em pedra portuguesa, com o desenho de ondas do Largo do Rossio, em Lisboa. As demais peças são homenagens criadas pela Reveste.",
     img: "assets/img/collections/collection-08-caquinhos-pop.jpeg",
-    items: ["Escadaria Selarón – Rio de Janeiro/RJ","Museu do Inhotim – Brumadinho/MG","Calçadão de Copacabana – Rio de Janeiro/RJ","Igreja de São Francisco – Salvador/BA","Casa da Flor – São Pedro da Aldeia/RJ","Orla de Boa Viagem – Recife/PE"] },
+    items: ["Escadaria Selarón – Rio de Janeiro/RJ","Folhagem de Cacos – Brumadinho/MG","Calçadão de Copacabana – Rio de Janeiro/RJ","Espiral Azul – Salvador/BA","Casa da Flor – São Pedro da Aldeia/RJ","Ondas de Mosaico – Recife/PE"] },
   { num: "09", name: "Ladrilhos Hidráulicos", sub: "Tradição que Dura e Encanta",
-    desc: "Feitos de cimento, areia e pigmentos, prensados à mão e curados na água, os ladrilhos hidráulicos chegaram ao Brasil no século XIX e coloriram pisos de casas e casarões por gerações. Cada estampa homenageia um desses pisos. As casas que dão nome às peças são homenagens criadas pela Reveste, inspiradas em pisos típicos de cada cidade.",
+    desc: "Feitos de cimento, areia e pigmentos, prensados à mão e curados na água, os ladrilhos hidráulicos coloriram pisos de casas e casarões brasileiros do fim do século XIX a meados do século XX. Cada estampa homenageia um desses pisos. As casas que dão nome às peças são homenagens criadas pela Reveste, inspiradas em pisos típicos de cada cidade.",
+    note: "O ladrilho hidráulico é feito de cimento e pigmentos, prensado e curado na água, sem passar pelo forno. A técnica, de origem europeia do século XIX, foi muito usada em pisos de casas e casarões brasileiros entre o fim do século XIX e meados do século XX.",
     img: "assets/img/collections/collection-09-ladrilhos.jpeg",
     items: [],
     tees: [{ names: ["Casa da Nonna – Santa Teresa/RJ","Villa Miriam – Olinda/PE","Solar do Café – Vassouras/RJ","Casarão do Brás – São Paulo/SP","Jardim da Vovó – Campinas/SP","Pátio das Cores – Salvador/BA"] }] },
   { num: "10", name: "Caquinhos Suburbanos do Brasil", sub: "Memória que Pisa Forte",
-    desc: "Pisos montados à mão com cacos de azulejo e lajota nos quintais, varandas e calçadas do subúrbio. Feitos de cacos, mas cheios de identidade: cada estampa é um retrato desse chão brasileiro. Os lugares que dão nome às peças são homenagens criadas pela Reveste, inspiradas no subúrbio de cada cidade.",
+    desc: "Pisos montados à mão com cacos de azulejo e ladrilho nos quintais, varandas e calçadas do subúrbio. Feitos de cacos, mas cheios de identidade: cada estampa é um retrato desse chão brasileiro. Os lugares que dão nome às peças são homenagens criadas pela Reveste, inspiradas no subúrbio de cada cidade.",
+    note: "Variação do piso de caquinhos da coleção 02, levada para fora de casa: quintais, varandas e calçadas do subúrbio, montados à mão com cacos de cerâmica descartados pela indústria em meados do século XX.",
     img: "assets/img/collections/collection-10-caquinhos-suburbanos.jpeg",
     items: [],
     tees: [{ names: ["Casa de Vó – Irajá/RJ","Quintal da Tia – Cachoeirinha/PE","Varanda do Samba – Madureira/RJ","Salão do Baile – Olinda/PE","Calçada da Esquina – Penha/RJ","Ladeira das Cores – Salvador/BA"] }] },
@@ -61,8 +71,10 @@ const COLLECTIONS = [
 // homenagem = nome criado pela Reveste; reinterpretação = lugar, devoção ou
 // técnica real redesenhada. Nenhuma imagem é registro documental.
 const STATUS_LABEL = { homenagem: "Homenagem", reinterpretacao: "Reinterpretação" };
-const COLL_STATUS = { "03": "reinterpretacao", "04": "reinterpretacao", "08": "reinterpretacao" };
-const PIECE_STATUS = { "Igreja de São Francisco – Salvador/BA": "reinterpretacao", "Azulejo Português Clássico": "reinterpretacao" };
+// Validado na revisão curatorial (Luan Crespo, 3 out. 2026): só estas 3 peças
+// reinterpretam lugares reais; todos os demais nomes são homenagens.
+const COLL_STATUS = {};
+const PIECE_STATUS = { "Escadaria Selarón – Rio de Janeiro/RJ": "reinterpretacao", "Calçadão de Copacabana – Rio de Janeiro/RJ": "reinterpretacao", "Casa da Flor – São Pedro da Aldeia/RJ": "reinterpretacao" };
 function pieceStatus(c, name) { return PIECE_STATUS[name] || COLL_STATUS[c.num] || "homenagem"; }
 
 // Peças de uma coleção: camisas (items) + camisetas (tees, por estilo).
@@ -321,6 +333,7 @@ function renderCollDetail() {
       <div class="coll-desc-box">
         <span class="coll-box-label">Sobre a Coleção</span>
         <p>${esc(c.desc)}</p>
+        ${c.note ? `<div class="coll-note"><span class="coll-box-label">Nota curatorial</span><p>${esc(c.note)}</p><p class="coll-note-credit">Revisão: Luan Crespo · Departamento de Patrimônio Histórico · 3 de outubro de 2026</p></div>` : ""}
       </div>
       <div class="coll-gallery-box">
         <div class="gal-head">
