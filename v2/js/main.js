@@ -249,6 +249,8 @@ function openShirtModal(collIdx, itemIdx) {
   shirtModalTrigger = document.activeElement;
   modalColl = collIdx;
   modalItem = itemIdx;
+  // sem o Bootstrap (CDN fora do ar ou bloqueado), abre a imagem direto
+  if (!window.bootstrap) { window.location.href = pieceImg(COLLECTIONS[collIdx], itemIdx); return; }
   renderShirtModal();
   if (!shirtModalInstance) shirtModalInstance = new bootstrap.Modal(document.getElementById("shirtModal"));
   shirtModalInstance.show();
