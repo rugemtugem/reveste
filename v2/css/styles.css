@@ -585,7 +585,7 @@ img { max-width: 100%; display: block; }
   text-align: center;
   padding: 64px 24px;
 }
-.contact-band img { width: 110px; height: 110px; margin: 0 auto 24px; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.contact-band img { width: 110px; height: 110px; margin: 0 auto 24px; border-radius: 50%; }
 .contact-band h2 {
   font-family: var(--serif);
   font-size: clamp(24px, 4vw, 34px);
