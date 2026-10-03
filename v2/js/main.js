@@ -24,15 +24,15 @@ const COLLECTIONS = [
   { num: "05", name: "Azulejos Portugueses no Brasil", sub: "História que Reveste",
     desc: "Trazidos desde o século XVI, os azulejos contam histórias de fé, cultura e arte que ainda decoram igrejas e palácios.",
     img: "assets/img/collections/collection-05-portugueses.jpeg",
-    items: ["Igreja de São Francisco – Salvador/BA","Palácio da Bolsa – Rio de Janeiro/RJ","Convento da Penha – Vitória/ES","Igreja do Carmo – Olinda/PE","Solar do Unhão – Salvador/BA"] },
+    items: ["Igreja de São Francisco – Salvador/BA","Igreja de Nossa Senhora da Glória do Outeiro – Rio de Janeiro/RJ","Convento da Penha – Vila Velha/ES","Igreja do Carmo – Olinda/PE","Solar do Unhão – Salvador/BA"] },
   { num: "06", name: "Azulejos Bauhaus no Brasil", sub: "Design que Constrói História",
     desc: "Inspirados na escola Bauhaus, representam a presença do movimento moderno em importantes obras arquitetônicas brasileiras.",
     img: "assets/img/collections/collection-06-bauhaus.jpeg",
-    items: ["Edifício Copan – São Paulo/SP","Ministério da Educação e Saúde – Rio de Janeiro/RJ","Parque do Ibirapuera – São Paulo/SP","Residência Gregori Warchavchik – São Paulo/SP","Conj. Residencial Pedregulho – Campinas/SP"] },
+    items: ["Edifício Copan – São Paulo/SP","Ministério da Educação e Saúde – Rio de Janeiro/RJ","Parque do Ibirapuera – São Paulo/SP","Residência Gregori Warchavchik – São Paulo/SP","Conj. Residencial Pedregulho – Rio de Janeiro/RJ"] },
   { num: "07", name: "Azulejos Athos Bulcão no Brasil", sub: "Arte que Integra",
     desc: "Composições geométricas marcadas pela precisão, ritmo e harmonia — presentes nos ícones da arquitetura moderna brasileira.",
     img: "assets/img/collections/collection-07-athos.jpeg",
-    items: ["Palácio da Alvorada – Brasília/DF","Igrejinha da Pampulha – Belo Horizonte/MG","Ministério das Relações Exteriores – Brasília/DF","Teatro Nacional – Brasília/DF","Memorial JK – Brasília/DF","Câmara dos Deputados – Brasília/DF"] },
+    items: ["Palácio da Alvorada – Brasília/DF","Igrejinha Nossa Senhora de Fátima – Brasília/DF","Ministério das Relações Exteriores – Brasília/DF","Teatro Nacional – Brasília/DF","Memorial JK – Brasília/DF","Câmara dos Deputados – Brasília/DF"] },
   { num: "08", name: "Caquinhos do Brasil", sub: "Arte Popular que Reveste",
     desc: "Feitos de fragmentos de azulejos, cerâmicas e vidros — transformando fachadas e espaços públicos em obras de arte.",
     img: "assets/img/collections/collection-08-caquinhos-pop.jpeg",
@@ -203,6 +203,7 @@ function renderCollGrid() {
         <span class="body">
           <span class="num">${c.num}</span>
           <span class="nm">${esc(c.name)}</span>
+          <span class="sb">${esc(c.sub)}</span>
         </span>
       </button>
     </div>
