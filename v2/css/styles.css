@@ -153,13 +153,15 @@ img { max-width: 100%; height: auto; display: block; }
 /* "Próximo" no fim de cada aba */
 .pane-next { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
 .pane-next a {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-family: var(--serif); font-size: 20px; color: var(--navy);
-  border-bottom: 1px solid transparent; transition: border-color .2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 14px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy);
+  padding-bottom: 3px; border-bottom: 1px solid transparent; transition: border-color .2s;
 }
-.pane-next a small { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+/* rótulo e destino na mesma fonte e tamanho; só a cor diferencia */
+.pane-next a small { font: inherit; letter-spacing: inherit; color: var(--muted); }
 .pane-next a:hover { border-bottom-color: var(--navy); }
-.pane-next-arrow { width: 20px; height: 20px; flex-shrink: 0; }
+.pane-next-arrow { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* ── HOME ───────────────────────────────── */
 .home-hero {
