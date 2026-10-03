@@ -39,6 +39,9 @@ const COLLECTIONS = [
     items: ["Escadaria Selarón – Rio de Janeiro/RJ","Museu do Inhotim – Brumadinho/MG","Parque do Ibirapuera – São Paulo/SP","Igreja de São Francisco – Salvador/BA","Casa de Cora Coralina – Goiás/GO","Orla de Boa Viagem – Recife/PE"] },
 ];
 
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+function scrollBehavior() { return reduceMotion.matches ? "auto" : "smooth"; }
+
 function pieceImg(coll, pieceIdx) {
   return `assets/img/shirts/coll-${coll.num}-piece-${pieceIdx + 1}.jpeg`;
 }
@@ -83,7 +86,7 @@ function initTabs() {
     document.title = id === paneIds[0] ? baseTitle : `${label} · ${baseTitle}`;
     closeMenu();
     if (focus) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: scrollBehavior() });
       // leva o foco ao conteúdo novo, para teclado e leitor de tela
       pane.focus({ preventScroll: true });
     }
@@ -125,7 +128,7 @@ let activeColl = 0;
 
 function scrollToCollDetail() {
   const el = document.getElementById("collDetail");
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (el) el.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
 }
 
 function selectCollection(idx) {

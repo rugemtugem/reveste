@@ -696,3 +696,14 @@ img { max-width: 100%; display: block; }
   .shirt-modal .modal-dialog { margin: 12px; }
   .shirt-modal-img { max-height: 56vh; border-width: 4px; }
 }
+
+/* ── MOVIMENTO REDUZIDO ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .coll-piece-thumb:hover, .coll-grid-thumb:hover { transform: none; }
+}
