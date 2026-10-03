@@ -72,6 +72,21 @@
 - **[R-04] Hosting + Git** · Deploy/CI · P1 · Responsável: dev · Aceite: repositório, deploy reproduzível e rollback documentados · Bloqueia produção? sim
 - **[R-05] Specs de impressão** · Conteúdo · P2 · Responsável: designer/gráfica · Aceite: Pantone + CMYK por perfil (ex.: Coated FOGRA39), área de proteção e tamanho mínimo em mm/px · Bloqueia produção? não
 
+## Atualização 2026-10-03 (branch `melhorias/v2-acessibilidade-e-robustez`)
+
+Resolvidos no código e verificados no Chrome headless:
+
+- [x] H3 teclado e leitor de tela (skip link, aria-current, botões reais, foco do modal, menu mobile fora do Tab)
+- [x] M1 overflow em 375 px (cabe a partir de 320 px)
+- [x] M2 deep link por aba (`#cores`), voltar do navegador e título por aba
+- [x] M3 sombra no selo removida (o hero da coleção depende das imagens novas, H1)
+- [x] M5 prefers-reduced-motion
+- [x] M6 description, Open Graph (sem og:image até haver domínio), favicon
+- [x] Nits: SRI no Bootstrap, `?v=`, dimensões das imagens, ícone de 82 KB, contraste da dica, rodapé
+- [x] Camada 7: Git criado (github.com/rugemtugem/reveste). Camada 15: README
+
+Continuam abertos: H1 (fotos), H2 (revisão curatorial), M4 (arquivos da logo, Pantone, contato), R-03 (público/acesso), R-04 (hosting).
+
 ## Decisão
 
 - [ ] Pronto
