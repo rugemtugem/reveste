@@ -1,0 +1,79 @@
+# Reveste v2: auditoria de prontidão (UI/UX + full-stack)
+
+- Data: 2026-10-03
+- Superfície: `reveste/v2/` (manual de identidade visual, página única com 9 abas + modal "Ver camisa")
+- Stack: HTML estático, CSS próprio, JS vanilla, Bootstrap 5.3.3 (CSS + bundle JS via jsDelivr), Google Fonts (4 famílias)
+- Skills aplicadas: `ui-ux-production-reality`, `full-stack-production-reality`
+- Método: leitura de `index.html`, `css/styles.css`, `js/main.js` e do PDF do manual; Chrome headless (Playwright) em 375/768/1024/1440 px nas 9 abas, sonda de teclado/foco, abertura do modal, cálculo de contraste WCAG.
+
+## Direção (registrada, não alterada)
+
+- Objetivo: documentar a marca para quem aplica a identidade (fornecedores, gráfica, marketing) e apresentar as coleções.
+- Tom: patrimonial, clássico, sóbrio. Azul Colonial #1A3A5C + Off-White #F0EAE0, Playfair + Lato.
+- Signature element: a grade de azulejo (linhas 48px no header, 24px no modal) e o ícone 2×2.
+- Hipótese: o público é interno/parceiros, não consumidor final. Se for público, os itens de SEO sobem de prioridade.
+
+## Achados
+
+### High
+
+- [ ] **H1. Imagens das camisas são recortes do painel da coleção.** Os 46 arquivos `assets/img/shirts/coll-XX-piece-N.jpeg` (~400×395 px) saem com texto cortado ("RO PRETO/MG"), pedaços do painel vizinho e a legenda do painel. No modal, a imagem é ampliada e fica borrada. Evidência: modal em 1440 px, peça 01 da coleção 01. Impacto: a única funcionalidade interativa do site mostra o produto mal. Correção: fotos/mockups individuais de cada camisa, ≥ 1200 px no lado maior, fundo limpo. Regressão: abrir todas as peças e conferir se não há texto cortado.
+- [ ] **H2. Erros factuais nos dados das coleções** (`js/main.js`, array `COLLECTIONS`). Para uma marca "patrimonial", erro de patrimônio é erro de marca:
+  - Coleção 05: "Palácio da Bolsa – Rio de Janeiro/RJ". O Palácio da Bolsa fica no Porto, em Portugal.
+  - Coleção 06: "Conj. Residencial Pedregulho – Campinas/SP". O Pedregulho fica no Rio de Janeiro (São Cristóvão), e os painéis de lá não são "Bauhaus".
+  - Coleção 07: "Igrejinha da Pampulha – Belo Horizonte/MG" como obra de Athos Bulcão. Os azulejos da Pampulha são de Portinari. A "Igrejinha" com azulejos de Athos é a de Nossa Senhora de Fátima, em Brasília.
+  - Coleções 02 e 08 têm o mesmo nome ("Caquinhos do Brasil"), o que confunde na grade.
+  - Outros itens merecem checagem curatorial (Copan e MES como "Bauhaus", Inhotim e São Francisco/Salvador como "caquinhos").
+  Correção: revisão por alguém com repertório de patrimônio antes de publicar. Esses dados não estão no PDF, então a fonte deles também precisa ser revista.
+- [ ] **H3. Teclado e leitor de tela.** 0 de 14 miniaturas clicáveis (`.coll-piece-thumb` e `.coll-grid-thumb`) são focáveis: são `<img>`/`<div>` com `click`. Ao fechar o modal, o foco vai para `<body>` (Bootstrap só devolve o foco quando o modal é aberto via `data-bs-toggle`, e aqui ele é aberto por `.show()`). A navegação por abas não expõe estado (sem `aria-current`, `role=tab` ou `aria-pressed`) e o `.coll-btn` mostra só "01".."08" para o leitor de tela. Não há skip link. Correção: trocar os cards e miniaturas por `<button>`, guardar e devolver o foco no `hidden.bs.modal`, aplicar `aria-current="page"` (ou o padrão tablist) nas abas e dar `aria-label` com o nome da coleção.
+
+### Medium
+
+- [ ] **M1. Overflow horizontal em 375 px na aba Logo.** O lockup horizontal (ícone 76 px + "REVESTE" 38 px com tracking de 8 px) mede 380 px e o wordmark sai da tela. Correção: no breakpoint de 640 px, reduzir `font-size`/`letter-spacing` ou empilhar.
+- [ ] **M2. Sem deep link.** As abas não mudam a URL: não dá para enviar "veja a aba Cores" a um fornecedor, o botão voltar sai do site e o reload volta para Início. Correção: `location.hash` + `hashchange`, mantendo as seções como `<section id>`.
+- [ ] **M3. O site viola o próprio manual.** "Usos incorretos" proíbe "adicionar efeitos ou sombras", mas o selo em Contato tem `box-shadow` (`styles.css:564`). O hero da coleção também põe título em cima de um painel cheio de texto (ilegível em 375 px).
+- [ ] **M4. Falta o conteúdo que um manual precisa entregar.** Não há download dos arquivos da logo (SVG/PNG/PDF), valores de área de proteção e tamanho mínimo, Pantone, nem canal de contato real ("entre em contato com a equipe de marketing" sem e-mail). O CMYK 72·37·0·64 parece conversão direta de RGB, não perfil de impressão: a gráfica vai errar a cor.
+- [ ] **M5. Sem `prefers-reduced-motion`.** Existe fade + translate em toda troca de aba, `scroll-behavior: smooth` e transforms no hover.
+- [ ] **M6. Metadados.** Sem `meta description`, Open Graph e favicon (404 no console). Se o manual for interno, faltam `noindex` e algum controle de acesso.
+
+### Nit
+
+- Texto de dica do modal `#a99` sobre `#F0EAE0`: contraste 2,27:1 (AA pede 4,5:1). Os demais pares passam (muted/cream 4,73; nav 5,63; footer 4,81).
+- As 27 `<img>` não têm `width/height`, o que gera CLS. `icon.png` tem 190 KB e aparece a 44 px.
+- Bootstrap completo (CSS + JS) usado só para grid + modal. As 4 famílias de fonte com 9 pesos pesam no primeiro carregamento.
+- Em abas curtas, o rodapé não encosta no fim da viewport (sobra uma faixa creme em 1440 px na Início).
+- `reveste_brand_identity_refined.png` (3 MB), o PDF (3,2 MB), o `.pptx` e os `.DS_Store` estão dentro da pasta publicável.
+
+## Inventário full-stack (15 camadas)
+
+| # | Camada | Status | Evidência / justificativa |
+|---|---|---|---|
+| 1 | Frontend | parcial | Achados H1–M6 acima |
+| 2 | APIs & backend | não aplicável | Sem formulário, sem dados de usuário, sem endpoint |
+| 3 | Database & storage | não aplicável | Dados das coleções são estáticos em `main.js` |
+| 4 | Auth & permissions | **a decidir** | Se o manual for confidencial (parceiros), precisa de pelo menos Basic Auth/link privado. Hoje é aberto |
+| 5 | Hosting & deploy | bloqueada | Nenhum destino, script ou domínio configurado. `reveste.com.br` é citado mas não verificado |
+| 6 | Cloud & compute | não aplicável | Estático |
+| 7 | CI/CD & versionamento | a criar | Sem Git. `v2/` convive com uma v1 na pasta-pai sem histórico |
+| 8 | Security | parcial | Bootstrap via jsDelivr **sem `integrity`/SRI**. Faltam headers (CSP, HSTS), que dependem do host |
+| 9 | Rate limiting | não aplicável | Sem endpoint |
+| 10 | Cache & CDN | a criar | Sem versionamento `?v=` em `styles.css`/`main.js`: depois de um deploy, o visitante pode ver CSS velho |
+| 11 | Scaling | não aplicável | Estático |
+| 12 | Error tracking & logs | não aplicável (justificado) | Sem lógica crítica. Logs de acesso do host bastam |
+| 13 | Availability | parcial | Se o jsDelivr falhar, `bootstrap` fica indefinido e o "Ver camisa" quebra sem aviso. Considerar servir o Bootstrap localmente |
+| 14 | Observabilidade | a decidir | Analytics só se o manual for público, e com consentimento |
+| 15 | Documentação | a criar | Sem README (como rodar, onde publicar, de onde vêm os dados das coleções) |
+
+## Handoffs
+
+- **[R-01] Fotos individuais das camisas** · Frontend · P1 · Responsável: design/fotografia · Aceite: 46 imagens ≥ 1200 px, sem texto ou painel vizinho · Bloqueia produção? sim
+- **[R-02] Revisão curatorial das coleções** · Conteúdo · P0 · Responsável: curadoria/fundador · Aceite: cada obra com cidade/autor conferidos em fonte (IPHAN, acervo) · Bloqueia produção? sim
+- **[R-03] Definir público e acesso** · Auth · P1 · Responsável: dono da marca · Aceite: decisão registrada (público com SEO ou privado com noindex + acesso) · Bloqueia produção? sim
+- **[R-04] Hosting + Git** · Deploy/CI · P1 · Responsável: dev · Aceite: repositório, deploy reproduzível e rollback documentados · Bloqueia produção? sim
+- **[R-05] Specs de impressão** · Conteúdo · P2 · Responsável: designer/gráfica · Aceite: Pantone + CMYK por perfil (ex.: Coated FOGRA39), área de proteção e tamanho mínimo em mm/px · Bloqueia produção? não
+
+## Decisão
+
+- [ ] Pronto
+- [ ] Pronto com pendências aceitas
+- [x] **Bloqueado**: H2 (dados factuais), H1 (imagens do produto) e R-03/R-04 (público, acesso e hosting indefinidos). H3, M1, M2, M3 e M5 são correções de código que cabem num ciclo curto.

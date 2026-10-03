@@ -1,0 +1,7 @@
+# macOS
+.DS_Store
+
+# Materiais de origem (pesados ou internos): ficam fora do repositório público
+*.pptx
+*.pdf
+v2/reveste_brand_identity_refined.png

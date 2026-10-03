@@ -1,0 +1,826 @@
+/* ════════════════════════════════════════════════
+   REVESTE — Brand Identity
+   Folha de estilo principal
+═══════════════════════════════════════════════════ */
+
+/* ── TOKENS ─────────────────────────────── */
+:root {
+  --navy:   #1A3A5C;
+  --navy2:  #2E5F8A;
+  --cream:  #F0EAE0;
+  --cream2: #E2D9CC;
+  --terra:  #B85C35;
+  --gold:   #C49A2A;
+  --green:  #4A6741;
+  --dark:   #2A2A2A;
+  --white:  #FAFAF7;
+  --serif:  'Playfair Display', Georgia, serif;
+  --sans:   'Lato', sans-serif;
+}
+
+/* ── BASE ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  background: var(--cream);
+  font-family: var(--serif);
+  color: var(--dark);
+  margin: 0;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── TILE PATTERN (header bg) ───────────── */
+.tile-bg {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.08) 39px, rgba(255,255,255,.08) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.08) 39px, rgba(255,255,255,.08) 40px);
+}
+
+/* ── HEADER ─────────────────────────────── */
+.brand-header {
+  background: var(--navy);
+  padding: 40px 0 32px;
+  position: relative;
+  overflow: hidden;
+}
+.brand-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.06) 39px, rgba(255,255,255,.06) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.06) 39px, rgba(255,255,255,.06) 40px);
+}
+.header-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── LOGO SVG ───────────────────────────── */
+.logo-wrap { display: inline-block; }
+
+/* ── NAV TABS ───────────────────────────── */
+.brand-nav {
+  background: var(--dark);
+  border-bottom: 3px solid var(--gold);
+  position: relative;
+}
+.brand-nav-menu {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+.brand-nav-menu::-webkit-scrollbar { display: none; }
+
+/* Botão hambúrguer — visível apenas no mobile */
+.brand-nav-toggle {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 20px;
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.brand-nav-toggle-label::before {
+  content: "›";
+  color: var(--gold);
+  margin-right: 10px;
+}
+.brand-nav-toggle-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform .25s ease;
+}
+.brand-nav-toggle[aria-expanded="true"] .brand-nav-toggle-icon { transform: rotate(90deg); }
+
+.brand-nav .nav-btn {
+  padding: 14px 24px;
+  border: none;
+  background: transparent;
+  color: #aaa;
+  font-family: var(--serif);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.brand-nav .nav-btn.active {
+  background: var(--gold);
+  color: var(--dark);
+  font-weight: 700;
+}
+
+/* ── MAIN CONTENT ───────────────────────── */
+.brand-main {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+/* ── SECTION TITLE ──────────────────────── */
+.sec-title {
+  font-family: var(--serif);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.sec-line {
+  width: 40px;
+  height: 2px;
+  margin-bottom: 24px;
+}
+
+/* ── MANIFESTO BOX ──────────────────────── */
+.manifesto {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 40px 48px;
+  border-left: 6px solid var(--gold);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+.manifesto strong {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── PILLAR CARDS ───────────────────────── */
+.pillar-card {
+  background: var(--white);
+  border: 1px solid var(--cream2);
+  padding: 28px 24px;
+  height: 100%;
+}
+.pillar-card .icon { margin-bottom: 14px; line-height: 0; }
+.pillar-card .icon svg { width: 30px; height: 30px; }
+.pillar-card h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+.pillar-card p {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+}
+
+/* ── MVV CARDS ──────────────────────────── */
+.mvv-card {
+  padding: 28px 24px;
+  color: var(--cream);
+  height: 100%;
+}
+.mvv-card .label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 12px;
+}
+.mvv-card p {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── TOM DE VOZ ─────────────────────────── */
+.voice-card {
+  background: var(--white);
+  border: 1px solid var(--cream2);
+  padding: 24px;
+  height: 100%;
+}
+.voice-card.alt { background: #f9f2ec; }
+.voice-card h4 {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+.voice-card ul {
+  margin: 0;
+  padding-left: 16px;
+}
+.voice-card li {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* ── PERSONA ─────────────────────────────── */
+.persona-left {
+  background: var(--navy);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.persona-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy);
+}
+.persona-avatar svg { width: 42px; height: 42px; }
+.persona-right {
+  background: var(--white);
+  padding: 36px;
+}
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--cream2);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--navy);
+  border-radius: 2px;
+  margin: 3px;
+}
+.trait-card {
+  background: var(--white);
+  border: 1px solid var(--cream2);
+  padding: 18px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  height: 100%;
+}
+.trait-card .icon { flex-shrink: 0; line-height: 0; color: var(--gold); margin-top: 2px; }
+.trait-card .icon svg { width: 24px; height: 24px; }
+.trait-card strong {
+  font-size: 13px;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 4px;
+}
+.trait-card span {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+.feelings-box {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 36px 40px;
+}
+.feeling-item p.lbl {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.feeling-item p.val {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.7;
+  opacity: .85;
+}
+
+/* ── CORES ──────────────────────────────── */
+.color-row {
+  background: var(--white);
+  border: 1px solid var(--cream2);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.color-swatch {
+  width: 60px; height: 60px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.color-name { font-size: 13px; font-weight: bold; color: var(--dark); display: block; }
+.color-hex { font-family: monospace; font-size: 11px; color: #888; }
+.color-role { font-family: var(--sans); font-size: 12px; color: #666; line-height: 1.6; margin: 0; }
+.combo-card { padding: 28px 24px; }
+.combo-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 6px; }
+.combo-name { font-size: 22px; font-style: italic; margin: 0 0 12px; }
+.combo-tag { font-family: var(--sans); font-size: 11px; opacity: .7; line-height: 1.6; margin: 0; }
+
+/* ── TIPOGRAFIA ─────────────────────────── */
+.font-card {
+  border: 1px solid var(--cream2);
+  overflow: hidden;
+}
+.font-specimen {
+  padding: 36px 40px;
+  border-right: 1px solid var(--cream2);
+}
+.font-info {
+  padding: 36px 32px;
+}
+.font-role-label {
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block; margin-bottom: 4px;
+}
+.font-link {
+  font-family: var(--sans);
+  font-size: 11px; letter-spacing: 1px;
+}
+.font-name-display {
+  font-size: 18px; font-weight: bold;
+  color: var(--dark);
+  display: block; margin-bottom: 2px;
+}
+.font-desc {
+  font-family: var(--sans);
+  font-size: 13px; line-height: 1.7; color: #555;
+}
+.typo-table th {
+  background: var(--navy);
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  font-weight: normal;
+  border: none;
+}
+.typo-table td {
+  font-family: var(--sans);
+  font-size: 12px;
+  padding: 12px 16px;
+  border-color: var(--cream2) !important;
+  vertical-align: middle;
+}
+.typo-table tr:nth-child(odd) td { background: var(--white); }
+.typo-table tr:nth-child(even) td { background: #f7f3ee; }
+.import-box {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 28px 32px;
+  margin-top: 36px;
+}
+.import-box code {
+  font-size: 11.5px; line-height: 1.9;
+  display: block; opacity: .85;
+  word-break: break-all;
+}
+
+/* ── LOGO ────────────────────────────────── */
+.logo-version {
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.logo-version-label {
+  font-family: var(--sans);
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tagline-card {
+  background: var(--white);
+  border: 1px solid var(--cream2);
+  border-left: 4px solid var(--navy);
+  padding: 18px 20px;
+  height: 100%;
+}
+.tagline-label {
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block; margin-bottom: 6px;
+}
+.tagline-text {
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.65;
+  font-style: italic;
+  color: var(--dark);
+  margin: 0;
+}
+
+/* ── COLEÇÕES ───────────────────────────── */
+.coll-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.coll-btn {
+  padding: 8px 16px;
+  border: none;
+  background: var(--cream2);
+  color: var(--dark);
+  font-family: var(--serif);
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.coll-btn.active { color: #fff; font-weight: bold; }
+#collDetail { scroll-margin-top: 20px; }
+.coll-hero { position: relative; height: 300px; overflow: hidden; }
+.coll-hero img { width: 100%; height: 100%; object-fit: cover; }
+.coll-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 32px;
+}
+.coll-hero-sub {
+  margin: 0 0 4px;
+  color: rgba(255,255,255,.75);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.coll-hero-title {
+  margin: 0;
+  font-size: 26px;
+  color: #fff;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.coll-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+}
+.coll-desc-box {
+  padding: 28px 32px;
+  border-right: 1px solid var(--cream2);
+}
+.coll-list-box { padding: 28px 32px; }
+.coll-box-label {
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block; margin-bottom: 8px;
+}
+.coll-desc-box p {
+  font-family: var(--sans);
+  font-size: 13px; line-height: 1.8; color: #444; margin: 0;
+}
+
+/* Lista de peças — agora com botão "Ver camisa" */
+.coll-list-box ul {
+  margin: 0; padding: 0; list-style: none;
+}
+.coll-piece {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--cream2);
+}
+.coll-piece:last-child { border-bottom: none; }
+.coll-piece-thumb {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--cream2);
+  border-radius: 2px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform .15s, border-color .15s;
+}
+.coll-piece-thumb:hover {
+  transform: scale(1.06);
+  border-color: var(--gold);
+}
+.coll-piece-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: #555;
+  flex: 1;
+}
+.coll-piece-name .coll-piece-num {
+  font-weight: 700;
+  color: var(--navy);
+  margin-right: 6px;
+}
+.ver-camisa-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid currentColor;
+  background: transparent;
+  padding: 5px 12px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.ver-camisa-btn:hover { color: #fff !important; }
+
+.coll-thumb {
+  cursor: pointer;
+  border: 2px solid var(--cream2);
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.coll-thumb.active { border-color: var(--navy); }
+.coll-thumb:hover { border-color: var(--gold); }
+.coll-thumb img { width: 100%; height: 110px; object-fit: cover; display: block; }
+.coll-thumb-body { padding: 10px 12px; background: var(--white); }
+.coll-thumb-name {
+  font-size: 12px; font-weight: bold;
+  color: var(--dark); display: block; margin-bottom: 2px;
+}
+.coll-num-badge {
+  display: inline-block;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+
+/* ── MODAL "VER CAMISA" ─────────────────── */
+.shirt-modal .modal-content {
+  background: var(--cream);
+  border: none;
+  border-radius: 0;
+  border-top: 4px solid var(--navy);
+  overflow: hidden;
+}
+.shirt-modal .modal-header {
+  border-bottom: 1px solid var(--cream2);
+  padding: 20px 28px 16px;
+  align-items: flex-start;
+}
+.shirt-modal-coll {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+.shirt-modal-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin: 0;
+}
+.shirt-modal .modal-body {
+  padding: 24px;
+  background: var(--dark);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(255,255,255,.04) 23px, rgba(255,255,255,.04) 24px),
+    repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(255,255,255,.04) 23px, rgba(255,255,255,.04) 24px);
+}
+.shirt-modal-img-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.shirt-modal-img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  max-height: 60vh;
+  height: auto;
+  border: 6px solid #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  image-rendering: auto;
+}
+.shirt-modal-caption {
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.7;
+  color: #555;
+  padding: 16px 28px 20px;
+  background: var(--cream);
+  margin: 0;
+}
+.shirt-modal-caption strong { color: var(--navy); }
+.shirt-modal-nav {
+  display: flex;
+  gap: 8px;
+  padding: 0 28px 22px;
+  background: var(--cream);
+}
+.shirt-modal-nav button {
+  flex: 1;
+  border: 1px solid var(--cream2);
+  background: var(--white);
+  padding: 9px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.shirt-modal-nav button:hover:not(:disabled) { background: var(--navy); color: #fff; }
+.shirt-modal-nav button:disabled { opacity: .35; cursor: default; }
+.shirt-modal-hint {
+  margin: 0;
+  padding: 0 28px 18px;
+  background: var(--cream);
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: .5px;
+  color: #999;
+  text-align: center;
+}
+.shirt-modal-hint kbd {
+  font-family: var(--sans);
+  font-size: 10px;
+  background: var(--white);
+  border: 1px solid var(--cream2);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: var(--navy);
+}
+
+/* ── FOOTER ─────────────────────────────── */
+.brand-footer {
+  background: var(--dark);
+  color: #666;
+  padding: 22px 48px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-footer span.gold { color: var(--gold); }
+
+/* ── PANE VISIBILITY ────────────────────── */
+.pane { display: none; }
+.pane.active { display: block; }
+
+/* ── RESPONSIVO ─────────────────────────── */
+
+/* Tablets e telas médias */
+@media (max-width: 860px) {
+  .brand-main { padding: 36px 24px; }
+  .brand-header { padding: 32px 0 26px; }
+  .header-inner { padding: 0 24px; }
+  .manifesto { padding: 30px 28px; font-size: 17px; }
+  .feelings-box { padding: 28px 24px; }
+  .font-specimen { border-right: none; border-bottom: 1px solid var(--cream2); }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+  body { -webkit-text-size-adjust: 100%; }
+
+  .brand-header { padding: 26px 0 22px; }
+  .header-inner { padding: 0 18px; }
+  .brand-header svg { width: 180px; height: auto; }
+
+  /* Menu vira hambúrguer colapsável */
+  .brand-nav-toggle { display: flex; }
+  .brand-nav-menu {
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    padding: 0;
+    transition: max-height .3s ease;
+  }
+  .brand-nav-menu.open {
+    max-height: 420px;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .brand-nav .nav-btn {
+    width: 100%;
+    text-align: left;
+    padding: 14px 20px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+
+  .brand-main { padding: 28px 16px; }
+
+  .manifesto { padding: 24px 20px; font-size: 15.5px; line-height: 1.65; }
+
+  .sec-title { font-size: 11px; letter-spacing: 2px; }
+
+  /* Empilha as colunas de detalhe da coleção */
+  .coll-detail { grid-template-columns: 1fr; }
+  .coll-desc-box {
+    border-right: none;
+    border-bottom: 1px solid var(--cream2);
+    padding: 22px 20px;
+  }
+  .coll-list-box { padding: 22px 20px; }
+
+  /* Hero da coleção mais baixo no mobile */
+  .coll-hero { height: 200px; }
+  .coll-hero-overlay { padding: 20px 20px; }
+  .coll-hero-title { font-size: 21px; }
+
+  /* Lista de peças: nome quebra linha, alvo de toque maior */
+  .coll-piece { gap: 10px; padding: 11px 0; }
+  .coll-piece-thumb { width: 52px; height: 52px; }
+  .coll-piece-name { font-size: 13px; }
+  .ver-camisa-btn { padding: 8px 12px; }
+
+  /* Cartões diversos com menos respiro */
+  .pillar-card, .mvv-card, .voice-card, .trait-card, .combo-card,
+  .persona-right, .logo-version, .font-specimen, .font-info { padding: 22px 20px; }
+
+  /* Tipografia: remove a borda lateral quando empilha */
+  .font-specimen { border-right: none; }
+
+  /* Tabela tipográfica rola horizontalmente sem quebrar o layout */
+  .typo-table { min-width: 520px; }
+
+  /* Rodapé centralizado */
+  .brand-footer {
+    padding: 18px 20px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Modal ocupa a largura util no mobile */
+  .shirt-modal .modal-dialog {
+    margin: 12px;
+  }
+  .shirt-modal .modal-header { padding: 16px 18px 12px; }
+  .shirt-modal-title { font-size: 18px; }
+  .shirt-modal .modal-body { padding: 16px; }
+  .shirt-modal-img { max-height: 56vh; border-width: 4px; }
+  .shirt-modal-caption { padding: 14px 18px 16px; }
+  .shirt-modal-nav { padding: 0 18px 16px; }
+  .shirt-modal-nav button { padding: 12px 8px; font-size: 11px; }
+  .shirt-modal-hint { padding: 0 18px 16px; }
+}
+
+/* Telas bem estreitas */
+@media (max-width: 380px) {
+  .coll-piece-name { font-size: 12px; }
+  .ver-camisa-btn { font-size: 9px; padding: 7px 9px; }
+  .coll-piece-thumb { width: 44px; height: 44px; }
+}
+
+/* ── UTILITIES ──────────────────────────── */
+.border-top-accent { border-top: 4px solid; }
+.font-serif { font-family: var(--serif) !important; }
+.font-sans  { font-family: var(--sans)  !important; }
+.text-navy  { color: var(--navy)  !important; }
+.text-gold  { color: var(--gold)  !important; }
+.text-terra { color: var(--terra) !important; }
+.text-green { color: var(--green) !important; }
+.text-cream { color: var(--cream) !important; }
+.bg-navy    { background-color: var(--navy)  !important; }
+.bg-terra   { background-color: var(--terra) !important; }
+.bg-green   { background-color: var(--green) !important; }
+.bg-cream   { background-color: var(--cream) !important; }
+.bg-dark    { background-color: var(--dark)  !important; }
+.bg-white-r { background-color: var(--white) !important; }
