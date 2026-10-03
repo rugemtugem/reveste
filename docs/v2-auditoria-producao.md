@@ -153,3 +153,10 @@ Etapas 4 e 5:
 - [x] Usos: diagrama da área de proteção (x = ¼ do ícone) e 6 exemplos visuais de uso incorreto
 - [x] Tipografia: espécime de Playfair e Lato (alfabeto, pesos), escala de hierarquia e fontes de apoio, que só baixam quando a aba Cores e Tipografia abre
 
+Segunda revisão (contra-análise aceita pelo autor da crítica):
+
+- [x] Índice fixo Logo · Construção · Usos abaixo da barra, com aria-current="location" + sublinhado; âncoras com scroll-margin = barra + índice
+- [x] Logo no celular: 9 versões em 2 colunas (selo na linha inteira), palco de 72 px e botões de 40 px de altura (alvo ≥ 24 px, WCAG 2.2); aba de 8.431 → 6.420 px, galeria de 3.182 → 957 px
+- [x] Coleções no celular: grade compacta 5×2 (miniatura da 1ª peça + número), aria-label com o nome, aria-pressed + fundo azul na escolhida; detalhe sobe de 1.630 → 583 px. Tablet também 5×2 (sem linha sobrando)
+- Refutado: "o detalhe não rola ao tocar" (já rolava, título a 75–81 px do topo); "fonte de ~400 px" (a miniatura é um recorte de 188 px; fica mais suave no celular, 2,4×). Só foto de produto resolve (H1)
+

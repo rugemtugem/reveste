@@ -74,6 +74,8 @@ function collPieces(c) {
   });
   return camisas.concat(camisetas);
 }
+// capa da grade compacta (celular): a primeira peça, só a roupa
+function collCover(c) { return collPieces(c)[0].thumb; }
 const TYPE_LABEL = { camisa: "Camisa", camiseta: "Camiseta" };
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -199,6 +201,42 @@ function loadSupportFonts() {
   document.head.appendChild(l);
 }
 
+// ── ÍNDICE INTERNO (aba Logo e Usos) ──────────
+function initSubnav() {
+  const links = [...document.querySelectorAll(".subnav a")];
+  if (!links.length) return;
+  const targets = { logo: document.querySelector("#pane-logo .pane-body"), construcao: document.getElementById("sec-construcao"), usos: document.getElementById("sec-usos") };
+  function mark(id) {
+    links.forEach((a) => {
+      if (a.dataset.sec === id) a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
+  }
+  // seção ativa = a última cujo topo já passou da barra + índice
+  function onScroll() {
+    if (!document.getElementById("pane-logo").classList.contains("active")) return;
+    // a seção entra quando seu topo chega a 1/3 da tela abaixo do topo fixo
+    const line = document.querySelector(".topbar").offsetHeight + document.querySelector(".subnav").offsetHeight + window.innerHeight / 3;
+    let cur = "logo";
+    for (const id of ["construcao", "usos"]) if (targets[id].getBoundingClientRect().top <= line) cur = id;
+    mark(cur);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  // navegação por âncora marca o destino na hora (a rolagem suave ainda está em curso)
+  window.addEventListener("hashchange", () => {
+    const h = location.hash.slice(1);
+    if (h in targets) mark(h);
+  });
+  // clicar na seção em que o hash já está não dispara hashchange: rola na mão
+  links.forEach((a) => a.addEventListener("click", (e) => {
+    if (location.hash !== a.getAttribute("href")) return;
+    e.preventDefault();
+    if (a.dataset.sec === "logo") window.scrollTo({ top: 0, behavior: scrollBehavior() });
+    else targets[a.dataset.sec].scrollIntoView({ behavior: scrollBehavior(), block: "start" });
+  }));
+  onScroll();
+}
+
 // ── COPIAR HEX (aba Cores) ────────────────────────
 function initCopyHex() {
   document.querySelectorAll(".color-hex[data-copy]").forEach((btn) => {
@@ -310,8 +348,9 @@ function renderCollGrid() {
   document.getElementById("collGrid").innerHTML = COLLECTIONS.map((c, i) => `
     <div>
       <button type="button" class="coll-grid-thumb ${i === activeColl ? "active" : ""}" data-idx="${i}"
-        aria-pressed="${i === activeColl}">
-        <img src="${c.img.replace(".jpeg", "-thumb.jpeg")}" alt="" loading="lazy" />
+        aria-pressed="${i === activeColl}" aria-label="Coleção ${c.num}: ${esc(c.name)}">
+        <img class="desk-only" src="${c.img.replace(".jpeg", "-thumb.jpeg")}" alt="" loading="lazy" />
+        <img class="mobile-only" src="${collCover(c)}" alt="" loading="lazy" />
         <span class="body">
           <span class="num">${c.num}</span>
           <span class="nm">${esc(c.name)}</span>
@@ -410,4 +449,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initShirtModalNav();
   initCopyHex();
   initTabs();
+  initSubnav();
 });

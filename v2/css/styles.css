@@ -4,6 +4,9 @@
 ═══════════════════════════════════════════════════ */
 
 /* ── TOKENS ─────────────────────────────── */
+/* altura da barra + índice: base do scroll-margin das âncoras */
+:root { --bar-h: 68px; --subnav-h: 46px; }
+@media (max-width: 640px) { :root { --bar-h: 62px; } }
 :root {
   --navy:    #1A3A5C;
   --navy-2:  #2E5275;
@@ -139,6 +142,21 @@ img { max-width: 100%; height: auto; display: block; }
 .brand-nav-toggle-icon { width: 22px; height: 22px; transition: transform .25s; }
 .brand-nav-toggle[aria-expanded="true"] .brand-nav-toggle-icon { transform: rotate(90deg); }
 
+/* ── ÍNDICE INTERNO (aba Logo e Usos) ──── */
+.subnav {
+  position: sticky; top: var(--bar-h); z-index: 40;
+  background: var(--paper); border-bottom: 1px solid var(--line);
+}
+.subnav-inner { display: flex; gap: 8px; }
+.subnav a {
+  display: flex; align-items: center; min-height: var(--subnav-h); padding: 0 14px;
+  font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -1px;
+}
+.subnav a:hover { color: var(--navy); }
+/* seção ativa: sublinhado + aria-current, não só cor */
+.subnav a[aria-current="location"] { color: var(--navy); border-bottom-color: var(--navy); }
+
 /* ── PAINÉIS ────────────────────────────── */
 .brand-main { flex: 1 0 auto; }
 .pane { display: none; animation: fade .4s ease; }
@@ -148,7 +166,7 @@ img { max-width: 100%; height: auto; display: block; }
 .block { margin-bottom: 56px; }
 .block:last-child { margin-bottom: 0; }
 /* seções agrupadas numa aba (Construção, Usos, Tipografia) */
-.subsection { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+.subsection { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--bar-h) + var(--subnav-h) + 16px); }
 .subsection:focus { outline: none; }
 /* "Próximo" no fim de cada aba */
 .pane-next { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
@@ -498,7 +516,7 @@ img { max-width: 100%; height: auto; display: block; }
 .dont-card span { font-size: 13.5px; line-height: 1.55; color: var(--muted); }
 
 /* ── COLEÇÕES ───────────────────────────── */
-#collDetail { scroll-margin-top: 80px; border: 1px solid var(--line); overflow: hidden; margin-bottom: 48px; }
+#collDetail { scroll-margin-top: calc(var(--bar-h) + 12px); border: 1px solid var(--line); overflow: hidden; margin-bottom: 48px; }
 .coll-hero { position: relative; height: 300px; overflow: hidden; }
 .coll-hero img { width: 100%; height: 100%; object-fit: cover; }
 .coll-hero-overlay {
@@ -552,6 +570,7 @@ img { max-width: 100%; height: auto; display: block; }
 .gal-type { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
 .gal-name { display: block; font-size: 13px; line-height: 1.45; color: var(--ink); }
 .gal-num { font-weight: 700; color: var(--navy); margin-right: 6px; }
+.coll-grid-label { font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--navy); margin: 8px 0 12px; }
 .coll-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 28px; }
 .coll-grid-thumb {
   display: block; width: 100%; padding: 0; text-align: left;
@@ -564,6 +583,7 @@ img { max-width: 100%; height: auto; display: block; }
 .coll-grid-thumb.active { border-color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
 .coll-grid-thumb.active .num::after { content: " · aberta"; font-weight: 400; color: var(--muted); letter-spacing: .5px; }
 .coll-grid-thumb img { width: 100%; height: 120px; object-fit: cover; }
+.coll-grid-thumb .mobile-only { display: none; }
 .coll-grid-thumb .body { display: block; padding: 12px 14px; }
 .coll-grid-thumb .num { font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 1px; }
 .coll-grid-thumb .nm { display: block; font-family: var(--serif); font-size: 14px; color: var(--ink); margin-top: 2px; }
@@ -703,7 +723,8 @@ img { max-width: 100%; height: auto; display: block; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .values-grid > :last-child { grid-column: 1 / -1; }
   .dont-grid { grid-template-columns: 1fr 1fr; }
-  .coll-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .coll-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+  .coll-grid-thumb .sb { display: none; }
 }
 @media (max-width: 640px) {
   .container-r { padding: 0 18px; }
@@ -726,13 +747,37 @@ img { max-width: 100%; height: auto; display: block; }
   .process-steps { padding: 12px; gap: 8px; }
   .step-n { text-transform: none; letter-spacing: 0; font-size: 12.5px; }
 
-  .logo-row.two, .logo-row.three { grid-template-columns: 1fr; }
   .type-specimens, .type-support, .protect { grid-template-columns: 1fr; }
   .ts-row { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
   .spec-big { font-size: 72px; }
   .dont-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .dont-stage { height: 110px; padding: 12px; }
-  .logo-row.tall .logo-stage, .logo-stage { height: 200px; }
+  /* Logo: 9 versões em 2 colunas compactas; o selo (9º) ocupa a linha */
+  .logo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .logo-row { display: contents; }
+  .logo-card { padding: 10px; }
+  .logo-card.is-selo { order: 1; grid-column: 1 / -1; }
+  .logo-row.tall .logo-stage, .logo-row.short .logo-stage, .logo-stage { height: 72px; padding: 10px; }
+  .logo-card figcaption { padding: 10px 0; }
+  .logo-name { font-size: 16px; }
+  .logo-use { font-size: 13px; }
+  .asset-links { gap: 5px; }
+  .asset-links a { min-height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; font-size: 12px; letter-spacing: .5px; }
+  .subnav-inner { justify-content: space-between; gap: 0; }
+  .subnav a { flex: 1; justify-content: center; padding: 0 6px; font-size: 12.5px; letter-spacing: 1px; }
+
+  /* Coleções: grade compacta 5 por linha, só miniatura e número */
+  .coll-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-bottom: 20px; }
+  .coll-grid-thumb { position: relative; padding: 4px 4px 0; text-align: center; }
+  .coll-grid-thumb .desk-only { display: none; }
+  .coll-grid-thumb .mobile-only { display: block; }
+  .coll-grid-thumb img { height: auto; aspect-ratio: 1 / 1; }
+  .coll-grid-thumb .body { padding: 4px 0 5px; }
+  .coll-grid-thumb .nm, .coll-grid-thumb .sb { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .coll-grid-thumb .num { font-size: 13px; }
+  .coll-grid-thumb.active { background: var(--navy); border-color: var(--navy); box-shadow: inset 0 0 0 2px var(--navy); }
+  .coll-grid-thumb.active .num { color: var(--cream); }
+  .coll-grid-thumb.active .num::after { content: none; }
 
   .coll-desc-box, .coll-gallery-box { padding-left: 20px; padding-right: 20px; }
   .gal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
