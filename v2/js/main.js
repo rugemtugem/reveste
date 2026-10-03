@@ -141,6 +141,7 @@ function initTabs() {
     });
     document.querySelectorAll(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + id));
     const pane = document.getElementById("pane-" + id);
+    if (id === "cores") loadSupportFonts();
     document.title = id === "inicio" ? baseTitle : `${labels[id]} · ${baseTitle}`;
     closeMenu();
     if (coll) {
@@ -186,6 +187,18 @@ function initTabs() {
   });
 }
 
+// Fontes de apoio (Cormorant e EB Garamond) só aparecem na Tipografia:
+// baixa quando a aba Cores e Tipografia abre, e não no carregamento do site.
+let supportFontsLoaded = false;
+function loadSupportFonts() {
+  if (supportFontsLoaded) return;
+  supportFontsLoaded = true;
+  const l = document.createElement("link");
+  l.rel = "stylesheet";
+  l.href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=EB+Garamond&display=swap";
+  document.head.appendChild(l);
+}
+
 // ── COPIAR HEX (aba Cores) ────────────────────────
 function initCopyHex() {
   document.querySelectorAll(".color-hex[data-copy]").forEach((btn) => {
@@ -212,25 +225,14 @@ function scrollToCollDetail() {
 function selectCollection(idx, { scroll = true } = {}) {
   activeColl = idx;
   activeFilter = "todos";
-  renderCollSelector();
   renderCollDetail();
   renderCollGrid();
   if (!scroll) return;
   scrollToCollDetail();
-  // os botões clicados foram recriados; o foco vai para o título da coleção
+  // a grade foi recriada; o foco vai para o título da coleção aberta
   document.querySelector("#collDetail .coll-hero-title").focus({ preventScroll: true });
 }
 
-function renderCollSelector() {
-  const sel = document.getElementById("collSelector");
-  sel.innerHTML = COLLECTIONS.map((c, i) => `
-    <button type="button" class="coll-btn ${i === activeColl ? "active" : ""}" data-idx="${i}"
-      aria-pressed="${i === activeColl}" aria-label="Coleção ${c.num}: ${esc(c.name)}, ${esc(c.sub)}">${c.num}</button>
-  `).join("");
-  sel.querySelectorAll(".coll-btn").forEach((btn) => {
-    btn.addEventListener("click", () => selectCollection(parseInt(btn.dataset.idx, 10)));
-  });
-}
 
 let activeFilter = "todos";
 
@@ -403,7 +405,6 @@ function initShirtModalNav() {
 // ── INICIALIZAÇÃO ─────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   // coleções primeiro: o hash inicial pode abrir uma coleção (#colecoes-07)
-  renderCollSelector();
   renderCollDetail();
   renderCollGrid();
   initShirtModalNav();

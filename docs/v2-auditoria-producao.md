@@ -146,3 +146,10 @@ Etapa 3:
 - [x] Modal de 680 px com a imagem ampliada no máximo 1,5× (as peças têm ~400 px; maior que isso só borra). A solução definitiva continua sendo foto de produto
 - [x] Amostra do Off-White ocupa o quadrado todo, como a do azul (pedido do dono)
 
+Etapas 4 e 5:
+
+- [x] Coleções: uma grade única de 10 cards (5+5) que abre o detalhe; o seletor 01…10 e a "Visão Geral" repetida saíram
+- [x] Logo: uma galeria só, cada versão com seu palco e os botões SVG/PDF/PNG embaixo; palcos da mesma altura por linha (legendas alinhadas); os logos agora são os SVGs oficiais, não HTML imitando a logo
+- [x] Usos: diagrama da área de proteção (x = ¼ do ícone) e 6 exemplos visuais de uso incorreto
+- [x] Tipografia: espécime de Playfair e Lato (alfabeto, pesos), escala de hierarquia e fontes de apoio, que só baixam quando a aba Cores e Tipografia abre
+
