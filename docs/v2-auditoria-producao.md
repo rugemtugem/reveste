@@ -179,7 +179,7 @@ Rodada seguinte (2026-10-03):
 - [x] Nome e cidade/UF em campos separados no card e no modal
 - [x] Contato: link de correção de informação patrimonial (e-mail com assunto preenchido)
 - [x] Zoom 200% (1280×800 → 640×400), reflow em 320 px e espaçamento de texto (WCAG 1.4.12) em 6 abas: sem overflow nem texto cortado. Corrigidos: título da home quebrando com espaçamento ampliado, "reveste.com.br" no card de Contato, tabelas da aba Logo viram lista no celular, índice deixa de ser fixo em tela baixa
-- [x] Afirmações e status das peças conferidos por Luan Crespo em 2026-10-03 e aplicados; aprovação das notas e data ficam para ele marcar no admin (detalhes em `docs/curadoria-para-validacao.md`)
+- [x] Afirmações e status das peças conferidos por Luan Crespo em 2026-10-03 e aplicados; aprovação das notas e data ficam para ele marcar no admin (registro das decisões dele fora do Git, em `originais/curadoria-para-validacao.md`)
 - [ ] Questão de direitos da coleção 07 (nome de Athos Bulcão no título): consultar a Fundação Athos Bulcão
 
 Admin de curadoria (2026-10-03):
@@ -192,7 +192,7 @@ Admin de curadoria (2026-10-03):
 Revisão do admin (2026-10-11):
 
 - [x] Crédito volta a "em andamento" e as notas ficam pendentes: o revisor confirmou os fatos, mas não marcou a aprovação das notas nem a data. Ele faz isso no admin
-- [x] `storage/curadoria.json` sai do Git (é o estado vivo do admin; um deploy o sobrescreveria). O seed agora parte de `v2/data/colecoes.json`, com tudo pendente, e não sobrescreve sem `--force`. Atenção: o conteúdo continua no histórico do Git e em `docs/curadoria-para-validacao.md`
+- [x] `storage/curadoria.json` sai do Git (é o estado vivo do admin; um deploy o sobrescreveria). O seed agora parte de `v2/data/colecoes.json`, com tudo pendente, e não sobrescreve sem `--force`. O registro das afirmações e decisões foi para `originais/` (fora do Git) e o histórico foi reescrito em 2026-10-11 para apagar as versões antigas
 - [x] Aba Logo no celular: os 3 cards de conceito viram acordeão fechado; a tabela "Qual arquivo usar" sobe de 977 para perto do topo
 - [x] Login: IP real atrás de proxy/CDN via `.secrets/admin-config.php` (`proxies`); limite também por usuário (10 em 15 min)
 
