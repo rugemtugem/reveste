@@ -170,7 +170,7 @@ coleções são apresentação da marca, sem venda por ora; prazo de contato ain
 - [x] Versão e data (v2.1 · outubro de 2026) no rodapé e no LEIA-ME
 - [x] Contagem de peças nos cards (desktop); "Explore por coleção"; "+ 8 coleções" no hero do celular; título da home 36 px no celular
 - [x] Bootstrap servido localmente (`v2/vendor/bootstrap`, mesmos hashes SRI do CDN); coleção inexistente corrige o endereço; `404.html` (vale quando houver hospedagem)
-- [x] **Revisão curatorial: Luan Crespo (Departamento de Patrimônio Histórico)**, concluída em 2026-10-03. Itens com status Reinterpretação a confirmar e documentar com fonte: Igreja de São Francisco (Salvador), as cinco devoções da coleção 04, Escadaria Selarón, Calçadão de Copacabana, Casa da Flor, Museu do Inhotim, Orla de Boa Viagem e os motivos da coleção 03. Crédito publicado na aba Coleções (autorizado pelo dono em 2026-10-03), como revisão em andamento
+- [ ] **Revisão curatorial: Luan Crespo (Departamento de Patrimônio Histórico)**, afirmações conferidas em 2026-10-03; falta aprovar as notas e registrar a data no admin. Itens com status Reinterpretação a confirmar e documentar com fonte: Igreja de São Francisco (Salvador), as cinco devoções da coleção 04, Escadaria Selarón, Calçadão de Copacabana, Casa da Flor, Museu do Inhotim, Orla de Boa Viagem e os motivos da coleção 03. Crédito publicado na aba Coleções (autorizado pelo dono em 2026-10-03), como revisão em andamento
 - Refutados (medidos): grade de coleções em 2 colunas no celular, 4 colunas no desktop, "linguagem de compra", lazy-load no hero, indicador de sequência no modal, alvo de 44 px como requisito, hash de build, AVIF/srcset agora, reestruturar o menu em "Kit da marca"
 
 Rodada seguinte (2026-10-03):
@@ -179,7 +179,7 @@ Rodada seguinte (2026-10-03):
 - [x] Nome e cidade/UF em campos separados no card e no modal
 - [x] Contato: link de correção de informação patrimonial (e-mail com assunto preenchido)
 - [x] Zoom 200% (1280×800 → 640×400), reflow em 320 px e espaçamento de texto (WCAG 1.4.12) em 6 abas: sem overflow nem texto cortado. Corrigidos: título da home quebrando com espaçamento ampliado, "reveste.com.br" no card de Contato, tabelas da aba Logo viram lista no celular, índice deixa de ser fixo em tela baixa
-- [x] Curadoria validada por Luan Crespo em 2026-10-03 e aplicada (detalhes em `docs/curadoria-para-validacao.md`)
+- [x] Afirmações e status das peças conferidos por Luan Crespo em 2026-10-03 e aplicados; aprovação das notas e data ficam para ele marcar no admin (detalhes em `docs/curadoria-para-validacao.md`)
 - [ ] Questão de direitos da coleção 07 (nome de Athos Bulcão no título): consultar a Fundação Athos Bulcão
 
 Admin de curadoria (2026-10-03):
@@ -188,4 +188,11 @@ Admin de curadoria (2026-10-03):
 - [x] Dados das coleções saíram do `main.js`: o site lê `v2/data/colecoes.json`; o rascunho fica em `storage/` (fora da pasta pública)
 - [x] Testado ponta a ponta: bloqueio de login (429), CSRF (400), opção inválida recusada, pendência impede publicar, publicação reflete no site, restauração pelo histórico, site com aviso se o JSON falhar
 - [ ] Hospedagem com PHP 8.1+ e HTTPS para o Luan acessar de fora; cadastrar o usuário dele no servidor
+
+Revisão do admin (2026-10-11):
+
+- [x] Crédito volta a "em andamento" e as notas ficam pendentes: o revisor confirmou os fatos, mas não marcou a aprovação das notas nem a data. Ele faz isso no admin
+- [x] `storage/curadoria.json` sai do Git (é o estado vivo do admin; um deploy o sobrescreveria). O seed agora parte de `v2/data/colecoes.json`, com tudo pendente, e não sobrescreve sem `--force`. Atenção: o conteúdo continua no histórico do Git e em `docs/curadoria-para-validacao.md`
+- [x] Aba Logo no celular: os 3 cards de conceito viram acordeão fechado; a tabela "Qual arquivo usar" sobe de 977 para perto do topo
+- [x] Login: IP real atrás de proxy/CDN via `.secrets/admin-config.php` (`proxies`); limite também por usuário (10 em 15 min)
 

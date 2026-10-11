@@ -22,6 +22,7 @@ const DIR_HISTORICO = RAIZ . '/storage/historico';
 const ARQ_LOG = RAIZ . '/storage/auditoria.log';
 const ARQ_TENTATIVAS = RAIZ . '/storage/tentativas-login.json';
 const ARQ_USUARIOS = RAIZ . '/.secrets/admin-usuarios.php';
+const ARQ_CONFIG = RAIZ . '/.secrets/admin-config.php';   // opcional: ['proxies' => ['1.2.3.4']]
 const ARQ_TRAVA = RAIZ . '/storage/.trava';
 
 const STATUS = ['homenagem' => 'Homenagem', 'reinterpretacao' => 'Reinterpretação', 'trocar' => 'Trocar a peça'];
@@ -32,6 +33,7 @@ const LIMITE = ['nome' => 120, 'sub' => 120, 'texto' => 1500, 'fonte' => 300, 'p
 const SESSAO_MINUTOS = 30;
 const LOGIN_MAX_FALHAS = 5;
 const LOGIN_JANELA_SEG = 15 * 60;
+const LOGIN_MAX_FALHAS_USUARIO = 10;   // por usuário, independente do IP
 
 // ── arquivos ──────────────────────────────────────
 
@@ -70,7 +72,7 @@ function guardar_historico(string $tipo, string $arq): ?string {
 
 function registrar(string $usuario, string $acao, string $detalhe = ''): void {
     $linha = json_encode(['quando' => date('c'), 'usuario' => $usuario, 'acao' => $acao, 'detalhe' => $detalhe,
-        'ip' => $_SERVER['REMOTE_ADDR'] ?? 'cli'], JSON_UNESCAPED_UNICODE) . "\n";
+        'ip' => ip_cliente()], JSON_UNESCAPED_UNICODE) . "\n";
     @file_put_contents(ARQ_LOG, $linha, FILE_APPEND | LOCK_EX);
 }
 
@@ -188,6 +190,26 @@ function publicar(string $usuario): array {
 
 // ── autenticação ──────────────────────────────────
 
+function config(): array {
+    static $c = null;
+    if ($c === null) { $c = is_file(ARQ_CONFIG) ? (require ARQ_CONFIG) : []; if (!is_array($c)) $c = []; }
+    return $c;
+}
+
+// IP de quem acessa. Atrás de proxy ou CDN, todos chegam com o REMOTE_ADDR do
+// proxy; só quando esse IP está em config()['proxies'] o X-Forwarded-For é
+// usado (o último salto, que o proxy confiável acrescentou).
+function ip_cliente(): string {
+    $remoto = $_SERVER['REMOTE_ADDR'] ?? 'cli';
+    $proxies = config()['proxies'] ?? [];
+    if ($proxies && in_array($remoto, $proxies, true) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $saltos = array_map('trim', explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']));
+        $ip = end($saltos);
+        if (filter_var($ip, FILTER_VALIDATE_IP)) return $ip;
+    }
+    return $remoto;
+}
+
 function usuarios(): array {
     if (!is_file(ARQ_USUARIOS)) return [];
     $u = require ARQ_USUARIOS;
@@ -216,23 +238,33 @@ function exigir_csrf(): void {
     }
 }
 
-// Limite de tentativas por IP: LOGIN_MAX_FALHAS em LOGIN_JANELA_SEG.
-function bloqueado(string $ip): int {
+// Limite de tentativas em LOGIN_JANELA_SEG: LOGIN_MAX_FALHAS por IP e
+// LOGIN_MAX_FALHAS_USUARIO por usuário (protege a conta mesmo quando vários
+// acessos chegam pelo mesmo IP). Retorna os segundos que faltam, ou 0.
+function bloqueado(string $ip, string $usuario = ''): int {
     $t = is_file(ARQ_TENTATIVAS) ? (json_decode((string)file_get_contents(ARQ_TENTATIVAS), true) ?: []) : [];
-    $recentes = array_filter($t[$ip] ?? [], fn($ts) => $ts > time() - LOGIN_JANELA_SEG);
-    return count($recentes) >= LOGIN_MAX_FALHAS ? (int)(min($recentes) + LOGIN_JANELA_SEG - time()) : 0;
+    $limite = time() - LOGIN_JANELA_SEG;
+    foreach ([["ip:$ip", LOGIN_MAX_FALHAS], ["u:$usuario", LOGIN_MAX_FALHAS_USUARIO]] as [$chave, $max]) {
+        if ($chave === 'u:') continue;
+        $recentes = array_filter($t[$chave] ?? [], fn($ts) => $ts > $limite);
+        if (count($recentes) >= $max) return (int)(min($recentes) + LOGIN_JANELA_SEG - time());
+    }
+    return 0;
 }
 
-function anotar_falha(string $ip): void {
+function anotar_falha(string $ip, string $usuario = ''): void {
     $t = is_file(ARQ_TENTATIVAS) ? (json_decode((string)file_get_contents(ARQ_TENTATIVAS), true) ?: []) : [];
-    $t[$ip] = array_values(array_filter($t[$ip] ?? [], fn($ts) => $ts > time() - LOGIN_JANELA_SEG));
-    $t[$ip][] = time();
+    $limite = time() - LOGIN_JANELA_SEG;
+    foreach (array_filter(["ip:$ip", $usuario !== '' ? "u:$usuario" : null]) as $chave) {
+        $t[$chave] = array_values(array_filter($t[$chave] ?? [], fn($ts) => $ts > $limite));
+        $t[$chave][] = time();
+    }
     @file_put_contents(ARQ_TENTATIVAS, json_encode($t), LOCK_EX);
 }
 
-function limpar_falhas(string $ip): void {
+function limpar_falhas(string $ip, string $usuario = ''): void {
     $t = is_file(ARQ_TENTATIVAS) ? (json_decode((string)file_get_contents(ARQ_TENTATIVAS), true) ?: []) : [];
-    unset($t[$ip]);
+    unset($t["ip:$ip"], $t["u:$usuario"]);
     @file_put_contents(ARQ_TENTATIVAS, json_encode($t), LOCK_EX);
 }
 

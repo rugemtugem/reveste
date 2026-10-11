@@ -1,21 +1,26 @@
-// Gera o estado inicial do admin de curadoria (storage/curadoria.json) a partir
-// dos dados que estavam no main.js e das decisões do Luan (03/10/2026).
-// Rodado uma vez; depois disso o admin é a fonte dos dados.
+// Cria o rascunho inicial do admin de curadoria (storage/curadoria.json) a
+// partir dos dados publicados (v2/data/colecoes.json) e da lista de afirmações
+// abaixo. Tudo nasce pendente: aprovação das notas, decisão das afirmações,
+// data e conclusão da revisão. É o revisor quem marca isso no admin.
+//
+//   node tools/admin/seed.mjs            # cria, se o rascunho não existir
+//   node tools/admin/seed.mjs --force    # sobrescreve (perde o trabalho feito no admin)
 import fs from 'node:fs';
 import path from 'node:path';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
-const src = fs.readFileSync(path.join(ROOT, 'v2/js/main.js'), 'utf8');
-const C = eval(src.match(/const COLLECTIONS = (\[[\s\S]*?\n\]);/)[1]);
-const PIECE_STATUS = eval('(' + src.match(/const PIECE_STATUS = (\{[^\n]*\});/)[1] + ')');
-const st = (name) => PIECE_STATUS[name] || 'homenagem';
-const piece = (name) => ({ name, status: st(name) });
+const DESTINO = path.join(ROOT, 'storage/curadoria.json');
+if (fs.existsSync(DESTINO) && !process.argv.includes('--force')) {
+  console.error('storage/curadoria.json já existe. Use --force para sobrescrever (apaga o trabalho feito no admin).');
+  process.exit(1);
+}
+const pub = JSON.parse(fs.readFileSync(path.join(ROOT, 'v2/data/colecoes.json'), 'utf8'));
 
-const cl = (texto, certeza, fonte = '') => ({ texto, certeza, decisao: 'confirmo', fonte });
+const cl = (texto, certeza) => ({ texto, certeza, decisao: 'pendente', fonte: '' });
 const CLAIMS = {
-  '01': [cl('Nas igrejas coloniais brasileiras predominavam assoalho de madeira e campas; piso de ladrilho decorado era raro.', 'média', 'Correto'),
+  '01': [cl('Nas igrejas coloniais brasileiras predominavam assoalho de madeira e campas; piso de ladrilho decorado era raro.', 'média'),
          cl('Barroco mineiro e nordestino como referência estética do período.', 'alta')],
   '02': [cl('O piso de caquinhos se popularizou em meados do século XX (décadas de 1940 a 1960).', 'média'),
-         cl('Usava cacos descartados por fábricas; há registro em São Paulo com cerâmicas do ABC, como a Cerâmica São Caetano.', 'média', 'Trocar lajota por ladrilho'),
+         cl('Usava cacos descartados por fábricas; há registro em São Paulo com cerâmicas do ABC, como a Cerâmica São Caetano.', 'média'),
          cl('A prática se difundiu para Rio, Belém, Salvador, Recife e Fortaleza.', 'baixa')],
   '03': [cl('Azulejos florais industriais em banheiros e cozinhas, de 1950 a 1970.', 'média'),
          cl('Os bairros ligados às peças não têm relação documentada com cada motivo.', 'alta')],
@@ -36,33 +41,27 @@ const CLAIMS = {
   '08': [cl('Escadaria Selarón: obra do artista chileno Jorge Selarón, iniciada por volta de 1990, com azulejos de vários países.', 'alta'),
          cl('Casa da Flor: construída e decorada com cacos por Gabriel Joaquim dos Santos, a partir de 1912.', 'média'),
          cl('A Casa da Flor é tombada pelo INEPAC.', 'média'),
-         cl('O calçadão de Copacabana é de pedra portuguesa, não de caquinho; o padrão de ondas remete ao calçamento de Lisboa.', 'alta', 'Largo do Rossio')],
+         cl('O calçadão de Copacabana é de pedra portuguesa, não de caquinho; o padrão de ondas remete ao calçamento de Lisboa.', 'alta')],
   '09': [cl('Técnica: cimento e pigmento, prensagem e cura em água, sem queima.', 'alta'),
          cl('Origem europeia, século XIX.', 'média-alta'),
          cl('Uso amplo no Brasil do fim do século XIX a meados do XX.', 'média')],
   '10': [],
 };
 
-const colecoes = C.map((c) => ({
+const colecoes = pub.colecoes.map((c) => ({
   num: c.num, name: c.name, sub: c.sub, desc: c.desc, img: c.img,
-  note: { texto: c.note || '', aprovacao: c.note ? 'aprovo' : 'pendente' },
-  claims: CLAIMS[c.num],
-  items: c.items.map(piece),
-  tees: (c.tees || []).map((g) => {
-    const t = {};
-    if (g.style) t.style = g.style;
-    if (g.label) t.label = g.label;
-    if (g.names) t.names = g.names.map(piece);
-    if (g.extra) t.extra = g.extra.map(piece);
-    return t;
-  }),
+  note: { texto: c.note || '', aprovacao: 'pendente' },
+  claims: CLAIMS[c.num] || [],
+  items: c.items,
+  tees: c.tees,
 }));
 const estado = {
   versao: 1,
   atualizado: new Date().toISOString(),
-  curadoria: { revisor: 'Luan Crespo', orgao: 'Departamento de Patrimônio Histórico', data: '2026-10-03', concluida: true },
+  curadoria: { revisor: pub.curadoria?.revisor || '', orgao: pub.curadoria?.orgao || '', data: '', concluida: false },
   colecoes,
 };
-fs.writeFileSync(path.join(ROOT, 'storage/curadoria.json'), JSON.stringify(estado, null, 2) + '\n');
+fs.mkdirSync(path.dirname(DESTINO), { recursive: true });
+fs.writeFileSync(DESTINO, JSON.stringify(estado, null, 2) + '\n');
 const n = colecoes.reduce((a, c) => a + c.claims.length, 0);
-console.log('coleções', colecoes.length, '| afirmações', n, '| peças', colecoes.reduce((a, c) => a + c.items.length + c.tees.reduce((b, t) => b + (t.names || []).length + (t.extra || []).length, 0), 0));
+console.log('criado storage/curadoria.json: coleções', colecoes.length, '| afirmações', n, '| tudo pendente');

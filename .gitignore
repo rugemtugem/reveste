@@ -17,3 +17,4 @@ storage/tentativas-login.json
 storage/.trava
 storage/*.tmp-*
 v2/data/*.tmp-*
+storage/curadoria.json

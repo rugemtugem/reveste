@@ -437,6 +437,24 @@ img { max-width: 100%; height: auto; display: block; }
 .size-table tbody th { font-weight: 400; color: var(--ink); }
 .size-table td { color: var(--navy); font-weight: 700; white-space: nowrap; }
 
+/* acordeão dos cards de conceito: aberto e sem cabeçalho no desktop;
+   fechado por padrão no celular (o JS tira o "open"), para a tabela
+   "Qual arquivo usar" e o kit ficarem perto do topo */
+.concept-fold > summary { display: none; }
+@media (max-width: 640px) {
+  .concept-fold > summary {
+    display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 12px;
+    padding: 14px 16px; background: var(--paper); border: 1px solid var(--line);
+    font-family: var(--serif); font-size: 17px; color: var(--navy); cursor: pointer; list-style: none;
+  }
+  .concept-fold > summary::-webkit-details-marker { display: none; }
+  .concept-fold > summary::after { content: "+"; grid-column: 2; grid-row: 1 / 3; font-family: var(--sans); font-size: 22px; line-height: 1; color: var(--navy); }
+  .concept-fold[open] > summary::after { content: "–"; }
+  .concept-fold[open] > summary { border-bottom: none; }
+  .fold-hint { grid-column: 1; grid-row: 2; font-family: var(--sans); font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .concept-fold[open] > .row { border: 1px solid var(--line); border-top: none; padding: 4px 10px 10px; margin: 0; }
+}
+
 /* ── CONSTRUÇÃO / ELEMENTOS ─────────────── */
 .element-card {
   background: var(--paper);

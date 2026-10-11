@@ -221,6 +221,14 @@ function initSubnav() {
   onScroll();
 }
 
+// ── ACORDEÃO DOS CARDS DE CONCEITO (aba Logo) ──────
+// No HTML o <details> nasce aberto (sem JS, fica aberto em qualquer tela).
+// No celular, fecha para encurtar a aba; o visitante abre se quiser.
+function initConceptFold() {
+  const d = document.getElementById("conceptFold");
+  if (d && window.matchMedia("(max-width: 640px)").matches) d.removeAttribute("open");
+}
+
 // ── COPIAR HEX (aba Cores) ────────────────────────
 function initCopyHex() {
   document.querySelectorAll(".color-hex[data-copy], .code-copy[data-copy]").forEach((btn) => {
@@ -464,4 +472,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   initCopyHex();
   initTabs();
   initSubnav();
+  initConceptFold();
 });

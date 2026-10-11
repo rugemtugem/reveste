@@ -12,7 +12,7 @@ header('X-Robots-Tag: noindex, nofollow');
 header('Cache-Control: no-store');
 
 iniciar_sessao();
-$ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+$ip = ip_cliente();
 $usuario = $_SESSION['usuario'] ?? null;
 $pagina = $_GET['p'] ?? 'painel';
 
@@ -28,22 +28,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $acao = $_POST['acao'] ?? '';
 
     if ($acao === 'entrar') {
-        if ($espera = bloqueado($ip)) {
+        $u = strtolower(trim((string)($_POST['usuario'] ?? '')));
+        if ($espera = bloqueado($ip, $u)) {
             http_response_code(429);
             header('Retry-After: ' . $espera);
             exit('Muitas tentativas de login. Tente de novo em ' . (int)ceil($espera / 60) . ' min.');
         }
-        $u = strtolower(trim((string)($_POST['usuario'] ?? '')));
         $lista = usuarios();
         if (isset($lista[$u]) && password_verify((string)($_POST['senha'] ?? ''), $lista[$u]['hash'])) {
             session_regenerate_id(true);
             $_SESSION['usuario'] = $u;
             $_SESSION['nome'] = $lista[$u]['nome'] ?? $u;
-            limpar_falhas($ip);
+            limpar_falhas($ip, $u);
             registrar($u, 'entrar');
             ir('./');
         }
-        anotar_falha($ip);
+        anotar_falha($ip, $u);
         registrar($u ?: '?', 'falha-login');
         ir('?p=entrar', 'Usuário ou senha incorretos.', 'erro');
     }
